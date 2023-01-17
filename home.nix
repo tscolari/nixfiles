@@ -125,6 +125,9 @@
 
     # Git
     "/home/tscolari/.gitconfig".source = ./files/gitconfig;
+
+    # Allacritty
+    "/home/tscolari/.config/alacritty".source = ./files/alacritty;
   };
 
   services.gpg-agent = {
