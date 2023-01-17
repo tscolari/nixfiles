@@ -119,9 +119,7 @@
     wget
     curl
     git
-    zsh
-    
-    linuxKernel.packages.linux_5_15.prl-tools
+    zsh  
   ];
 
   environment.shells = with pkgs; [ zsh ];

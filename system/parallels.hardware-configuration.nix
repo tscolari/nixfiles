@@ -3,13 +3,16 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let 
+	prl-tools = pkgs.linuxKernel.packages.linux_5_15.prl-tools;
+in
 {
   imports = [ ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "usbhid" "sr_mod" "prl_fs" "prl_fs_freeze" "prl_tg" "prl_notifier" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
-  boot.extraModulePackages = [ ];
+  boot.extraModulePackages = [ prl-tools ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/39816efe-3879-4b35-81cf-8da1f0c51e7e";
@@ -33,6 +36,63 @@
   # networking.interfaces.enp0s5.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-  hardware.parallels.enable = true;
+  hardware.parallels = {
+    enable = true;
+    package = prl-tools;
+    autoMountShares = true;
+  };
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
+  nixpkgs.config.allowUnfree = true;
+
+  services.udev.packages = [ prl-tools ];
+  environment.systemPackages = [ prl-tools ];
+
+
+  systemd.services.prltoolsd = {
+          enable = true;
+	  wantedBy = [ "multi-user.target" ];
+	  serviceConfig = {
+		  ExecStart = "${prl-tools}/bin/prltoolsd -f";
+		  PIDFile = "/var/run/prltoolsd.pid";
+	  };
+  };
+
+  systemd.user.services = {
+    prlcc = {
+      description = "Parallels Control Center";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${prl-tools}/bin/prlcc";
+      };
+    };
+    prldnd = {
+      #description = "Parallels Control Center";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${prl-tools}/bin/prldnd";
+      };
+    };
+    prlcp = {
+      #description = "Parallels CopyPaste Tool";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${prl-tools}/bin/prlcp";
+        Restart = "always";
+      };
+    };
+    prlsga = {
+      description = "Parallels Shared Guest Applications Tool";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${prl-tools}/bin/prlsga";
+      };
+    };
+    prlshprof = {
+      description = "Parallels Shared Profile Tool";
+      wantedBy = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${prl-tools}/bin/prlshprof";
+      };
+    };
+  };
 }
