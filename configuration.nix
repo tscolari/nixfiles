@@ -10,6 +10,7 @@
       <home-manager/nixos>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./users/tiago/home.nix
     ];
 
   # Bootloader.
@@ -90,14 +91,9 @@
     packages = with pkgs; [
       firefox
       home-manager
-    #  thunderbird
     ];
   };
 
-
-  home-manager.users.tscolari = { pkgs, ... }: {
-    home.stateVersion = "22.11";
-  };
 
   home-manager.useUserPackages = true;
 

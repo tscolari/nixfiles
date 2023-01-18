@@ -6,3 +6,5 @@ if [ -d $HOME/.zsh.after/ ]; then
 fi
 
 eval "$(fasd --init auto)"
+
+gpgconf --reload gpg-agent

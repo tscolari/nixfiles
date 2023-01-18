@@ -1,0 +1,1 @@
+machines/parallels.hardware-configuration.nix
