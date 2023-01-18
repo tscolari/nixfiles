@@ -6,6 +6,7 @@ let
 
   homeDir = "/home/tscolari";
   userConfig = {
+
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
     home.homeDirectory = homeDir;
@@ -81,12 +82,76 @@ let
       pkgs.gnome.gnome-tweaks
       pkgs.numix-gtk-theme
       pkgs.numix-icon-theme
+      pkgs.numix-cursor-theme
       pkgs.papirus-icon-theme
       pkgs.xclip
      # pkgs.gnome.extension-manager
      # pkgs.slack
      # pkgs.zoom-us
+
+    # Gnome extensions
+      pkgs.gnomeExtensions.clipboard-indicator
+      pkgs.gnomeExtensions.dash-to-panel
+      pkgs.gnomeExtensions.openweather
+      pkgs.gnomeExtensions.screenshot-window-sizer
+      pkgs.gnomeExtensions.sound-output-device-chooser
+      pkgs.gnomeExtensions.tray-icons-reloaded
+      pkgs.gnomeExtensions.user-themes
+      pkgs.gnomeExtensions.windownavigator
     ];
+
+    # Gnome
+    gtk = {
+      enable = true;
+
+      iconTheme = {
+        name = "Papirus";
+        package = pkgs.papirus-icon-theme;
+      };
+
+      cursorTheme = {
+        name = "Numix-Cursor";
+        package = pkgs.numix-cursor-theme;
+      };
+
+      theme = {
+        name = "Flat-Remix-Cyan-Darkest-fullPanel";
+        package = pkgs.numix-gtk-theme;
+      };
+    };
+
+    dconf.settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+
+        favorite-apps = [
+          "firefox.desktop"
+          "Alacritty.desktop"
+          "org.gnome.Calendar.desktop"
+          "org.gnome.Nautilus.desktop"
+        ];
+
+
+        enable-extensions = [
+          "user-theme@gnome-shell-extensions.gcampax.github.com"
+          "trayIconsReloaded@selfmade.pl"
+          "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
+          "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
+          "clipboard-indicator@tudmotu.com"
+          "openweather-extension@jenslody.de"
+          "dash-to-dock@micxgx.gmail.com"
+          "sound-output-device-chooser@kgshank.net"
+        ];
+      };
+
+      "org/gnome/shell/extensions/user-theme" = {
+        name = "Flat-Remix-Cyan-Darkest-fullPanel";
+      };
+
+      "org/gnome/desktop/interface" = {
+        "color-scheme" = "default";
+      };
+    };
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -133,7 +198,7 @@ let
       # Git
       "${homeDir}/.gitconfig".source = ./files/gitconfig;
 
-      # Allacritty
+      # Alacritty
       "${homeDir}/.config/alacritty".source = ./files/alacritty;
     };
 

@@ -53,6 +53,26 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Gnome configurations
+  services.gnome.gnome-browser-connector.enable = true;
+  programs.dconf.enable = true;
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    cheese
+    gnome-music
+    epiphany
+    geary
+    tali
+    iagno
+    hitori
+    atomix
+    yelp
+    gnome-contacts
+    gnome-initial-setup
+  ]);
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -95,6 +115,7 @@
   };
 
 
+  home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
   # Enable automatic login for the user.
