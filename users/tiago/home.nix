@@ -5,7 +5,10 @@ let
   inherit (import <home-manager/nixos> {}) home-manager;
 
   homeDir = "/home/tscolari";
-  userConfig = {
+
+in {
+
+  home-manager.users.tscolari = {
 
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
@@ -23,7 +26,6 @@ let
       pkgs.ctags
       pkgs.curl
       pkgs.direnv
-      pkgs.docker
       pkgs.fasd
       pkgs.fd
       pkgs.firefox
@@ -240,9 +242,4 @@ let
       ];
     };
   };
-
-in {
-
-  home-manager.users.tscolari = userConfig;
-
 }
