@@ -112,8 +112,9 @@ in {
       };
 
       cursorTheme = {
-        name = "Numix-Cursor";
+        name = "Numix-Cursor-Light";
         package = pkgs.numix-cursor-theme;
+        size = 55;
       };
 
       theme = {
@@ -123,6 +124,7 @@ in {
     };
 
     dconf.settings = {
+
       "org/gnome/shell" = {
         disable-user-extensions = false;
 
@@ -152,6 +154,7 @@ in {
 
       "org/gnome/desktop/interface" = {
         "color-scheme" = "default";
+        "cursor-size" = 55;
       };
     };
 
