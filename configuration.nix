@@ -107,7 +107,7 @@
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tiago Scolari";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
       home-manager
@@ -132,12 +132,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    curl
+    docker
+    git
     vim
     wget
-    curl
-    git
-    zsh  
+    zsh
   ];
+
+  virtualisation.docker.enable = true;
 
   environment.shells = with pkgs; [ zsh ];
 
