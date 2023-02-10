@@ -76,17 +76,22 @@ in {
     # Desktop packages
       pkgs._1password-gui
       pkgs.alacritty
+      pkgs.arc-icon-theme
       pkgs.arc-theme
       pkgs.chromium
       pkgs.flat-remix-gnome
       pkgs.flat-remix-gtk
       pkgs.flat-remix-icon-theme
       pkgs.gnome.gnome-tweaks
+      pkgs.insync-v3
+      pkgs.numix-cursor-theme
       pkgs.numix-gtk-theme
       pkgs.numix-icon-theme
-      pkgs.numix-cursor-theme
       pkgs.papirus-icon-theme
+      pkgs.steam
+      pkgs.transmission
       pkgs.xclip
+      pkgs.yaru-theme
      # pkgs.gnome.extension-manager
      # pkgs.slack
      # pkgs.zoom-us
@@ -118,8 +123,8 @@ in {
       };
 
       theme = {
-        name = "Flat-Remix-Cyan-Darkest-fullPanel";
-        package = pkgs.numix-gtk-theme;
+        name = "Arc";
+        package = pkgs.arc-theme;
       };
     };
 
@@ -149,7 +154,7 @@ in {
       };
 
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Flat-Remix-Cyan-Darkest-fullPanel";
+        name = "Arc";
       };
 
       "org/gnome/desktop/interface" = {
