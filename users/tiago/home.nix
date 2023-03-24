@@ -18,57 +18,6 @@ in {
     # Packages that should be installed to the user profile.
 
     home.packages = [
-      pkgs._1password
-      pkgs.awscli2
-      pkgs.bat
-      pkgs.cmake
-      pkgs.consul
-      pkgs.ctags
-      pkgs.curl
-      pkgs.direnv
-      pkgs.fasd
-      pkgs.fd
-      pkgs.firefox
-      pkgs.fzf
-      pkgs.gcc
-      pkgs.git
-      pkgs.git-crypt
-      pkgs.gnumake
-      pkgs.gnupg
-      pkgs.go
-      pkgs.gomplate
-      pkgs.gopls
-      pkgs.grpcurl
-      pkgs.gnupg
-      pkgs.htop
-      pkgs.jq
-      pkgs.nodePackages.npm
-      pkgs.nodejs
-      pkgs.nomad
-      pkgs.openssl
-      pkgs.pinentry
-      pkgs.postgresql
-      pkgs.procps
-      pkgs.pstree
-      pkgs.python3
-      pkgs.ripgrep
-      pkgs.ruby
-      pkgs.rustc
-      pkgs.cargo
-      pkgs.shellcheck
-      pkgs.silver-searcher
-      pkgs.ssh-copy-id
-      pkgs.terraform
-      pkgs.tig
-      pkgs.tmate
-      pkgs.tmux
-      pkgs.tree
-      pkgs.tree-sitter
-      pkgs.unzip
-      pkgs.watch
-      pkgs.yarn
-      pkgs.zsh
-    # Main packages
      # pkgs.git-duet
      # pkgs.jsonpp
      # pkgs.pyenv
@@ -83,7 +32,6 @@ in {
       pkgs.flat-remix-gtk
       pkgs.flat-remix-icon-theme
       pkgs.gnome.gnome-tweaks
-      pkgs.insync-v3
       pkgs.numix-cursor-theme
       pkgs.numix-gtk-theme
       pkgs.numix-icon-theme
@@ -123,7 +71,7 @@ in {
       };
 
       theme = {
-        name = "Arc";
+        name = "Arc-Dark";
         package = pkgs.arc-theme;
       };
     };
@@ -154,12 +102,11 @@ in {
       };
 
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Arc";
+        name = "Yaru-blue-dark";
       };
 
       "org/gnome/desktop/interface" = {
         "color-scheme" = "default";
-        "cursor-size" = 55;
       };
     };
 

@@ -140,6 +140,79 @@
     vim
     wget
     zsh
+
+    _1password
+    awscli2
+    bat
+    cmake
+    consul
+    ctags
+    curl
+    direnv
+    fasd
+    fd
+    firefox
+    fzf
+    gcc
+    git
+    git-crypt
+    gnumake
+    gnupg
+    go
+    gomplate
+    gopls
+    grpcurl
+    gnupg
+    htop
+    jq
+    nodePackages.npm
+    nodejs
+    nomad
+    openssl
+    pinentry
+    postgresql
+    procps
+    pstree
+    python3
+    ripgrep
+    ruby
+    rustc
+    cargo
+    shellcheck
+    silver-searcher
+    ssh-copy-id
+    terraform
+    tig
+    tmate
+    tmux
+    tree
+    tree-sitter
+    unzip
+    watch
+    yarn
+    zsh
+
+    # git-duet
+    # jsonpp
+    # pyenv
+
+   # Desktop packages
+    _1password-gui
+    alacritty
+    arc-icon-theme
+    arc-theme
+    flat-remix-gnome
+    flat-remix-gtk
+    flat-remix-icon-theme
+    gnome.gnome-tweaks
+    numix-cursor-theme
+    numix-gtk-theme
+    numix-icon-theme
+    papirus-icon-theme
+    steam
+    transmission
+    xclip
+    yaru-theme
   ];
 
   virtualisation.docker.enable = true;
