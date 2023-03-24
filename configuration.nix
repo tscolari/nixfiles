@@ -79,6 +79,8 @@
     xkbVariant = "";
   };
 
+  services.xserver.dpi = 192;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
