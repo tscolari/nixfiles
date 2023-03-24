@@ -1,1 +1,1 @@
-machines/parallels.hardware-configuration.nix
+./machines/dellxps-hardware-configuration.nix
