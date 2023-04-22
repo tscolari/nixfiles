@@ -31,6 +31,7 @@ in {
       pkgs.flat-remix-gnome
       pkgs.flat-remix-gtk
       pkgs.flat-remix-icon-theme
+      pkgs.flatpak
       pkgs.gnome.gnome-tweaks
       pkgs.numix-cursor-theme
       pkgs.numix-gtk-theme
@@ -40,9 +41,9 @@ in {
       pkgs.transmission
       pkgs.xclip
       pkgs.yaru-theme
+      pkgs.slack
+      pkgs.zoom-us
      # pkgs.gnome.extension-manager
-     # pkgs.slack
-     # pkgs.zoom-us
 
     # Gnome extensions
       pkgs.gnomeExtensions.clipboard-indicator
@@ -65,9 +66,9 @@ in {
       };
 
       cursorTheme = {
-        name = "Numix-Cursor-Light";
-        package = pkgs.numix-cursor-theme;
-        size = 55;
+       name = "Numix-Cursor-Light";
+       package = pkgs.numix-cursor-theme;
+        size = 35;
       };
 
       theme = {
@@ -108,6 +109,19 @@ in {
       "org/gnome/desktop/interface" = {
         "color-scheme" = "default";
       };
+
+#      "/org/gnome/desktop/wm/preferences" = {
+#        button-layout = "appmenu:minimize,maximize,close";
+#      };
+# 
+#      "/org/gnome/desktop/peripherals/touchpad" = {
+#        tap-to-click = "true";
+#      };
+# 
+#      "/org/gnome/shell/extensions/clipboard-indicator" = {
+#        prev-entry = "['<Shift><Super>v']";
+#        next-entry = "['<Shift><Control><Super>v']";
+#      };
     };
 
     # This value determines the Home Manager release that your
@@ -124,7 +138,8 @@ in {
     home.file = {
       # Neovim
       "${homeDir}/.config/nvim".source = builtins.fetchGit {
-        url = "git@github.com:tscolari/nvim";
+        # url = "git@github.com:tscolari/nvim";
+        url = "https://github.com/tscolari/nvim";
         submodules = true;
         shallow = true;
         ref = "main";
@@ -193,7 +208,7 @@ in {
         pkgs.rnix-lsp
         pkgs.terraform-ls
         pkgs.nodePackages.eslint
-        pkgs.sumneko-lua-language-server
+        pkgs.lua-language-server
       ];
     };
   };

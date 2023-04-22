@@ -56,6 +56,7 @@
   # Gnome configurations
   services.gnome.gnome-browser-connector.enable = true;
   programs.dconf.enable = true;
+  programs.zsh.enable = true;
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
