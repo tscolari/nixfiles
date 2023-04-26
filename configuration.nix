@@ -53,6 +53,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.flatpak.enable = true;
+
   # Gnome configurations
   services.gnome.gnome-browser-connector.enable = true;
   programs.dconf.enable = true;
@@ -153,6 +155,7 @@
     fasd
     fd
     firefox
+    flatpak
     fzf
     gcc
     git

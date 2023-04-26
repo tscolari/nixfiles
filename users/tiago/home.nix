@@ -31,7 +31,6 @@ in {
       pkgs.flat-remix-gnome
       pkgs.flat-remix-gtk
       pkgs.flat-remix-icon-theme
-      pkgs.flatpak
       pkgs.gnome.gnome-tweaks
       pkgs.numix-cursor-theme
       pkgs.numix-gtk-theme
@@ -84,7 +83,7 @@ in {
 
         favorite-apps = [
           "firefox.desktop"
-          "Alacritty.desktop"
+          "org.gnome.Console.desktop"
           "org.gnome.Calendar.desktop"
           "org.gnome.Nautilus.desktop"
         ];
