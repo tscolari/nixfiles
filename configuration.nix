@@ -188,6 +188,7 @@
     gnupg
     grpcurl
     htop
+    insync
     jq
     killall
     nodePackages.npm
@@ -205,6 +206,7 @@
     cargo
     shellcheck
     silver-searcher
+    skypeforlinux
     ssh-copy-id
     terraform
     tig
