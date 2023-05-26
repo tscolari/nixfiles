@@ -221,6 +221,7 @@
     unzip
     watch
     yarn
+    zoom-us
     zsh
 
     # git-duet

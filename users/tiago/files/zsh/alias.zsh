@@ -36,6 +36,8 @@ alias -g G='| grep' # now you can do: ls foo G something
 
 alias vim="nvim"
 
+alias open="xdg-open"
+
 # Functions
 #
 # (f)ind by (n)ame
