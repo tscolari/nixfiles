@@ -55,6 +55,7 @@ in {
       pkgs.gnomeExtensions.windownavigator
       pkgs.gnomeExtensions.custom-hot-corners-extended
       pkgs.gnomeExtensions.vitals
+      pkgs.gnomeExtensions.stocks-extension
 
     # Gnome apps
       pkgs.shortwave
@@ -83,6 +84,10 @@ in {
 
     dconf.settings = {
 
+      "org/gnome/settings-daemon/plugins/color" = {
+        night-light-enabled = true;
+      };
+
       "org/gnome/shell" = {
         disable-user-extensions = false;
 
@@ -105,6 +110,7 @@ in {
           "sound-output-device-chooser@kgshank.net"
           "custom-hot-corners-extended@G-dH.github.com"
           "Vitals@CoreCoding.com"
+          "stocks@infinicode.de"
         ];
       };
 
@@ -116,18 +122,18 @@ in {
         "color-scheme" = "default";
       };
 
-#      "/org/gnome/desktop/wm/preferences" = {
-#        button-layout = "appmenu:minimize,maximize,close";
-#      };
-# 
-#      "/org/gnome/desktop/peripherals/touchpad" = {
-#        tap-to-click = "true";
-#      };
-# 
-#      "/org/gnome/shell/extensions/clipboard-indicator" = {
-#        prev-entry = "['<Shift><Super>v']";
-#        next-entry = "['<Shift><Control><Super>v']";
-#      };
+     "org/gnome/desktop/wm/preferences" = {
+       button-layout = "appmenu:minimize,maximize,close";
+     };
+
+     "org/gnome/desktop/peripherals/touchpad" = {
+       tap-to-click = "true";
+     };
+
+     "org/gnome/shell/extensions/clipboard-indicator" = {
+       prev-entry = "['<Shift><Super>v']";
+       next-entry = "['<Shift><Control><Super>v']";
+     };
     };
 
     # This value determines the Home Manager release that your
