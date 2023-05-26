@@ -53,6 +53,11 @@ in {
       pkgs.gnomeExtensions.tray-icons-reloaded
       pkgs.gnomeExtensions.user-themes
       pkgs.gnomeExtensions.windownavigator
+      pkgs.gnomeExtensions.custom-hot-corners-extended
+      pkgs.gnomeExtensions.vitals
+
+    # Gnome apps
+      pkgs.shortwave
     ];
 
     # Gnome
@@ -98,6 +103,8 @@ in {
           "openweather-extension@jenslody.de"
           "dash-to-dock@micxgx.gmail.com"
           "sound-output-device-chooser@kgshank.net"
+          "custom-hot-corners-extended@G-dH.github.com"
+          "Vitals@CoreCoding.com"
         ];
       };
 
@@ -207,7 +214,8 @@ in {
         pkgs.rnix-lsp
         pkgs.terraform-ls
         pkgs.nodePackages.eslint
-        pkgs.lua-language-server
+        # pkgs.lua-language-server # unstable only
+        pkgs.sumneko-lua-language-server # 22.11
       ];
     };
   };

@@ -142,7 +142,7 @@
   home-manager.useUserPackages = true;
 
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.enable = false;
   services.xserver.displayManager.autoLogin.user = "tscolari";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
@@ -165,11 +165,14 @@
     _1password
     awscli2
     bat
+    calibre
+    cargo
     cmake
     consul
     ctags
     curl
     direnv
+    discord
     fasd
     fd
     firefox
@@ -185,16 +188,18 @@
     go
     gomplate
     gopls
-    gnupg
     grpcurl
+    gtop
     htop
     insync
     jq
     killall
+    lm_sensors
     nodePackages.npm
     nodejs
     nomad
     openssl
+    openvpn
     pinentry
     postgresql
     procps
@@ -203,7 +208,6 @@
     ripgrep
     ruby
     rustc
-    cargo
     shellcheck
     silver-searcher
     skypeforlinux
