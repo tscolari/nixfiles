@@ -8,6 +8,11 @@ let
 
 in {
 
+  imports =
+    [
+      ./zsh.nix
+    ];
+
   home-manager.users.tscolari = {
 
     # Home Manager needs a bit of information about you and the
@@ -42,6 +47,7 @@ in {
       pkgs.yaru-theme
       pkgs.slack
       pkgs.zoom-us
+      pkgs.zsh-prezto
      # pkgs.gnome.extension-manager
 
     # Gnome extensions
