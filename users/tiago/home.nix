@@ -56,6 +56,7 @@ in {
       pkgs.gnomeExtensions.custom-hot-corners-extended
       pkgs.gnomeExtensions.vitals
       pkgs.gnomeExtensions.stocks-extension
+      pkgs.gnomeExtensions.night-theme-switcher
 
     # Gnome apps
       pkgs.shortwave
@@ -111,6 +112,7 @@ in {
           "custom-hot-corners-extended@G-dH.github.com"
           "Vitals@CoreCoding.com"
           "stocks@infinicode.de"
+          "nightthemeswitcher@romainvigier.fr"
         ];
       };
 
