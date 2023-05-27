@@ -118,21 +118,33 @@ in {
         name = "Yaru-blue-dark";
       };
 
+     "org/gnome/shell/extensions/clipboard-indicator" = {
+       prev-entry = "['<Shift><Super>v']";
+       next-entry = "['<Shift><Control><Super>v']";
+     };
+
       "org/gnome/desktop/interface" = {
         "color-scheme" = "default";
       };
 
+      "org/gnome/desktop/background" = {
+        picture-uri = "file://${homeDir}/.background.jpg";
+        picture-uri-dark = "file://${homeDir}/.background.jpg";
+        picture-options = "zoom";
+      };
+
+      "org/gnome/desktop/screensaver" = {
+        picture-uri = "file://${homeDir}/.background.jpg";
+        picture-options = "zoom";
+      };
+
      "org/gnome/desktop/wm/preferences" = {
+      action-double-click-titlebar = "toggle-maximize";
        button-layout = "appmenu:minimize,maximize,close";
      };
 
      "org/gnome/desktop/peripherals/touchpad" = {
        tap-to-click = "true";
-     };
-
-     "org/gnome/shell/extensions/clipboard-indicator" = {
-       prev-entry = "['<Shift><Super>v']";
-       next-entry = "['<Shift><Control><Super>v']";
      };
     };
 
@@ -184,6 +196,9 @@ in {
 
       # Alacritty
       "${homeDir}/.config/alacritty".source = ./files/alacritty;
+
+      # Misc
+      "${homeDir}/.background.jpg".source = ./files/background.jpg;
     };
 
     services.gpg-agent = {
