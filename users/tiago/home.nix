@@ -50,7 +50,6 @@ in {
       pkgs.yaru-theme
       pkgs.slack
       pkgs.zoom-us
-      pkgs.zsh-prezto
      # pkgs.gnome.extension-manager
 
     # Gnome extensions
@@ -177,21 +176,13 @@ in {
         url = "https://github.com/tscolari/nvim";
         submodules = true;
         shallow = true;
-        ref = "main";
+        ref = "main-2";
       };
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ./files/empty;
       "${homeDir}/.local/dotfiles/nvim/user".source = ./files/nvim;
 
       # Zsh
-      "${homeDir}/.zsh.local".source = ./files/zsh;
-      "${homeDir}/.zshrc".source = ./files/zsh/zshrc;
-      "${homeDir}/.zpreztorc".source = ./files/zsh/zpreztorc;
-      "${homeDir}/.zprezto".source = builtins.fetchGit {
-        url = "https://github.com/sorin-ionescu/prezto";
-        submodules = true;
-        shallow = true;
-        ref = "master";
-      };
+      "${homeDir}/.config/zsh/config.zsh`".source = ./files/zsh/config.zsh;
 
       # Tmux
       "${homeDir}/.tmux.conf".source = ./files/tmux.conf;
@@ -232,6 +223,10 @@ in {
     programs.fzf = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    programs.direnv = {
+      enable = true;
     };
 
     # NEOVIM
