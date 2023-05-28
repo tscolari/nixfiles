@@ -6,6 +6,8 @@ let
 
   homeDir = "/home/tscolari";
 
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
 in {
 
   imports =
@@ -237,12 +239,13 @@ in {
       enable = true;
       viAlias = true;
       vimAlias = true;
+      package = unstable.neovim.unwrapped;
       extraPackages = [
-        pkgs.rnix-lsp
-        pkgs.terraform-ls
-        pkgs.nodePackages.eslint
-        # pkgs.lua-language-server # unstable only
-        pkgs.sumneko-lua-language-server # 22.11
+        unstable.rnix-lsp
+        unstable.terraform-ls
+        unstable.nodePackages.eslint
+        unstable.lua-language-server
+        # pkgs.sumneko-lua-language-server # 22.11
       ];
     };
   };
