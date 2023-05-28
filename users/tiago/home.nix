@@ -14,6 +14,7 @@ in {
     [
       ./zsh.nix
       ./git.nix
+      ./tmux.nix
     ];
 
   home-manager.users.tscolari = {
@@ -184,15 +185,6 @@ in {
       # Zsh
       "${homeDir}/.config/zsh/config.zsh`".source = ./files/zsh/config.zsh;
 
-      # Tmux
-      "${homeDir}/.tmux.conf".source = ./files/tmux.conf;
-      "${homeDir}/.tmux/plugins/tpm".source = builtins.fetchGit {
-        url = "https://github.com/tmux-plugins/tpm";
-        submodules = true;
-        shallow = true;
-        ref = "master";
-      };
-
       # Alacritty
       "${homeDir}/.config/alacritty".source = ./files/alacritty;
 
@@ -208,16 +200,6 @@ in {
 
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
-
-    # TMUX
-    programs.tmux = {
-      enable = true;
-    };
-
-    # GIT
-    programs.git = {
-      enable = true;
-    };
 
     # FZF
     programs.fzf = {
