@@ -60,7 +60,6 @@ in {
         # Rspec
         rs = "rspec spec";
 
-        vim     = "nvim";
         open    = "xdg-open";
         weather = "curl wttr.in";
         pbcopy  = "xclip -selection clipboard";
@@ -95,7 +94,7 @@ in {
         GO111MODULE = "on";
         GOPRIVATE   = "github.com/hashicorp";
 
-        PATH          = "$HOME/.local/bin:$GOPATH/bin: $PATH";
+        PATH          = "$HOME/.local/bin:$GOPATH/bin:$PATH";
         XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       };
     };

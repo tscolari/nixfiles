@@ -180,10 +180,10 @@ in {
         ref = "main-2";
       };
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ./files/empty;
-      "${homeDir}/.local/dotfiles/nvim/user".source = ./files/nvim;
+      "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ./files/empty;
 
       # Zsh
-      "${homeDir}/.config/zsh/config.zsh`".source = ./files/zsh/config.zsh;
+      "${homeDir}/.config/zsh/config.zsh".source = ./files/zsh/config.zsh;
 
       # Alacritty
       "${homeDir}/.config/alacritty".source = ./files/alacritty;
@@ -214,9 +214,12 @@ in {
     # NEOVIM
     programs.neovim = {
       enable = true;
-      viAlias = true;
-      vimAlias = true;
+
+      viAlias       = true;
+      vimAlias      = true;
+
       package = unstable.neovim.unwrapped;
+
       extraPackages = [
         unstable.rnix-lsp
         unstable.terraform-ls

@@ -3,7 +3,7 @@ if [ -e ~/.secrets ]; then
 fi
 
 # Goes to the root path of the git repository
-function cd_() { cd "$(git rev-parse --show-toplevel)" }
+function cdg() { cd "$(git rev-parse --show-toplevel)" }
 
 # Makes git auto completion faster favouring for local completions
 __git_files () {
