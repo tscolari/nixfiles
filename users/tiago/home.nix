@@ -11,6 +11,7 @@ in {
   imports =
     [
       ./zsh.nix
+      ./git.nix
     ];
 
   home-manager.users.tscolari = {
@@ -198,9 +199,6 @@ in {
         shallow = true;
         ref = "master";
       };
-
-      # Git
-      "${homeDir}/.gitconfig".source = ./files/gitconfig;
 
       # Alacritty
       "${homeDir}/.config/alacritty".source = ./files/alacritty;
