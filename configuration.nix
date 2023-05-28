@@ -109,21 +109,21 @@
   };
 
   # Enable the fingerprint sensor
-  services.fprintd = {
-    enable = true;
-    package = pkgs.fprintd-tod;
-    tod = {
-      enable = true;
-      # Driver for Dell XPS 13
-      driver = pkgs.libfprint-2-tod1-goodix;
-    };
-  };
+  # services.fprintd = {
+  #   enable = true;
+  #   package = pkgs.fprintd-tod;
+  #   tod = {
+  #     enable = true;
+  #     # Driver for Dell XPS 13
+  #     driver = pkgs.libfprint-2-tod1-goodix;
+  #   };
+  # };
 
   # Load the fprintd on the boot instead of a dbus service
-  systemd.services.fprintd = {
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig.Type = "simple";
-  };
+  # systemd.services.fprintd = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig.Type = "simple";
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -180,8 +180,8 @@
     fd
     firefox
     flatpak
-    fprintd
-    fprintd-tod
+    # fprintd
+    # fprintd-tod
     fzf
     gcc
     git
@@ -194,7 +194,7 @@
     grpcurl
     gtop
     htop
-    insync
+    # insync
     jq
     killall
     lm_sensors
