@@ -47,14 +47,29 @@
     LC_TIME = "en_GB.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
   services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
+
+    # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     xkbOptions = "caps:ctrl_modifier";
+
+    # Disable automatic login for the user.
+    displayManager.autoLogin.enable = false;
+    displayManager.autoLogin.user = "tscolari";
+
+    # Configure keymap in X11
+    layout = "us";
+    xkbVariant = "";
+    dpi = 192;
+
+    # tap to click
+    libinput = {
+      enable = true;
+      touchpad.tapping = true;
+    };
   };
 
   services.flatpak.enable = true;
@@ -79,14 +94,6 @@
     gnome-contacts
     gnome-initial-setup
   ]);
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  services.xserver.dpi = 192;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -125,9 +132,6 @@
   #   serviceConfig.Type = "simple";
   # };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tscolari = {
     isNormalUser = true;
@@ -143,10 +147,6 @@
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = false;
-  services.xserver.displayManager.autoLogin.user = "tscolari";
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
