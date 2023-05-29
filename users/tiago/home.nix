@@ -150,14 +150,20 @@ in {
         picture-options = "zoom";
       };
 
-     "org/gnome/desktop/wm/preferences" = {
-      action-double-click-titlebar = "toggle-maximize";
-       button-layout = "appmenu:minimize,maximize,close";
-     };
+      "org/gnome/desktop/wm/preferences" = {
+        action-double-click-titlebar = "toggle-maximize";
+        button-layout = "appmenu:minimize,maximize,close";
+      };
 
-     "org/gnome/desktop/peripherals/touchpad" = {
-       tap-to-click = "true";
-     };
+      "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = "true";
+      };
+
+      "org/gnome/mutter/keybindings" = {
+        toggle-tiled-left  = "['<Control><Alt><Super>h']";
+        toggle-tiled-right = "['<Control><Alt><Super>l']";
+        maximize           = "['<Control><Alt><Super>k']";
+      };
     };
 
     # This value determines the Home Manager release that your
@@ -237,7 +243,7 @@ in {
     GIT_DUET_GLOBAL        = "true";
     GIT_DUET_ROTATE_AUTHOR = "1";
 
-    GOPATH      = "~/go";
+    GOPATH      = "$HOME/go";
     GO111MODULE = "on";
     GOPRIVATE   = "github.com/hashicorp";
   };
