@@ -12,6 +12,7 @@ in {
 
   imports =
     [
+      ./alacritty.nix
       ./zsh.nix
       ./git.nix
       ./tmux.nix
@@ -103,7 +104,7 @@ in {
 
         favorite-apps = [
           "firefox.desktop"
-          "org.gnome.Console.desktop"
+          "Alacritty.desktop"
           "org.gnome.Calendar.desktop"
           "org.gnome.Nautilus.desktop"
         ];
@@ -185,9 +186,6 @@ in {
       # Zsh
       "${homeDir}/.config/zsh/config.zsh".source = ./files/zsh/config.zsh;
 
-      # Alacritty
-      "${homeDir}/.config/alacritty".source = ./files/alacritty;
-
       # Misc
       "${homeDir}/.background.jpg".source = ./files/background.jpg;
     };
@@ -225,8 +223,23 @@ in {
         unstable.terraform-ls
         unstable.nodePackages.eslint
         unstable.lua-language-server
-        # pkgs.sumneko-lua-language-server # 22.11
       ];
     };
   };
+
+  environment.sessionVariables = rec {
+    PATH   = "$HOME/.local/bin:$GOPATH/bin:$PATH";
+    EDITOR = "vim";
+    VISUAL = "vim";
+
+    GREP_COLOR = "1;33";
+
+    GIT_DUET_GLOBAL        = "true";
+    GIT_DUET_ROTATE_AUTHOR = "1";
+
+    GOPATH      = "~/go";
+    GO111MODULE = "on";
+    GOPRIVATE   = "github.com/hashicorp";
+  };
+
 }

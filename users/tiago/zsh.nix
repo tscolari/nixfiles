@@ -82,19 +82,6 @@ in {
       };
 
       sessionVariables = {
-        EDITOR = "vim";
-        VISUAL = "vim";
-
-        GREP_COLOR = "1;33";
-
-        GIT_DUET_GLOBAL        = "true";
-        GIT_DUET_ROTATE_AUTHOR = "1";
-
-        GOPATH      = "~/go";
-        GO111MODULE = "on";
-        GOPRIVATE   = "github.com/hashicorp";
-
-        PATH          = "$HOME/.local/bin:$GOPATH/bin:$PATH";
         XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
       };
     };

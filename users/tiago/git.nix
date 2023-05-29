@@ -105,6 +105,10 @@ in {
           # Add "signingkey" to ~/.gitconfig.user
         };
 
+        credential.helper = "${
+            pkgs.git.override { withLibsecret = true; }
+          }/bin/git-credential-libsecret";
+
         advice = {
           statusHints = "false";
         };
