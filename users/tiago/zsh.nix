@@ -12,6 +12,13 @@ in {
 
       defaultKeymap = "viins";
 
+      initExtra = "
+        for config_file in $(ls $HOME/.config/zsh/*.zsh)
+        do
+          source $config_file
+        done
+      ";
+
       prezto = {
         enable = true;
 
