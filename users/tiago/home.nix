@@ -184,7 +184,7 @@ in {
         url = "https://github.com/tscolari/nvim";
         submodules = true;
         shallow = true;
-        ref = "main-2";
+        ref = "main";
       };
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ./files/empty;
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ./files/empty;
