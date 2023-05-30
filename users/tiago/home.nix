@@ -67,6 +67,7 @@ in {
       pkgs.gnomeExtensions.vitals
       pkgs.gnomeExtensions.stocks-extension
       pkgs.gnomeExtensions.night-theme-switcher
+      pkgs.gnomeExtensions.material-shell
 
     # Gnome apps
       pkgs.shortwave
@@ -120,9 +121,8 @@ in {
           "dash-to-dock@micxgx.gmail.com"
           "sound-output-device-chooser@kgshank.net"
           "custom-hot-corners-extended@G-dH.github.com"
-          "Vitals@CoreCoding.com"
-          "stocks@infinicode.de"
           "nightthemeswitcher@romainvigier.fr"
+          "material-shell@papyelgringo"
         ];
       };
 
@@ -163,6 +163,20 @@ in {
         toggle-tiled-left  = "['<Control><Alt><Super>h']";
         toggle-tiled-right = "['<Control><Alt><Super>l']";
         maximize           = "['<Control><Alt><Super>k']";
+      };
+
+      "org/gnome/shell/extensions/openweather" = {
+        decimal-places = "0";
+      };
+
+      "org/gnome/shell/extensions/materialshell/theme" = {
+        primary-color = "#125e48";
+        panel-opacity = "90";
+      };
+
+      "org/gnome/shell/extensions/materialshell/tweaks" = {
+        cycle-through-windows = "true";
+        cycle-through-workspaces = "true";
       };
     };
 
