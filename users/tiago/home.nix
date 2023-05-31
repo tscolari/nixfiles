@@ -168,27 +168,30 @@ in {
       };
 
       "org/gnome/desktop/peripherals/touchpad" = {
-        tap-to-click = "true";
+        tap-to-click = true;
       };
 
       "org/gnome/mutter/keybindings" = {
-        toggle-tiled-left  = "['<Control><Alt><Super>h']";
-        toggle-tiled-right = "['<Control><Alt><Super>l']";
-        maximize           = "['<Control><Alt><Super>k']";
+        toggle-tiled-left  = "@as []";
+        toggle-tiled-right = "@as []";
+        maximize           = "@as []";
+        # toggle-tiled-left  = "['<Control><Alt><Super>h']";
+        # toggle-tiled-right = "['<Control><Alt><Super>l']";
+        # maximize           = "['<Control><Alt><Super>m']";
       };
 
       "org/gnome/shell/extensions/openweather" = {
-        decimal-places = "0";
+        decimal-places = 0;
       };
 
       "org/gnome/shell/extensions/materialshell/theme" = {
         primary-color = "#125e48";
-        panel-opacity = "90";
+        panel-opacity = 90;
       };
 
       "org/gnome/shell/extensions/materialshell/tweaks" = {
-        cycle-through-windows = "true";
-        cycle-through-workspaces = "true";
+        cycle-through-windows = true;
+        cycle-through-workspaces = true;
       };
     };
 
