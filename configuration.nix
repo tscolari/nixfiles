@@ -4,9 +4,13 @@
 
 { config, pkgs, ... }:
 
-{
+let
+
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
+in {
   imports =
-    [ 
+    [
       <home-manager/nixos>
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -138,10 +142,6 @@
     shell = pkgs.zsh;
     description = "Tiago Scolari";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      firefox
-      home-manager
-    ];
   };
 
 
@@ -165,7 +165,6 @@
     wget
     zsh
 
-    _1password
     awscli2
     bat
     calibre
@@ -178,7 +177,7 @@
     discord
     fasd
     fd
-    firefox
+    unstable.firefox
     flatpak
     # fprintd
     # fprintd-tod
@@ -198,6 +197,7 @@
     jq
     killall
     lm_sensors
+    unstable.neovim
     nodePackages.npm
     nodejs
     nomad
@@ -213,7 +213,6 @@
     rustc
     shellcheck
     silver-searcher
-    skypeforlinux
     ssh-copy-id
     terraform
     tig
@@ -224,30 +223,7 @@
     unzip
     watch
     yarn
-    zoom-us
     zsh
-
-    # git-duet
-    # jsonpp
-    # pyenv
-
-   # Desktop packages
-    _1password-gui
-    alacritty
-    arc-icon-theme
-    arc-theme
-    flat-remix-gnome
-    flat-remix-gtk
-    flat-remix-icon-theme
-    gnome.gnome-tweaks
-    numix-cursor-theme
-    numix-gtk-theme
-    numix-icon-theme
-    papirus-icon-theme
-    steam
-    transmission
-    xclip
-    yaru-theme
   ];
 
   virtualisation.docker.enable = true;

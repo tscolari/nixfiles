@@ -32,27 +32,27 @@ in {
      # pkgs.jsonpp
      # pkgs.pyenv
 
-    # Desktop packages
+    # Misc
+      pkgs.shortwave
       pkgs._1password-gui
-      pkgs.alacritty
-      pkgs.arc-icon-theme
-      pkgs.arc-theme
       pkgs.chromium
-      pkgs.flat-remix-gnome
-      pkgs.flat-remix-gtk
-      pkgs.flat-remix-icon-theme
-      pkgs.gnome.gnome-tweaks
-      pkgs.numix-cursor-theme
-      pkgs.numix-gtk-theme
-      pkgs.numix-icon-theme
-      pkgs.papirus-icon-theme
-      pkgs.steam
+      pkgs.spotify
       pkgs.transmission
+
+    # Game
+      pkgs.steam
+
+    # Code
       pkgs.xclip
-      pkgs.yaru-theme
+      pkgs.alacritty
+
+    # Chat
       pkgs.slack
+      pkgs.discord
+
+    # Video
       pkgs.zoom-us
-     # pkgs.gnome.extension-manager
+      pkgs.skypeforlinux
 
     # Gnome extensions
       pkgs.gnomeExtensions.clipboard-indicator
@@ -69,8 +69,20 @@ in {
       pkgs.gnomeExtensions.night-theme-switcher
       pkgs.gnomeExtensions.material-shell
 
+    # Gtk themes / icons
+      pkgs.flat-remix-gnome
+      pkgs.flat-remix-gtk
+      pkgs.flat-remix-icon-theme
+      pkgs.numix-cursor-theme
+      pkgs.numix-gtk-theme
+      pkgs.numix-icon-theme
+      pkgs.papirus-icon-theme
+      pkgs.arc-icon-theme
+      pkgs.arc-theme
+      pkgs.yaru-theme
+
     # Gnome apps
-      pkgs.shortwave
+      pkgs.gnome.gnome-tweaks
     ];
 
     # Gnome
