@@ -177,7 +177,7 @@ in {
     discord
     fasd
     fd
-    unstable.firefox
+    firefox
     flatpak
     # fprintd
     # fprintd-tod
@@ -197,7 +197,7 @@ in {
     jq
     killall
     lm_sensors
-    unstable.neovim
+    neovim
     nodePackages.npm
     nodejs
     nomad

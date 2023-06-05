@@ -18,6 +18,12 @@ in {
       ./tmux.nix
     ];
 
+  nixpkgs.overlays = [
+    (self: super: {
+     fcitx-engines = pkgs.fcitx5;
+     })
+  ];
+
   home-manager.users.tscolari = {
 
     # Home Manager needs a bit of information about you and the
@@ -251,13 +257,13 @@ in {
       viAlias       = true;
       vimAlias      = true;
 
-      package = unstable.neovim.unwrapped;
+      package = pkgs.neovim.unwrapped;
 
       extraPackages = [
-        unstable.rnix-lsp
-        unstable.terraform-ls
-        unstable.nodePackages.eslint
-        unstable.lua-language-server
+        pkgs.rnix-lsp
+        pkgs.terraform-ls
+        pkgs.nodePackages.eslint
+        pkgs.lua-language-server
       ];
     };
   };
