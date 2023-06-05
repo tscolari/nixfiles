@@ -139,8 +139,9 @@ in {
           "dash-to-dock@micxgx.gmail.com"
           "sound-output-device-chooser@kgshank.net"
           "custom-hot-corners-extended@G-dH.github.com"
+          # "Vitals@CoreCoding.com"
           "nightthemeswitcher@romainvigier.fr"
-          "material-shell@papyelgringo"
+          # "material-shell@papyelgringo"
         ];
       };
 
