@@ -155,7 +155,7 @@ in {
      };
 
       "org/gnome/desktop/interface" = {
-        "color-scheme" = "default";
+        "color-scheme" = "prefer-dark";
       };
 
       "org/gnome/desktop/background" = {
