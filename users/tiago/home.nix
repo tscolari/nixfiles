@@ -50,7 +50,7 @@ in {
 
     # Code
       pkgs.xclip
-      pkgs.alacritty
+      unstable.alacritty
 
     # Chat
       pkgs.slack

@@ -4,11 +4,14 @@ let
 
   inherit (import <home-manager/nixos> {}) home-manager;
 
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
 in {
 
   home-manager.users.tscolari = {
     programs.alacritty = {
       enable = true;
+      package = unstable.alacritty;
       settings = {
         env.TERM = "xterm-256color";
         tabspaces = 8;
