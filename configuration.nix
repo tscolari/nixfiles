@@ -263,4 +263,14 @@ in {
 
   # Experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  # Auto-optimise the store
+  nix.settings.auto-optimise-store = true;
+
+  # Garbage collection settings
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 }
