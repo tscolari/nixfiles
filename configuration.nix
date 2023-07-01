@@ -51,6 +51,10 @@ in {
     LC_TIME = "en_GB.UTF-8";
   };
 
+  services.cron = {
+    enable = true;
+  };
+
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
