@@ -178,9 +178,8 @@ in {
         tap-to-click = true;
       };
 
-      # San Francisco, New York and Sao Paulo
-      "org/gnome/shell/world-clocks" = {
-        locations = "[<(uint32 2, <('San Francisco', 'KOAK', true, [(0.65832848982162007, -2.133408063190589)], [(0.659296885757089, -2.1366218601153339)])>)>, <(uint32 2, <('New York', 'KNYC', true, [(0.71180344078725644, -1.2909618758762367)], [(0.71059804659265924, -1.2916478949920254)])>)>, <(uint32 2, <('São Paulo', 'SBMT', true, [(-0.41044326824509736, -0.8139052020289248)], [(-0.41073414481823473, -0.81361432545578749)])>)>]";
+      "org/gnome/system/location" = {
+        enabled = true;
       };
 
       # San Francisco, New York and Sao Paulo
