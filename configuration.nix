@@ -11,10 +11,11 @@ let
 in {
   imports =
     [
-      <home-manager/nixos>
       # Include the results of the hardware scan.
+      # <nixos-hardware/dell/xps/13-9300>
       ./hardware-configuration.nix
-      ./users/tiago/home.nix
+
+      <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -50,6 +51,8 @@ in {
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
   };
+
+  services.fwupd.enable = true;
 
   services.cron = {
     enable = true;
@@ -115,12 +118,6 @@ in {
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
   # Enable the fingerprint sensor
@@ -140,6 +137,13 @@ in {
   #   serviceConfig.Type = "simple";
   # };
 
+
+  nixpkgs.overlays = [
+    (self: super: {
+     fcitx-engines = pkgs.fcitx5;
+     })
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tscolari = {
     isNormalUser = true;
@@ -148,9 +152,11 @@ in {
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
 
-
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.tscolari = import ./home;
+  };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
