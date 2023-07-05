@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userData, ... }:
 
 let
 
-  homeDir = config.home.homeDirectory;
+  homeDir = config.userData.homeDir;
 
 in {
 

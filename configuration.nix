@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 
@@ -155,7 +155,22 @@ in {
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.tscolari = import ./home;
+
+    users.tscolari = import ./home {
+      inherit pkgs lib config;
+      # config = config // {
+        userData = {
+          username = "tscolari";
+          homeDir = "/home/tscolari";
+
+          git = {
+            githubUser = "tscolari";
+            fullName = "Tiago Scolari";
+            email = "git@tscolari.me";
+          };
+        };
+      # };
+    };
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229

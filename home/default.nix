@@ -1,12 +1,32 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }@args:
 
 with lib;
 
 let
 
-  cfg = config.userData;
+  cfg = args.userData;
 
 in {
+
+  options = {
+    userData = {
+      username = mkOption {
+        default = "username";
+        type = with types; uniq str;
+        description = "user's username";
+      };
+
+      homeDir = mkOption {
+        default = "/home/username";
+        type = with types; uniq str;
+        description = "user's username";
+      };
+
+      git = {};
+    };
+  };
+
+  config.userData = cfg;
 
   imports =
     [
@@ -15,25 +35,9 @@ in {
       ./common/gnome.nix
       ./common/alacritty.nix
       ./common/zsh.nix
-      ./common/git.nix
       ./common/tmux.nix
+      ./common/git.nix
     ];
-
-  options = {
-    userData = {
-      username = mkOption {
-        default = "tscolari";
-        type = types.str;
-        description = "user's username";
-      };
-
-      homeDir = mkOption {
-        default = "/home/tscolari";
-        type = types.str;
-        description = "user's username";
-      };
-    };
-  };
 
   config = {
     home = {

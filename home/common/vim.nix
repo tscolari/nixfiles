@@ -1,9 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
 
-  homeDir = config.home.homeDirectory;
-
+  homeDir = config.userData.homeDir;
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in {
@@ -13,7 +12,6 @@ in {
     file = {
       # Neovim
       "${homeDir}/.config/nvim".source = builtins.fetchGit {
-        # url = "git@github.com:tscolari/nvim";
         url = "https://github.com/tscolari/nvim";
         submodules = true;
         shallow = true;

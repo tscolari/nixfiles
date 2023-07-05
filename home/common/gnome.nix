@@ -2,7 +2,7 @@
 
 let
 
-  homeDir = config.home.homeDirectory;
+  homeDir = config.userData.homeDir;
 
 in {
 
