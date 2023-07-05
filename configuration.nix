@@ -144,7 +144,6 @@ in {
      })
   ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.tscolari = {
     isNormalUser = true;
     shell = pkgs.zsh;
@@ -158,18 +157,16 @@ in {
 
     users.tscolari = import ./home {
       inherit pkgs lib config;
-      # config = config // {
-        userData = {
-          username = "tscolari";
-          homeDir = "/home/tscolari";
+      userData = {
+        username = "tscolari";
+        fullName = "Tiago Scolari";
+        homeDir  = "/home/tscolari";
 
-          git = {
-            githubUser = "tscolari";
-            fullName = "Tiago Scolari";
-            email = "git@tscolari.me";
-          };
+        git = {
+          githubUser = "tscolari";
+          email = "git@tscolari.me";
         };
-      # };
+      };
     };
   };
 

@@ -4,7 +4,7 @@ with lib;
 
 let
 
-  cfg = config.userData.git;
+  cfg = config.userData;
 
 in {
 
@@ -15,12 +15,6 @@ in {
           default = "tscolari";
           type = with types; uniq str;
           description = "github username";
-        };
-
-        fullName = mkOption {
-          default = "Tiago Scolari";
-          type = with types; uniq str;
-          description = "full name for git commits";
         };
 
         email = mkOption {
@@ -115,19 +109,19 @@ in {
 
         user = {
           name       = cfg.fullName;
-          email      = cfg.email;
+          email      = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
         author = {
           name       = cfg.fullName;
-          email      = cfg.email;
+          email      = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
         committer = {
           name       = cfg.fullName;
-          email      = cfg.email;
+          email      = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
@@ -181,7 +175,7 @@ in {
         };
 
         github = {
-          user = cfg.githubUser;
+          user = cfg.git.githubUser;
         };
 
         gpg = {

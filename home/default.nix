@@ -16,6 +16,12 @@ in {
         description = "user's username";
       };
 
+      fullName = mkOption {
+        default = "Tiago Scolari";
+        type = with types; uniq str;
+        description = "full name for the user";
+      };
+
       homeDir = mkOption {
         default = "/home/username";
         type = with types; uniq str;
