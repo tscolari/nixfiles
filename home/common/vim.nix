@@ -4,6 +4,8 @@ let
 
   homeDir = config.home.homeDirectory;
 
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+
 in {
 
   home = {
@@ -28,13 +30,13 @@ in {
     viAlias       = true;
     vimAlias      = true;
 
-    package = pkgs.neovim.unwrapped;
+    package = unstable.neovim.unwrapped;
 
     extraPackages = [
-      pkgs.rnix-lsp
-      pkgs.terraform-ls
-      pkgs.nodePackages.eslint
-      pkgs.lua-language-server
+      unstable.rnix-lsp
+      unstable.terraform-ls
+      unstable.nodePackages.eslint
+      unstable.lua-language-server
     ];
   };
 }
