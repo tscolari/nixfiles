@@ -66,4 +66,14 @@ in {
         pkgs.gnome.gnome-tweaks
       ];
   };
+
+  # FZF
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+  };
 }

@@ -2,9 +2,15 @@
 
 let
 
-  homeDir = "/home/tscolari";
+  homeDir = config.home.homeDirectory;
 
 in {
+
+  home = {
+    file = {
+      "${homeDir}/.background.jpg".source = ../files/background.jpg;
+    };
+  };
 
   gtk = {
     enable = true;

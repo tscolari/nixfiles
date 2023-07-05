@@ -2,7 +2,31 @@
 
 let
 
+  homeDir = config.home.homeDirectory;
+
 in {
+
+  home = {
+    sessionVariables = rec {
+      PATH   = "$HOME/.local/bin:$GOPATH/bin:$PATH";
+      EDITOR = "vim";
+      VISUAL = "vim";
+
+      GREP_COLOR = "1;33";
+
+      GIT_DUET_GLOBAL        = "true";
+      GIT_DUET_ROTATE_AUTHOR = "1";
+
+      GOPATH      = "$HOME/go";
+      GO111MODULE = "on";
+      GOPRIVATE   = "github.com/hashicorp";
+    };
+
+    file = {
+      "${homeDir}/.config/zsh/config.zsh".source = ../files/zsh/config.zsh;
+
+    };
+  };
 
   programs.zsh = {
     enable = true;
