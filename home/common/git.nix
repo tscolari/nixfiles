@@ -27,6 +27,13 @@ in {
   };
 
   config = {
+    home = {
+      sessionVariables = {
+        GIT_DUET_GLOBAL        = "true";
+        GIT_DUET_ROTATE_AUTHOR = "1";
+      };
+    };
+
     programs.git = {
       enable = true;
 

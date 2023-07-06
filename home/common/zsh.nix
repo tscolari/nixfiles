@@ -14,16 +14,13 @@ in {
 
       GREP_COLOR = "1;33";
 
-      GIT_DUET_GLOBAL        = "true";
-      GIT_DUET_ROTATE_AUTHOR = "1";
-
       GOPATH      = "$HOME/go";
       GO111MODULE = "on";
       GOPRIVATE   = "github.com/hashicorp";
     };
 
     file = {
-      "${homeDir}/.config/zsh/config.zsh".source = ../files/zsh/config.zsh;
+      "${homeDir}/.config/zsh/.empty".source = ../files/empty;
 
     };
   };
@@ -33,12 +30,32 @@ in {
 
     defaultKeymap = "viins";
 
-    initExtra = "
-      for config_file in $(ls $HOME/.config/zsh/*.zsh)
+    initExtra = ''
+      if [ -e ~/.secrets ]; then
+        source ~/.secrets
+      fi
+
+      # Goes to the root path of the git repository
+      function cdg() { cd "$(git rev-parse --show-toplevel)" }
+
+      # Makes git auto completion faster favouring for local completions
+      __git_files () {
+          _wanted files expl 'local files' _files
+      }
+
+      # emacs style
+      bindkey '^a' beginning-of-line
+      bindkey '^e' end-of-line
+
+      set -o vi
+
+      eval "$(fasd --init auto)"
+
+      for config_file in $(ls -A $HOME/.config/zsh | grep -e '.zsh$')
       do
-        source $config_file
+        source "$HOME/.config/zsh/$config_file"
       done
-    ";
+    '';
 
     prezto = {
       enable = true;
