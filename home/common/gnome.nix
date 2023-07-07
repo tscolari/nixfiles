@@ -15,9 +15,7 @@ in {
     # Gnome extensions
       pkgs.gnomeExtensions.clipboard-indicator
       pkgs.gnomeExtensions.dash-to-panel
-      pkgs.gnomeExtensions.openweather
       pkgs.gnomeExtensions.screenshot-window-sizer
-      pkgs.gnomeExtensions.sound-output-device-chooser
       pkgs.gnomeExtensions.tray-icons-reloaded
       pkgs.gnomeExtensions.user-themes
       pkgs.gnomeExtensions.windownavigator
@@ -85,9 +83,7 @@ in {
         "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
         "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
         "clipboard-indicator@tudmotu.com"
-        "openweather-extension@jenslody.de"
         "dash-to-dock@micxgx.gmail.com"
-        "sound-output-device-chooser@kgshank.net"
         "custom-hot-corners-extended@G-dH.github.com"
         "quick@web.search"
         "nightthemeswitcher@romainvigier.fr"
@@ -105,7 +101,8 @@ in {
    };
 
     "org/gnome/desktop/interface" = {
-      "color-scheme" = "prefer-dark";
+      color-scheme       = "prefer-dark";
+      enable-hot-corners = true;
     };
 
     "org/gnome/desktop/background" = {
@@ -141,16 +138,20 @@ in {
     };
 
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left  = "@as []";
-      toggle-tiled-right = "@as []";
-      maximize           = "@as []";
-      # toggle-tiled-left  = "['<Control><Alt><Super>h']";
-      # toggle-tiled-right = "['<Control><Alt><Super>l']";
-      # maximize           = "['<Control><Alt><Super>m']";
+      toggle-tiled-left  = ["<Control><Alt><Super>h" "<Super>h" "<Super>Left"];
+      toggle-tiled-right = ["<Control><Alt><Super>l" "<Super>l" "<Super>Right"];
+      maximize           = "disabled";
     };
 
-    "org/gnome/shell/extensions/openweather" = {
-      decimal-places = 0;
+    "org/gnome/desktop/wm/keybindings" = {
+      minimize          = "disabled";
+
+      close             = ["<Control>q" "<Alt>F4"];
+      toggle-maximized  = ["<Super>Up" "<Control><Alt><Super>k"];
+      toggle-fullscreen = ["<Control><Super>Up"];
+
+      switch-to-workspace-left  = ["<Control><Super>Left"];
+      switch-to-workspace-right = ["<Control><Super>Right"];
     };
 
     "org/gnome/shell/extensions/materialshell/theme" = {
