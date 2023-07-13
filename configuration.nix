@@ -208,6 +208,7 @@ in {
     gcc
     git
     git-crypt
+    gnome.mutter
     gnumake
     gnupg
     go
@@ -220,7 +221,7 @@ in {
     jq
     killall
     lm_sensors
-    neovim
+    unstable.neovim
     nodePackages.npm
     nodejs
     nomad
