@@ -14,26 +14,30 @@ in {
     packages = [
     # Gnome extensions
       pkgs.gnomeExtensions.clipboard-indicator
+      pkgs.gnomeExtensions.custom-hot-corners-extended
       pkgs.gnomeExtensions.dash-to-panel
+      pkgs.gnomeExtensions.night-theme-switcher
       pkgs.gnomeExtensions.screenshot-window-sizer
+      pkgs.gnomeExtensions.stocks-extension
       pkgs.gnomeExtensions.tray-icons-reloaded
       pkgs.gnomeExtensions.user-themes
-      pkgs.gnomeExtensions.windownavigator
-      pkgs.gnomeExtensions.custom-hot-corners-extended
       pkgs.gnomeExtensions.vitals
-      pkgs.gnomeExtensions.stocks-extension
-      pkgs.gnomeExtensions.night-theme-switcher
+      pkgs.gnomeExtensions.windownavigator
 
     # Gtk themes / icons
+      pkgs.ant-bloody-theme
+      pkgs.arc-icon-theme
+      pkgs.arc-theme
       pkgs.flat-remix-gnome
       pkgs.flat-remix-gtk
       pkgs.flat-remix-icon-theme
+      pkgs.fluent-gtk-theme
+      pkgs.fluent-icon-theme
+      pkgs.graphite-gtk-theme
       pkgs.numix-cursor-theme
       pkgs.numix-gtk-theme
       pkgs.numix-icon-theme
       pkgs.papirus-icon-theme
-      pkgs.arc-icon-theme
-      pkgs.arc-theme
       pkgs.yaru-theme
 
     # Misc
@@ -138,14 +142,14 @@ in {
     };
 
     "org/gnome/mutter/keybindings" = {
+      maximize           = "disabled";
+
       toggle-tiled-left  = ["<Control><Alt><Super>h" "<Super>h" "<Super>Left"];
       toggle-tiled-right = ["<Control><Alt><Super>l" "<Super>l" "<Super>Right"];
-      maximize           = "disabled";
     };
 
     "org/gnome/desktop/wm/keybindings" = {
-      minimize          = "disabled";
-
+      minimize          = ["<Super>Down"];
       close             = ["<Control>q" "<Alt>F4"];
       toggle-maximized  = ["<Super>Up" "<Control><Alt><Super>k"];
       toggle-fullscreen = ["<Control><Super>Up"];
