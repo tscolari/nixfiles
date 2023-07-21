@@ -173,5 +173,20 @@ in {
         prev-entry = ["<Shift><Control><Alt>v"];
         next-entry = ["<Control><Alt>v"];
     };
+
+    "org/gnome/desktop/app-folders" = {
+      folder-children = ["Utilities" "YaST" "9e712e76-1fc1-4d87-967c-b11c354c30de" "bb8a26da-094e-48ec-9a8e-a287975d57f9"];
+    };
+
+    "org/gnome/desktop/app-folders/folders/9e712e76-1fc1-4d87-967c-b11c354c30de" = {
+      name = "Reading";
+      apps = ["calibre-gui.desktop" "org.gnome.TextEditor.desktop" "calibre-ebook-viewer.desktop" "calibre-ebook-edit.desktop" "calibre-lrfviewer.desktop"];
+    };
+
+    "org/gnome/desktop/app-folders/folders/bb8a26da-094e-48ec-9a8e-a287975d57f9" = {
+      name = "Work/Dev";
+      apps = ["nvim.desktop" "slack.desktop" "htop.desktop" "Zoom.desktop" "xterm.desktop"];
+    };
+
   };
 }
