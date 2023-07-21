@@ -1,1 +1,1 @@
-./machines/dellxps-hardware-configuration.nix
+./machines/thinkpad.hardware-configuration.nix
