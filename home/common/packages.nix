@@ -24,6 +24,20 @@ in {
       pkgs.steam
 
     # Code
+      pkgs.delve
+      pkgs.gofumpt
+      pkgs.golangci-lint
+      pkgs.golines
+      pkgs.gomodifytags
+      pkgs.gotests
+      pkgs.gotestsum
+      pkgs.gotools
+      pkgs.govulncheck
+      pkgs.iferr
+      pkgs.impl
+      pkgs.mockgen
+      pkgs.reftools
+      pkgs.richgo
       pkgs.xclip
       unstable.alacritty
 
