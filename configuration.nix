@@ -22,7 +22,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "bebop";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -105,7 +105,7 @@ in {
   ]);
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -119,21 +119,20 @@ in {
   };
 
   # Enable the fingerprint sensor
-  # services.fprintd = {
-  #   enable = true;
-  #   package = pkgs.fprintd-tod;
-  #   tod = {
-  #     enable = true;
-  #     # Driver for Dell XPS 13
-  #     driver = pkgs.libfprint-2-tod1-goodix;
-  #   };
-  # };
+  services.fprintd = {
+    enable = true;
+    package = pkgs.fprintd-tod;
+    tod = {
+      enable = true;
+      driver = pkgs.libfprint-2-tod1-vfs0090;
+    };
+  };
 
   # Load the fprintd on the boot instead of a dbus service
-  # systemd.services.fprintd = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig.Type = "simple";
-  # };
+  systemd.services.fprintd = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig.Type = "simple";
+  };
 
 
   nixpkgs.overlays = [
@@ -200,8 +199,8 @@ in {
     fd
     firefox
     flatpak
-    # fprintd
-    # fprintd-tod
+    fprintd
+    fprintd-tod
     fzf
     gcc
     git
@@ -219,6 +218,7 @@ in {
     jq
     killall
     lm_sensors
+    lua
     unstable.neovim
     nodePackages.npm
     nodejs
