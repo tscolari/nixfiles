@@ -165,6 +165,8 @@ in {
       toggle-maximized  = ["<Super>Up" "<Control><Alt><Super>k"];
       toggle-fullscreen = ["<Control><Super>Up"];
 
+      panel-run-dialog  = ["<Alt>F2" "<Super>Return"];
+
       switch-to-workspace-left  = ["<Control><Super>Left"];
       switch-to-workspace-right = ["<Control><Super>Right"];
     };
