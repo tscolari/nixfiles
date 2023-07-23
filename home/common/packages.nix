@@ -24,6 +24,7 @@ in {
       pkgs.steam
 
     # Code
+      pkgs.consul
       pkgs.delve
       pkgs.gofumpt
       pkgs.golangci-lint
@@ -35,9 +36,16 @@ in {
       pkgs.govulncheck
       pkgs.iferr
       pkgs.impl
+      pkgs.kind
+      pkgs.kubectl
+      pkgs.kubernetes
+      pkgs.minikube
       pkgs.mockgen
       pkgs.reftools
       pkgs.richgo
+      pkgs.terraform
+      pkgs.vault
+      pkgs.waypoint
       pkgs.xclip
       unstable.alacritty
 
