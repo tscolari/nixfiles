@@ -177,7 +177,7 @@ in {
     };
 
     "org/gnome/desktop/app-folders" = {
-      folder-children = ["Utilities" "YaST" "9e712e76-1fc1-4d87-967c-b11c354c30de" "bb8a26da-094e-48ec-9a8e-a287975d57f9"];
+      folder-children = ["Utilities" "YaST" "9e712e76-1fc1-4d87-967c-b11c354c30de" "bb8a26da-094e-48ec-9a8e-a287975d57f9" "44608531-532a-4d8d-b0b7-cae603cd2875"];
     };
 
     "org/gnome/desktop/app-folders/folders/9e712e76-1fc1-4d87-967c-b11c354c30de" = {
@@ -188,6 +188,11 @@ in {
     "org/gnome/desktop/app-folders/folders/bb8a26da-094e-48ec-9a8e-a287975d57f9" = {
       name = "Work/Dev";
       apps = ["nvim.desktop" "slack.desktop" "htop.desktop" "Zoom.desktop" "xterm.desktop"];
+    };
+
+    "org/gnome/desktop/app-folders/folders/44608531-532a-4d8d-b0b7-cae603cd2875" = {
+      name = "Messaging";
+      apps = ["io.github.mimbrero.WhatsAppDesktop.desktop" "skypeforlinux.desktop" "discord.desktop" "slack.desktop"];
     };
 
   };
