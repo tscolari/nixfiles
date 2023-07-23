@@ -232,5 +232,10 @@ in {
         };
       };
     };
+
+    programs.zsh.shellAliases = {
+      grp = "git pull --rebase";
+      gst = "git status";
+    };
   };
 }
