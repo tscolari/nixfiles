@@ -44,6 +44,7 @@ in {
       pkgs.reftools
       pkgs.richgo
       pkgs.terraform
+      pkgs.sysprof
       pkgs.vault
       pkgs.waypoint
       pkgs.xclip

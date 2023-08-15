@@ -43,6 +43,8 @@ in {
 
     # Misc
       pkgs.gnome.gnome-tweaks
+      pkgs.gnome.cheese
+      pkgs.gaphor
       pkgs.gjs
     ];
   };
