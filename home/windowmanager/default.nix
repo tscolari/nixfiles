@@ -2,9 +2,8 @@
 
 {
   imports = [
-      ./packages.nix
       ./gtk.nix
-      ./gnome.nix
+      ./gnome
     ];
 
 }

@@ -37,7 +37,7 @@ in {
   imports =
     [
       ./shell
-      ./dev
+      ./programs
       ./windowmanager
       ./terminal
     ];

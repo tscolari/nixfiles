@@ -8,24 +8,10 @@ in {
 
   home = {
     file = {
-      "${homeDir}/.background.jpg".source = ../files/background.jpg;
+      "${homeDir}/.background.jpg".source = ../../files/background.jpg;
     };
 
     packages = [
-    # Gnome extensions
-      pkgs.gnomeExtensions.clipboard-indicator
-      pkgs.gnomeExtensions.custom-hot-corners-extended
-      pkgs.gnomeExtensions.dash-to-dock
-      pkgs.gnomeExtensions.gsconnect
-      pkgs.gnomeExtensions.night-theme-switcher
-      pkgs.gnomeExtensions.screenshot-window-sizer
-      pkgs.gnomeExtensions.stocks-extension
-      pkgs.gnomeExtensions.tray-icons-reloaded
-      pkgs.gnomeExtensions.user-themes
-      pkgs.gnomeExtensions.vitals
-      pkgs.gnomeExtensions.windownavigator
-
-    # Misc
       pkgs.gnome.gnome-tweaks
       pkgs.gnome.cheese
       pkgs.gaphor
@@ -46,17 +32,6 @@ in {
         "Alacritty.desktop"
         "org.gnome.Calendar.desktop"
         "org.gnome.Nautilus.desktop"
-      ];
-
-      enable-extensions = [
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "trayIconsReloaded@selfmade.pl"
-        "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
-        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
-        "clipboard-indicator@tudmotu.com"
-        "dash-to-dock@micxgx.gmail.com"
-        "custom-hot-corners-extended@G-dH.github.com"
-        "quick@web.search"
       ];
     };
 
@@ -88,11 +63,6 @@ in {
       name = "Yaru-blue-dark";
     };
 
-    "org/gnome/shell/extensions/materialshell/theme" = {
-      primary-color = "#125e48";
-      panel-opacity = 90;
-    };
-
     "org/gnome/desktop/wm/preferences" = {
       action-double-click-titlebar = "toggle-maximize";
       button-layout = "appmenu:minimize,maximize,close";
@@ -116,30 +86,6 @@ in {
 
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
-    };
-
-    "org/gnome/mutter/keybindings" = {
-      maximize           = "disabled";
-
-      toggle-tiled-left  = ["<Control><Alt><Super>h" "<Super>h"];
-      toggle-tiled-right = ["<Control><Alt><Super>l" "<Super>l"];
-    };
-
-    "org/gnome/desktop/wm/keybindings" = {
-      minimize          = ["<Control><Alt><Super>Escape" "<Shift><Control>Escape"];
-      close             = ["<Control>q" "<Alt>F4"];
-      toggle-maximized  = ["<Super>Up" "<Control><Alt><Super>k"];
-      toggle-fullscreen = ["<Control><Super>Up"];
-
-      panel-run-dialog  = ["<Alt>F2" "<Super>Return"];
-
-      switch-to-workspace-left  = ["<Control><Super>Left"];
-      switch-to-workspace-right = ["<Control><Super>Right"];
-    };
-
-    "org/gnome/shell/extensions/clipboard-indicator" = {
-        prev-entry = ["<Shift><Control><Alt>v"];
-        next-entry = ["<Control><Alt>v"];
     };
 
     "org/gnome/desktop/app-folders" = {

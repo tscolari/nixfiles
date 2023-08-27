@@ -12,6 +12,8 @@ in {
      # pkgs.git-duet
      # pkgs.jsonpp
      # pkgs.pyenv
+
+     # Coding
       pkgs.consul
       pkgs.delve
       pkgs.go
@@ -37,6 +39,24 @@ in {
       pkgs.vault
       pkgs.waypoint
       pkgs.xclip
+
+    # Misc
+      pkgs.shortwave
+      pkgs._1password-gui
+      pkgs.chromium
+      pkgs.spotify
+      pkgs.transmission
+
+    # Game
+      pkgs.steam
+
+    # Chat
+      pkgs.slack
+      pkgs.discord
+
+    # Video
+      pkgs.zoom-us
+      pkgs.skypeforlinux
     ];
   };
 
