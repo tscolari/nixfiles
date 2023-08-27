@@ -36,13 +36,10 @@ in {
 
   imports =
     [
-      ./common/packages.nix
-      ./common/vim.nix
-      ./common/gnome.nix
-      ./common/alacritty.nix
-      ./common/zsh.nix
-      ./common/tmux.nix
-      ./common/git.nix
+      ./shell
+      ./dev
+      ./windowmanager
+      ./terminal
     ];
 
   config = {
