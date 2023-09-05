@@ -46,6 +46,7 @@ in {
       pkgs.chromium
       pkgs.spotify
       pkgs.transmission
+      pkgs.obsidian
 
     # Game
       pkgs.steam
