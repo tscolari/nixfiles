@@ -16,15 +16,15 @@ in {
      # Coding
       pkgs.consul
       pkgs.delve
-      pkgs.go
-      pkgs.gofumpt
-      pkgs.golangci-lint
-      pkgs.golines
-      pkgs.gomodifytags
-      pkgs.gotests
-      pkgs.gotestsum
-      pkgs.gotools
-      pkgs.govulncheck
+      unstable.go
+      unstable.gofumpt
+      unstable.golangci-lint
+      unstable.golines
+      unstable.gomodifytags
+      unstable.gotests
+      unstable.gotestsum
+      unstable.gotools
+      unstable.govulncheck
       pkgs.iferr
       pkgs.impl
       pkgs.kind
