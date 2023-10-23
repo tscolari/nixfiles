@@ -30,6 +30,7 @@ in {
       pkgs.kind
       pkgs.kubectl
       pkgs.kubernetes
+      pkgs.kubernetes-helm
       pkgs.minikube
       pkgs.mockgen
       pkgs.reftools
