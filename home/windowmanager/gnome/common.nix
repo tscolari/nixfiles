@@ -29,7 +29,7 @@ in {
 
       favorite-apps = [
         "firefox.desktop"
-        "Alacritty.desktop"
+        "kitty.desktop"
         "org.gnome.Calendar.desktop"
         "org.gnome.Nautilus.desktop"
       ];
