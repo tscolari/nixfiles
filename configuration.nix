@@ -200,7 +200,6 @@ in {
     ctags
     curl
     direnv
-    discord
     fasd
     fd
     firefox
@@ -214,9 +213,6 @@ in {
     gnome.mutter
     gnumake
     gnupg
-    go
-    gomplate
-    gopls
     grpcurl
     gtop
     htop
