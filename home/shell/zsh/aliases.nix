@@ -27,6 +27,8 @@
       pbcopy  = "xclip -selection clipboard";
       pbpaste = "xclip -selection clipboard -o";
 
+      vim = "nvim";
+
       # Override rm -i alias which makes rm prompt for every action
       rm      = "nocorrect rm";
 
