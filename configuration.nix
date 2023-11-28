@@ -124,23 +124,6 @@ in {
     pulse.enable = true;
   };
 
-  # Enable the fingerprint sensor
-  # services.fprintd = {
-  #   enable = true;
-  #   package = pkgs.fprintd-tod;
-  #   tod = {
-  #     enable = true;
-  #     driver = pkgs.libfprint-2-tod1-vfs0090;
-  #   };
-  # };
-
-  # Load the fprintd on the boot instead of a dbus service
-  # systemd.services.fprintd = {
-  #   wantedBy = [ "multi-user.target" ];
-  #   serviceConfig.Type = "simple";
-  # };
-
-
   nixpkgs.overlays = [
     (self: super: {
      fcitx-engines = pkgs.fcitx5;
@@ -204,8 +187,6 @@ in {
     fd
     firefox
     flatpak
-    # fprintd
-    # fprintd-tod
     fzf
     gcc
     git
