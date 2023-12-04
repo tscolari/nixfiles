@@ -2,6 +2,15 @@
 
 {
   programs.zsh = {
+    # Moved to the start of the zshrc so that they can
+    # be unaliased if necessary for macos.
+    initExtraFirst = ''
+      alias pbcopy="xclip -selection clipboard";
+      alias pbpaste="xclip -selection clipboard -o";
+      alias open="xdg-open";
+    '';
+
+
     shellAliases = {
       # Bundler
       be = "bundle exec";
@@ -22,10 +31,7 @@
       # Rspec
       rs = "rspec spec";
 
-      open    = "xdg-open";
       weather = "curl wttr.in";
-      pbcopy  = "xclip -selection clipboard";
-      pbpaste = "xclip -selection clipboard -o";
 
       vim = "nvim";
 
@@ -36,7 +42,10 @@
       # stuff like ga *foo* and correctly have
       # git add the right stuff
       git = "noglob git";
+      gpr = "git pull --rebase";
+    };
 
+    shellGlobalAliases = {
       C = "| wc -l";
       H = "| head";
       L = "| less";

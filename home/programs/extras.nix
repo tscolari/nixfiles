@@ -12,7 +12,6 @@ in {
     packages = [
     # Coding
       pkgs.kubernetes
-      pkgs.xclip
       pkgs.sysprof
 
     # Misc

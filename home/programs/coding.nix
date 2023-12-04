@@ -31,12 +31,14 @@ in {
       pkgs.kubernetes-helm
       pkgs.minikube
       pkgs.mockgen
+      pkgs.pgcli
       unstable.protoc-gen-go
       pkgs.reftools
       pkgs.richgo
       pkgs.terraform
       pkgs.vault
       pkgs.waypoint
+      pkgs.xclip
     ];
   };
 }

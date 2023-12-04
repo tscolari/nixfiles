@@ -20,6 +20,10 @@ in {
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ../files/empty;
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ../files/empty;
     };
+
+    packages = [
+      unstable.lua-language-server
+    ];
   };
 
   programs.neovim = {
