@@ -15,9 +15,10 @@ in {
       pkgs.sysprof
 
     # Misc
-      pkgs.shortwave
       pkgs._1password-gui
       pkgs.chromium
+      pkgs.firefox
+      pkgs.shortwave
       pkgs.spotify
       pkgs.transmission
 

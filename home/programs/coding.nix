@@ -14,7 +14,10 @@ in {
       pkgs.consul
       pkgs.dapr-cli
       pkgs.delve
+      pkgs.docker-compose
+      pkgs.file
       unstable.go
+      unstable.go-migrate
       unstable.go-mockery
       unstable.gofumpt
       unstable.golangci-lint
@@ -24,6 +27,7 @@ in {
       unstable.gotestsum
       unstable.gotools
       unstable.govulncheck
+      pkgs.grpcui
       pkgs.iferr
       pkgs.impl
       pkgs.kind
@@ -33,6 +37,7 @@ in {
       pkgs.mockgen
       pkgs.pgcli
       unstable.protoc-gen-go
+      unstable.protoc-gen-go-grpc
       pkgs.reftools
       pkgs.richgo
       pkgs.terraform

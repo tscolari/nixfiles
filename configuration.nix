@@ -185,7 +185,6 @@ in {
     direnv
     fasd
     fd
-    unstable.firefox
     flatpak
     fzf
     gcc
