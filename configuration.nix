@@ -22,6 +22,10 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    evdi
+  ];
+
   networking.hostName = "bebop";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -59,6 +63,8 @@ in {
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
+
+    videoDrivers = [ "displaylink" "modesetting" ];
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
