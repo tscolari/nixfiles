@@ -16,6 +16,7 @@ in {
       ./hardware-configuration.nix
 
       <home-manager/nixos>
+      <nix-ld/modules/nix-ld.nix>
     ];
 
   # Bootloader.
@@ -60,6 +61,8 @@ in {
     enable = true;
   };
 
+  powerManagement.enable = true;
+
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
@@ -89,14 +92,17 @@ in {
 
   services.flatpak.enable = true;
 
+  programs.nix-ld.dev.enable = true;
+
+  programs.zsh.enable = true;
+
   # Gnome configurations
   services.gnome.gnome-browser-connector.enable = true;
   programs.dconf.enable = true;
-  programs.zsh.enable = true;
-  environment.gnome.excludePackages = (with pkgs; [
+  environment.gnome.excludePackages = (with unstable; [
     gnome-photos
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
+  ]) ++ (with unstable.gnome; [
     cheese
     gnome-music
     epiphany
@@ -123,6 +129,7 @@ in {
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -213,7 +220,9 @@ in {
     nomad
     openssl
     openvpn
+    pciutils
     pinentry
+    pmutils
     postgresql
     procps
     pstree
