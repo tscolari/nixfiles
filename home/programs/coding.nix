@@ -28,6 +28,7 @@ in {
       unstable.gotools
       unstable.govulncheck
       pkgs.grpcui
+      pkgs.hugo
       pkgs.iferr
       pkgs.impl
       pkgs.kind
