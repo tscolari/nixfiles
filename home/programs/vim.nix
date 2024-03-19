@@ -36,7 +36,6 @@ in {
     package = unstable.neovim.unwrapped;
 
     extraPackages = [
-      unstable.rnix-lsp
       unstable.terraform-ls
       unstable.nodePackages.eslint
       unstable.lua-language-server
