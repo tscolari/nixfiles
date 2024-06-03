@@ -23,6 +23,8 @@ in {
     };
 
     packages = [
+      pkgs.texliveFull
+      pkgs.zathura
       unstable.lua-language-server
     ];
   };

@@ -23,6 +23,8 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.kernelModules = ["kvm-intel"];
+  virtualisation.libvirtd.enable = true;
   boot.extraModulePackages = with config.boot.kernelPackages; [
     evdi
   ];
@@ -39,6 +41,12 @@ in {
 
   # Set your time zone.
   time.timeZone = "Europe/London";
+  services.automatic-timezoned.enable = true;
+
+  services.tailscale = {
+    enable = true;
+    useRoutingFeatures = "client";
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -115,6 +123,10 @@ in {
     gnome-contacts
     gnome-initial-setup
   ]);
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "vault-1.14.10"
+  ];
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
