@@ -8,6 +8,7 @@
       pkgs.gnomeExtensions.clipboard-indicator
       pkgs.gnomeExtensions.custom-hot-corners-extended
       pkgs.gnomeExtensions.dash-to-dock
+      pkgs.gnomeExtensions.grand-theft-focus
       pkgs.gnomeExtensions.gsconnect
       pkgs.gnomeExtensions.night-theme-switcher
       pkgs.gnomeExtensions.screenshot-window-sizer
