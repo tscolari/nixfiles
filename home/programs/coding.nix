@@ -43,7 +43,6 @@ in {
       pkgs.richgo
       pkgs.terraform
       pkgs.vault
-      pkgs.waypoint
       pkgs.xclip
     ];
   };

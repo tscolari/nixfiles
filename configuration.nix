@@ -80,23 +80,26 @@ in {
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
-    xkbOptions = "caps:ctrl_modifier";
-
-    # Disable automatic login for the user.
-    displayManager.autoLogin.enable = false;
-    displayManager.autoLogin.user = "tscolari";
 
     # Configure keymap in X11
-    layout = "us";
-    xkbVariant = "";
-    dpi = 192;
-
-    # tap to click
-    libinput = {
-      enable = true;
-      touchpad.tapping = true;
+    xkb = {
+      layout = "us";
+      variant = "";
+      options = "caps:ctrl_modifier";
     };
+
+    dpi = 192;
   };
+
+  services.libinput = {
+    # tap to click
+    enable = true;
+    touchpad.tapping = true;
+  };
+
+  # Disable automatic login for the user.
+  services.displayManager.autoLogin.enable = false;
+  services.displayManager.autoLogin.user = "tscolari";
 
   services.flatpak.enable = true;
 
@@ -111,17 +114,17 @@ in {
     gnome-photos
     gnome-tour
   ]) ++ (with unstable.gnome; [
-    cheese
     gnome-music
-    epiphany
-    geary
     tali
     iagno
     hitori
     atomix
-    yelp
     gnome-contacts
     gnome-initial-setup
+  ]) ++ (with unstable; [
+    epiphany
+    geary
+    yelp
   ]);
 
   nixpkgs.config.permittedInsecurePackages = [
