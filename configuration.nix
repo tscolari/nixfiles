@@ -127,10 +127,6 @@ in {
     yelp
   ]);
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "vault-1.14.10"
-  ];
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

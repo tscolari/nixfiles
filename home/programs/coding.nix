@@ -42,7 +42,6 @@ in {
       pkgs.reftools
       pkgs.richgo
       pkgs.terraform
-      pkgs.vault
       pkgs.xclip
     ];
   };
