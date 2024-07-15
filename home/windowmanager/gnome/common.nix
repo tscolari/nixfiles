@@ -13,7 +13,6 @@ in {
 
     packages = [
       pkgs.gnome.gnome-tweaks
-      pkgs.gaphor
       pkgs.gjs
     ];
   };

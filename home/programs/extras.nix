@@ -16,11 +16,14 @@ in {
 
     # Misc
       pkgs._1password-gui
+      pkgs.blanket
       pkgs.chromium
       pkgs.firefox
+      pkgs.gnome.polari
       pkgs.shortwave
       pkgs.spotify
       pkgs.transmission
+      pkgs.trilium-desktop
 
     # Game
       pkgs.steam
