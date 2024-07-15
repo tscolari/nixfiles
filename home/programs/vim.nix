@@ -8,6 +8,7 @@ let
 in {
 
   home = {
+
     # Files and remote configurations
     file = {
       # Neovim
@@ -16,13 +17,13 @@ in {
         submodules = true;
         shallow = true;
         ref = "main";
-        rev = "7eefe7451a409bc1c4e33206797fa5f3b5d6fd0e";
       };
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ../files/empty;
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ../files/empty;
     };
 
     packages = [
+      pkgs.nerdfonts
       pkgs.texliveFull
       pkgs.zathura
       unstable.lua-language-server
