@@ -8,6 +8,8 @@ in {
 
   home = {
     packages = [
+      pkgs.pandoc
+      unstable.obsidian
     ];
   };
 
