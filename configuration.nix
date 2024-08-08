@@ -69,6 +69,12 @@ in {
     enable = true;
   };
 
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
   powerManagement.enable = true;
 
   services.xserver = {
