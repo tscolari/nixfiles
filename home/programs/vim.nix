@@ -43,6 +43,11 @@ in {
       unstable.nodePackages.eslint
       unstable.lua-language-server
       unstable.nodePackages.typescript-language-server
+      unstable.gopls
+      unstable.golangci-lint
+      unstable.vim-language-server
+      unstable.postgres-lsp
+      unstable.ruby-lsp
     ];
   };
 }

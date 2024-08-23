@@ -39,6 +39,7 @@ in {
       unstable.golangci-lint
       unstable.golines
       unstable.gomodifytags
+      unstable.gopls
       unstable.gotests
       unstable.gotestsum
       unstable.gotools
