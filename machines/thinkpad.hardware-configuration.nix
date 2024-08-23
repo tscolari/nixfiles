@@ -53,4 +53,11 @@
 
   boot.initrd.luks.devices."luks-2ba14432-c99b-462f-99d9-85018c80a059".device = "/dev/disk/by-uuid/2ba14432-c99b-462f-99d9-85018c80a059";
   boot.initrd.luks.devices."luks-2ba14432-c99b-462f-99d9-85018c80a059".keyFile = "/crypto_keyfile.bin";
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      onevpl-intel-gpu
+    ];
+  };
 }
