@@ -42,6 +42,7 @@ in {
       unstable.terraform-ls
       unstable.nodePackages.eslint
       unstable.lua-language-server
+      unstable.nodePackages.typescript-language-server
     ];
   };
 }
