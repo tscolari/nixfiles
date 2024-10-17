@@ -24,6 +24,7 @@ in {
       pkgs.spotify
       pkgs.transmission
       pkgs.trilium-desktop
+      pkgs.inkscape-with-extensions
 
     # Game
       pkgs.steam
