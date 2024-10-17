@@ -46,6 +46,7 @@ in {
       unstable.gopls
       unstable.golangci-lint
       unstable.vim-language-server
+      unstable.yaml-language-server
       unstable.postgres-lsp
       unstable.ruby-lsp
     ];

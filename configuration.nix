@@ -203,6 +203,7 @@ in {
     vim
     wget
     zsh
+    glibc
 
     awscli2
     bat
