@@ -17,6 +17,8 @@ in {
 
       <home-manager/nixos>
       <nix-ld/modules/nix-ld.nix>
+
+      ./ergodox.nix
     ];
 
   # Bootloader.
@@ -164,7 +166,7 @@ in {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tiago Scolari";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
   };
 
   home-manager = {
