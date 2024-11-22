@@ -7,6 +7,7 @@
       ./comms.nix
       ./extras.nix
       ./git.nix
+      ./go.nix
       ./vim.nix
       ./tmux.nix
     ];
