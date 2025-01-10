@@ -121,7 +121,7 @@ in {
   environment.gnome.excludePackages = (with unstable; [
     gnome-photos
     gnome-tour
-  ]) ++ (with unstable.gnome; [
+  ]) ++ (with unstable; [
     gnome-music
     tali
     iagno
