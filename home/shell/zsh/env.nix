@@ -10,9 +10,9 @@
 
       GREP_COLOR = "1;33";
 
-      GOPATH      = "$HOME/go";
+      GOPATH      = "$HOME/go:$GOPATH";
       GO111MODULE = "on";
-      GOPRIVATE   = "github.com/hashicorp";
+      GOPRIVATE   = "github.com/hashicorp,github.com/tscolari";
     };
   };
 
