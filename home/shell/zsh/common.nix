@@ -46,6 +46,10 @@ in {
       for p in $(echo $NIX_PROFILES | tr " " "\n"); do
         GOPATH="$GOPATH:$p/share/go"
       done
+
+      for p in $(echo $GOPATH | tr ":" "\n"); do
+        PATH="$PATH:$p/bin"
+      done
     '';
   };
 }

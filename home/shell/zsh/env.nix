@@ -4,7 +4,7 @@
 
   home = {
     sessionVariables = rec {
-      PATH   = "$HOME/.local/bin:$GOPATH/bin:$PATH";
+      PATH   = "$HOME/.local/bin:$PATH";
       EDITOR = "vim";
       VISUAL = "vim";
 
