@@ -40,6 +40,81 @@ in {
 
     package = unstable.neovim.unwrapped;
 
+    plugins = with pkgs.vimPlugins; [
+      (nvim-treesitter.withPlugins (plugins: with plugins; [
+          c
+          c_sharp
+          clojure
+          cmake
+          comment
+          cpp
+          css
+          d
+          dart
+          dockerfile
+          dot
+          elixir
+          elm
+          erlang
+          fennel
+          fish
+          fortran
+          go
+          godot_resource
+          gomod
+          gowork
+          graphql
+          hack
+          haskell
+          hcl
+          vimdoc
+          html
+          http
+          java
+          javascript
+          jsdoc
+          json
+          json5
+          jsonc
+          kotlin
+          latex
+          llvm
+          lua
+          make
+          markdown
+          ninja
+          nix
+          pascal
+          perl
+          php
+          python
+          ql
+          query
+          r
+          regex
+          rst
+          ruby
+          rust
+          scala
+          scheme
+          scss
+          sql
+          svelte
+          swift
+          teal
+          todotxt
+          toml
+          tsx
+          turtle
+          typescript
+          verilog
+          vim
+          vue
+          yaml
+      ]))
+    ];
+
+
     extraPackages = [
       unstable.terraform-ls
       unstable.nodePackages.eslint
