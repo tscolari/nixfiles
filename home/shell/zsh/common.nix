@@ -42,6 +42,10 @@ in {
       do
         source "$HOME/.config/zsh/$config_file"
       done
+
+      for p in $(echo $NIX_PROFILES | tr " " "\n"); do
+        GOPATH="$GOPATH:$p/share/go"
+      done
     '';
   };
 }
