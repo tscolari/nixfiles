@@ -20,6 +20,8 @@ in {
       };
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ../files/empty;
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ../files/empty;
+      "${homeDir}/.local/share/nvim/.empty".source = ../files/empty;
+      "${homeDir}/.cache/.empty".source = ../files/empty;
     };
 
     packages = [
