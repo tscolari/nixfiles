@@ -169,6 +169,13 @@ in {
     extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
   };
 
+  users.users.work = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "Tiago Work";
+    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+  };
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -179,6 +186,20 @@ in {
         username = "tscolari";
         fullName = "Tiago Scolari";
         homeDir  = "/home/tscolari";
+
+        git = {
+          githubUser = "tscolari";
+          email = "git@tscolari.me";
+        };
+      };
+    };
+
+    users.work = import ./home {
+      inherit pkgs lib config;
+      userData = {
+        username = "work";
+        fullName = "Tiago Work";
+        homeDir  = "/home/work";
 
         git = {
           githubUser = "tscolari";
@@ -221,7 +242,7 @@ in {
     fasd
     fd
     flatpak
-    fzf
+    unstable.fzf
     gcc
     git
     git-crypt

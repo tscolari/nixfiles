@@ -16,6 +16,7 @@ in {
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    package = unstable.fzf;
   };
 
   programs.direnv = {
