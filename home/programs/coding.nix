@@ -13,6 +13,7 @@ in {
       pkgs.consul
       pkgs.dapr-cli
       pkgs.delve
+      pkgs.dig
       pkgs.docker-compose
       pkgs.file
       pkgs.grpcui
