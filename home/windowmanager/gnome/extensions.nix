@@ -12,7 +12,6 @@
       pkgs.gnomeExtensions.gsconnect
       pkgs.gnomeExtensions.night-theme-switcher
       pkgs.gnomeExtensions.screenshot-window-sizer
-      pkgs.gnomeExtensions.stocks-extension
       pkgs.gnomeExtensions.tray-icons-reloaded
       pkgs.gnomeExtensions.user-themes
       pkgs.gnomeExtensions.vitals

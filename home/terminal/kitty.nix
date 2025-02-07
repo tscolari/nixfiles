@@ -15,7 +15,7 @@ in {
   programs.kitty = {
     enable = true;
     package = unstable.kitty;
-    theme = "Afterglow";
+    themeFile = "Afterglow";
     settings = {
 
       # Visual

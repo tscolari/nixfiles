@@ -42,7 +42,6 @@ in {
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/London";
   services.automatic-timezoned.enable = true;
 
   services.tailscale = {
@@ -138,14 +137,7 @@ in {
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
@@ -246,7 +238,7 @@ in {
     gcc
     git
     git-crypt
-    gnome.mutter
+    mutter
     gnumake
     gnupg
     grpcurl
@@ -326,7 +318,7 @@ in {
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   # Experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

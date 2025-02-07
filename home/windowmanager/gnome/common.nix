@@ -12,7 +12,7 @@ in {
     };
 
     packages = [
-      pkgs.gnome.gnome-tweaks
+      pkgs.gnome-tweaks
       pkgs.gjs
     ];
   };

@@ -19,10 +19,10 @@ in {
       pkgs.blanket
       pkgs.chromium
       pkgs.firefox
-      pkgs.gnome.polari
+      pkgs.polari
       pkgs.shortwave
       pkgs.spotify
-      pkgs.transmission
+      pkgs.transmission_4
       pkgs.trilium-desktop
       pkgs.inkscape-with-extensions
 
