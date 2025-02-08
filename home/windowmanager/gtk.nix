@@ -1,26 +1,22 @@
 { config, pkgs, ... }:
 
-let
-
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
-in {
+{
   home = {
     packages = [
-      unstable.ant-bloody-theme
-      unstable.arc-icon-theme
-      unstable.arc-theme
-      unstable.flat-remix-gnome
-      unstable.flat-remix-gtk
-      unstable.flat-remix-icon-theme
-      unstable.fluent-gtk-theme
-      unstable.fluent-icon-theme
-      unstable.graphite-gtk-theme
-      unstable.numix-cursor-theme
-      unstable.numix-gtk-theme
-      unstable.numix-icon-theme
-      unstable.papirus-icon-theme
-      unstable.yaru-theme
+      pkgs.ant-bloody-theme
+      pkgs.arc-icon-theme
+      pkgs.arc-theme
+      pkgs.flat-remix-gnome
+      pkgs.flat-remix-gtk
+      pkgs.flat-remix-icon-theme
+      pkgs.fluent-gtk-theme
+      pkgs.fluent-icon-theme
+      pkgs.graphite-gtk-theme
+      pkgs.numix-cursor-theme
+      pkgs.numix-gtk-theme
+      pkgs.numix-icon-theme
+      pkgs.papirus-icon-theme
+      pkgs.yaru-theme
     ];
   };
 
@@ -29,18 +25,18 @@ in {
 
     iconTheme = {
       name = "Papirus";
-      package = unstable.papirus-icon-theme;
+      package = pkgs.papirus-icon-theme;
     };
 
     cursorTheme = {
      name = "Numix-Cursor-Light";
-     package = unstable.numix-cursor-theme;
+     package = pkgs.numix-cursor-theme;
       size = 35;
     };
 
     theme = {
       name = "Arc-Dark";
-      package = unstable.arc-theme;
+      package = pkgs.arc-theme;
     };
   };
 }
