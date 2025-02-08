@@ -37,6 +37,7 @@
 
     "org/gnome/shell/extensions/dash-to-dock" = {
       "dash-max-icon-size" = "48";
+      "multi-monitor"      = true;
     };
   };
 }

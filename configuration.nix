@@ -179,6 +179,10 @@ in {
         fullName = "Tiago Scolari";
         homeDir  = "/home/tscolari";
 
+        backgroundImage = "background-1.jpg";
+        accentColor     = "green";
+        zshTheme        = "sorin";
+
         git = {
           githubUser = "tscolari";
           email = "git@tscolari.me";
@@ -192,6 +196,10 @@ in {
         username = "work";
         fullName = "Tiago Work";
         homeDir  = "/home/work";
+
+        backgroundImage = "background-2.jpg";
+        accentColor     = "red";
+        zshTheme        = "powerlevel10k";
 
         git = {
           githubUser = "tscolari";

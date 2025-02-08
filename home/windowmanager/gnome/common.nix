@@ -3,12 +3,14 @@
 let
 
   homeDir = config.userData.homeDir;
+  backgroundImage = config.userData.backgroundImage;
+  accentColor = config.userData.accentColor;
 
 in {
 
   home = {
     file = {
-      "${homeDir}/.background.jpg".source = ../../files/background.jpg;
+      "${homeDir}/.background.jpg".source = ../../files/${backgroundImage};
     };
 
     packages = [
@@ -36,6 +38,7 @@ in {
     "org/gnome/desktop/interface" = {
       color-scheme       = "prefer-dark";
       enable-hot-corners = true;
+      accent-color       = "${accentColor}";
     };
 
     "org/gnome/desktop/background" = {
@@ -55,10 +58,6 @@ in {
 
     "org/gnome/desktop/input-sources" = {
       xkb-options = ["terminate:ctrl_alt_bksp" "caps:ctrl_modifier"];
-    };
-
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "Yaru-blue-dark";
     };
 
     "org/gnome/desktop/wm/preferences" = {

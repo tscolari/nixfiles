@@ -28,6 +28,24 @@ in {
         description = "user's username";
       };
 
+      accentColor = mkOption {
+        default = "blue";
+        type = with types; uniq str;
+        description = "Gnome's accent color";
+      };
+
+      backgroundImage = mkOption {
+        default = "background-1.jpg";
+        type = with types; uniq str;
+        description = "Gnome's background";
+      };
+
+      zshTheme = mkOption {
+        default = "sorin";
+        type = with types; uniq str;
+        description = "ZSH Prompt Theme";
+      };
+
       git = {};
     };
   };

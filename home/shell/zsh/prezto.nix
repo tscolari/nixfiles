@@ -1,6 +1,10 @@
 { config, pkgs, userData, ... }:
 
-{
+let
+
+  theme = config.userData.zshTheme;
+
+in {
   programs.zsh = {
     prezto = {
       enable = true;
@@ -25,7 +29,7 @@
       ];
 
       editor.keymap = "emacs";
-      prompt.theme = "sorin";
+      prompt.theme = "${theme}";
       tmux.autoStartLocal = true;
     };
   };
