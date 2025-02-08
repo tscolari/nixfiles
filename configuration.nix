@@ -182,6 +182,7 @@ in {
         backgroundImage = "background-1.jpg";
         accentColor     = "green";
         zshTheme        = "sorin";
+        kittyTheme      = "Afterglow";
 
         git = {
           githubUser = "tscolari";
@@ -200,6 +201,7 @@ in {
         backgroundImage = "background-2.jpg";
         accentColor     = "red";
         zshTheme        = "powerlevel10k";
+        kittyTheme      = "AdventureTime";
 
         git = {
           githubUser = "tscolari";

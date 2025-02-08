@@ -3,6 +3,7 @@
 let
 
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  theme    = config.userData.kittyTheme;
 
 in {
   home = {
@@ -15,7 +16,7 @@ in {
   programs.kitty = {
     enable = true;
     package = unstable.kitty;
-    themeFile = "Afterglow";
+    themeFile = "${theme}";
     settings = {
 
       # Visual

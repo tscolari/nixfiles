@@ -46,6 +46,12 @@ in {
         description = "ZSH Prompt Theme";
       };
 
+      kittyTheme = mkOption {
+        default = "Afterglow";
+        type = with types; uniq str;
+        description = "Kitty Terminal Theme";
+      };
+
       git = {};
     };
   };
