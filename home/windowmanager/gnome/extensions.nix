@@ -39,5 +39,14 @@
       "dash-max-icon-size" = "48";
       "multi-monitor"      = true;
     };
+
+    "org/gnome/shell/extensions/trayIconsReloaded" = {
+      tray-margin-left        = 0;
+      tray-margin-right       = 0;
+      icon-margin-horizontal  = 0;
+      icon-padding-horizontal = 2;
+      icon-padding-vertical   = 2;
+      icons-limit             = 6;
+    };
   };
 }
