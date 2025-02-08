@@ -21,7 +21,10 @@ in {
 
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/color" = {
-      night-light-enabled = true;
+      night-light-enabled            = true;
+      night-light-schedule-automatic = false;
+      night-light-schedule-from      = 0.01;
+      night-light-schedule-to        = 0.0;
     };
 
     "org/gnome/shell" = {
