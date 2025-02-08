@@ -116,16 +116,16 @@ in {
 
 
     extraPackages = [
-      unstable.terraform-ls
-      unstable.nodePackages.eslint
-      unstable.lua-language-server
-      unstable.nodePackages.typescript-language-server
-      unstable.gopls
-      unstable.golangci-lint
-      unstable.vim-language-server
-      unstable.yaml-language-server
-      unstable.postgres-lsp
-      unstable.ruby-lsp
+      pkgs.terraform-ls
+      pkgs.nodePackages.eslint
+      pkgs.lua-language-server
+      pkgs.nodePackages.typescript-language-server
+      pkgs.gopls
+      pkgs.golangci-lint
+      pkgs.vim-language-server
+      pkgs.yaml-language-server
+      pkgs.postgres-lsp
+      pkgs.ruby-lsp
     ];
   };
 }
