@@ -31,7 +31,7 @@
       set -g status-justify centre
       set -g status-bg colour234
       set -g status-left '#[default]┃ #[fg=green,bright]#h #[default]┃ #[fg=blue]#S #I:#P #[default]┃ '
-      set -g status-right '#[default]┃ #[fg=red,dim] #[default]┃ #[fg=white]%l:%M:%S %p #[default]┃ #[fg=blue]%a %Y-%m-%d #[default]┃'
+      set -g status-right '#[default]┃ #[fg=red,dim] #[default]┃ #[fg=white]%R:%S #[default]┃ #[fg=blue]%a %Y-%m-%d #[default]┃'
 
       bind r source-file ~/.tmux.conf
       bind-key C-Space last-window
