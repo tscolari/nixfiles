@@ -34,6 +34,12 @@ in {
         description = "Gnome's accent color";
       };
 
+      iconTheme = mkOption {
+        default = "Papirus";
+        type = with types; uniq str;
+        description = "Gnome's icon theme";
+      };
+
       backgroundImage = mkOption {
         default = "background-1.jpg";
         type = with types; uniq str;

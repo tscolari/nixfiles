@@ -17,19 +17,16 @@
       pkgs.numix-icon-theme
       pkgs.papirus-icon-theme
       pkgs.yaru-theme
+      pkgs.reversal-icon-theme
+      pkgs.zafiro-icons
     ];
   };
 
   gtk = {
     enable = true;
 
-    iconTheme = {
-      name = "Papirus";
-      package = pkgs.papirus-icon-theme;
-    };
-
     cursorTheme = {
-     name = "Numix-Cursor-Light";
+     name = "Numix-Cursor";
      package = pkgs.numix-cursor-theme;
       size = 35;
     };

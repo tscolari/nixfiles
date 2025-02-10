@@ -183,6 +183,7 @@ in {
         accentColor     = "green";
         zshTheme        = "sorin";
         kittyTheme      = "Afterglow";
+        iconTheme       = "Zafiro-icons-Dark";
 
         git = {
           githubUser = "tscolari";
@@ -201,7 +202,8 @@ in {
         backgroundImage = "background-2.jpg";
         accentColor     = "red";
         zshTheme        = "powerlevel10k";
-        kittyTheme      = "AdventureTime";
+        kittyTheme      = "Jackie_Brown";
+        iconTheme       = "Zafiro-icons-Dark";
 
         git = {
           githubUser = "tscolari";

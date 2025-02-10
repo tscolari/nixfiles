@@ -2,9 +2,10 @@
 
 let
 
-  homeDir = config.userData.homeDir;
+  accentColor     = config.userData.accentColor;
   backgroundImage = config.userData.backgroundImage;
-  accentColor = config.userData.accentColor;
+  homeDir         = config.userData.homeDir;
+  iconTheme       = config.userData.iconTheme;
 
 in {
 
@@ -42,6 +43,7 @@ in {
       color-scheme       = "prefer-dark";
       enable-hot-corners = true;
       accent-color       = "${accentColor}";
+      icon-theme         = "${iconTheme}";
     };
 
     "org/gnome/desktop/background" = {
