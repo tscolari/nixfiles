@@ -46,6 +46,11 @@ in {
       icon-theme         = "${iconTheme}";
     };
 
+
+    "org/gnome/mutter" = {
+      experimental-features = [ "scale-monitor-framebuffer" ];
+    };
+
     "org/gnome/desktop/background" = {
       picture-uri = "file://${homeDir}/.background.jpg";
       picture-uri-dark = "file://${homeDir}/.background.jpg";
