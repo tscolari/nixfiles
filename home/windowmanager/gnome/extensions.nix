@@ -16,6 +16,7 @@
       pkgs.gnomeExtensions.user-themes
       pkgs.gnomeExtensions.vitals
       pkgs.gnomeExtensions.windownavigator
+      pkgs.gnomeExtensions.window-state-manager
     ];
   };
 
