@@ -12,7 +12,6 @@ in {
     packages = [
       pkgs.slack
       pkgs.discord
-      pkgs.zoom-us
     ];
   };
 }

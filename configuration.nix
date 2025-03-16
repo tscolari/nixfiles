@@ -45,7 +45,7 @@ in {
   services.automatic-timezoned.enable = true;
 
   services.tailscale = {
-    enable = true;
+    enable = false;
     useRoutingFeatures = "client";
   };
 
@@ -116,6 +116,7 @@ in {
 
   # Gnome configurations
   services.gnome.gnome-browser-connector.enable = true;
+  services.gnome.core-utilities.enable = true;
   programs.dconf.enable = true;
   environment.gnome.excludePackages = (with unstable; [
     gnome-photos
@@ -158,14 +159,14 @@ in {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tiago Scolari";
-    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+    extraGroups = [ "networkmanager" "geoclue" "wheel" "docker" "plugdev" ];
   };
 
   users.users.work = {
     isNormalUser = true;
     shell = pkgs.zsh;
     description = "Tiago Work";
-    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+    extraGroups = [ "networkmanager" "geoclue" "wheel" "docker" "plugdev" ];
   };
 
   home-manager = {
@@ -232,7 +233,13 @@ in {
     zsh
     glibc
 
+    gnome-settings-daemon
+    geoclue2
+    networkmanagerapplet
     unstable.displaylink
+
+    dolphin
+    wofi
 
     awscli2
     bat

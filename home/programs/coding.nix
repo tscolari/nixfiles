@@ -17,6 +17,7 @@ in {
       pkgs.docker-compose
       pkgs.file
       pkgs.grpcui
+      pkgs.hey
       pkgs.hugo
       pkgs.iferr
       pkgs.impl
