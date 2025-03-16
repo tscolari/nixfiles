@@ -2,17 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, nixos-hardware, pkgs, unstable, home-manager, lib, ... }:
 
 let
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in {
   imports =
     [
       # Include the results of the hardware scan.
-      # <nixos-hardware/dell/xps/13-9300>
       ./hardware-configuration.nix
 
       <home-manager/nixos>
