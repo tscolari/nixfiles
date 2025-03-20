@@ -7,8 +7,6 @@
   imports =
     [
       (modulesPath + "/installer/scan/not-detected.nix")
-      <nixos-hardware/lenovo/thinkpad/t14>
-      <nixos-hardware/common/cpu/intel>
     ];
 
 

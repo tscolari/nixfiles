@@ -2,8 +2,6 @@
 
 let
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
 in {
 
   home = {
@@ -32,22 +30,22 @@ in {
       pkgs.richgo
       pkgs.terraform
       pkgs.xclip
-      unstable.buf
-      unstable.ctags
-      unstable.go
-      unstable.go-migrate
-      unstable.go-mockery
-      unstable.gofumpt
-      unstable.golangci-lint
-      unstable.golines
-      unstable.gomodifytags
-      unstable.gopls
-      unstable.gotests
-      unstable.gotestsum
-      unstable.gotools
-      unstable.govulncheck
-      unstable.protoc-gen-go
-      unstable.protoc-gen-go-grpc
+      pkgs.unstable.buf
+      pkgs.unstable.ctags
+      pkgs.unstable.go
+      pkgs.unstable.go-migrate
+      pkgs.unstable.go-mockery
+      pkgs.unstable.gofumpt
+      pkgs.unstable.golangci-lint
+      pkgs.unstable.golines
+      pkgs.unstable.gomodifytags
+      pkgs.unstable.gopls
+      pkgs.unstable.gotests
+      pkgs.unstable.gotestsum
+      pkgs.unstable.gotools
+      pkgs.unstable.govulncheck
+      pkgs.unstable.protoc-gen-go
+      pkgs.unstable.protoc-gen-go-grpc
     ];
   };
 }

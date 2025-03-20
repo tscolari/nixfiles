@@ -2,7 +2,6 @@
 
 with pkgs;
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
   # encorePkg = buildGo123Module rec {
   #   pname       = "encore";

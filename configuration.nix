@@ -2,66 +2,25 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, nixos-hardware, pkgs, unstable, home-manager, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 let
 
-  # unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in {
   imports =
     [
       # Include the results of the hardware scan.
+      ./boot.nix
+      ./networking.nix
+      ./localization.nix
       ./hardware-configuration.nix
-
-      <home-manager/nixos>
-      <nix-ld/modules/nix-ld.nix>
-
       ./ergodox.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.kernelModules = ["kvm-intel"];
+  system.stateVersion = "24.11";
   virtualisation.libvirtd.enable = true;
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    evdi
-  ];
-
-  networking.hostName = "bebop";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Set your time zone.
-  services.automatic-timezoned.enable = true;
-
-  services.tailscale = {
-    enable = false;
-    useRoutingFeatures = "client";
-  };
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_GB.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
-  };
+  virtualisation.docker.enable = true;
 
   services.fwupd.enable = true;
 
@@ -117,10 +76,10 @@ in {
   services.gnome.gnome-browser-connector.enable = true;
   services.gnome.core-utilities.enable = true;
   programs.dconf.enable = true;
-  environment.gnome.excludePackages = (with unstable; [
+  environment.gnome.excludePackages = (with pkgs.unstable; [
     gnome-photos
     gnome-tour
-  ]) ++ (with unstable; [
+  ]) ++ (with pkgs.unstable; [
     gnome-music
     tali
     iagno
@@ -128,7 +87,7 @@ in {
     atomix
     gnome-contacts
     gnome-initial-setup
-  ]) ++ (with unstable; [
+  ]) ++ (with pkgs.unstable; [
     epiphany
     geary
     yelp
@@ -217,9 +176,6 @@ in {
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.extraOutputsToInstall = [ "dev" ];
@@ -235,7 +191,7 @@ in {
     gnome-settings-daemon
     geoclue2
     networkmanagerapplet
-    unstable.displaylink
+    pkgs.unstable.displaylink
 
     dolphin
     wofi
@@ -252,7 +208,7 @@ in {
     fasd
     fd
     flatpak
-    unstable.fzf
+    pkgs.unstable.fzf
     gcc
     git
     git-crypt
@@ -267,7 +223,7 @@ in {
     killall
     lm_sensors
     lua
-    unstable.neovim
+    pkgs.unstable.neovim
     nodePackages.npm
     nodejs
     nomad
@@ -298,10 +254,7 @@ in {
     zsh
   ];
 
-  virtualisation.docker.enable = true;
-
   environment.shells = with pkgs; [ zsh ];
-
   environment.variables = {
     EDITOR = "vim";
   };
@@ -318,25 +271,6 @@ in {
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  networking.firewall = rec {
-    allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
 
   # Experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

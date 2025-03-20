@@ -2,20 +2,19 @@
 
 let
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
   theme    = config.userData.kittyTheme;
 
 in {
   home = {
     packages = [
-      unstable.kitty-themes
+      pkgs.unstable.kitty-themes
       pkgs.pixcat
     ];
   };
 
   programs.kitty = {
     enable = true;
-    package = unstable.kitty;
+    package = pkgs.unstable.kitty;
     themeFile = "${theme}";
     settings = {
 

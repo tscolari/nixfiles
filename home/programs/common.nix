@@ -2,21 +2,19 @@
 
 let
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-
 in {
 
   home = {
     packages = [
       pkgs.pandoc
-      unstable.obsidian
+      pkgs.unstable.obsidian
     ];
   };
 
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
-    package = unstable.fzf;
+    package = pkgs.unstable.fzf;
   };
 
   programs.direnv = {

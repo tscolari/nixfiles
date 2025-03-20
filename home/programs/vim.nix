@@ -1,9 +1,8 @@
-{ config, pkgs, ... }:
+{ config, pkgs, vimfiles, ... }@args:
 
 let
 
   homeDir = config.userData.homeDir;
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in {
 
@@ -12,12 +11,7 @@ in {
     # Files and remote configurations
     file = {
       # Neovim
-      "${homeDir}/.config/nvim".source = builtins.fetchGit {
-        url = "https://github.com/tscolari/nvim";
-        submodules = true;
-        shallow = true;
-        ref = "main";
-      };
+      "${homeDir}/.config/nvim".source = vimfiles;
       "${homeDir}/.local/dotfiles/nvim/plugin/.empty".source = ../files/empty;
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ../files/empty;
       "${homeDir}/.local/share/nvim/.empty".source = ../files/empty;
@@ -28,7 +22,7 @@ in {
       pkgs.nerdfonts
       pkgs.texliveFull
       pkgs.zathura
-      unstable.lua-language-server
+      pkgs.unstable.lua-language-server
     ];
   };
 
@@ -38,7 +32,7 @@ in {
     viAlias       = true;
     vimAlias      = true;
 
-    package = unstable.neovim.unwrapped;
+    package = pkgs.unstable.neovim.unwrapped;
 
     plugins = with pkgs.vimPlugins; [
       (nvim-treesitter.withPlugins (plugins: with plugins; [
@@ -113,7 +107,6 @@ in {
           yaml
       ]))
     ];
-
 
     extraPackages = [
       pkgs.terraform-ls

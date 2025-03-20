@@ -2,12 +2,11 @@
 
 let
 
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 
 in {
   programs.alacritty = {
     enable = true;
-    package = unstable.alacritty;
+    package = pkgs.unstable.alacritty;
     settings = {
       env.TERM = "xterm-256color";
       tabspaces = 8;
