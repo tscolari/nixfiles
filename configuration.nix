@@ -202,7 +202,7 @@ in {
     cargo
     cmake
     consul
-    ctags
+    pkgs.unstable.universal-ctags
     curl
     direnv
     fasd

@@ -16,6 +16,7 @@ in {
       pkgs.file
       pkgs.grpcui
       pkgs.hey
+      pkgs.hub
       pkgs.hugo
       pkgs.iferr
       pkgs.impl
@@ -29,9 +30,7 @@ in {
       pkgs.reftools
       pkgs.richgo
       pkgs.terraform
-      pkgs.xclip
       pkgs.unstable.buf
-      pkgs.unstable.ctags
       pkgs.unstable.go
       pkgs.unstable.go-migrate
       pkgs.unstable.go-mockery
@@ -46,6 +45,7 @@ in {
       pkgs.unstable.govulncheck
       pkgs.unstable.protoc-gen-go
       pkgs.unstable.protoc-gen-go-grpc
+      pkgs.xclip
     ];
   };
 }
