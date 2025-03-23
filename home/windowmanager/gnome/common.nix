@@ -111,7 +111,7 @@ in {
 
     "org/gnome/desktop/app-folders/folders/44608531-532a-4d8d-b0b7-cae603cd2875" = {
       name = "Messaging";
-      apps = ["io.github.mimbrero.WhatsAppDesktop.desktop" "skypeforlinux.desktop" "discord.desktop" "slack.desktop"];
+      apps = ["io.github.mimbrero.WhatsAppDesktop.desktop" "discord.desktop" "slack.desktop"];
     };
 
   };

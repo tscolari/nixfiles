@@ -26,9 +26,6 @@ in {
 
     # Game
       pkgs.steam
-
-    # Video
-      pkgs.skypeforlinux
     ];
 
   };
