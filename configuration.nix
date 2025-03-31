@@ -14,7 +14,6 @@ in {
       ./boot.nix
       ./networking.nix
       ./localization.nix
-      ./hardware-configuration.nix
       ./ergodox.nix
     ];
 

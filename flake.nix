@@ -38,14 +38,11 @@
     let
       system = "x86_64-linux";
 
-      genericModules = [
+      # Base common modules used by all systems
+      baseModules = [
         ./configuration.nix
 
-        nixos-hardware.nixosModules.lenovo-thinkpad-t14
-        nixos-hardware.nixosModules.common-cpu-intel
-
         nix-ld.nixosModules.nix-ld
-
         home-manager.nixosModules.home-manager
 
         {
@@ -56,7 +53,6 @@
         }
 
         {
-          nix.registry.nixos.flake = inputs.self;
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit vimfiles; };
@@ -94,7 +90,7 @@
       };
 
       overlay-vimfiles = final: prev: {
-        master = import vimfiles;
+        vimfiles = vimfiles;
       };
 
       pkgs = import nixpkgs {
@@ -108,12 +104,42 @@
         ];
       };
 
+      # Function to create a system configuration
+      mkSystem = { hostName, hardwareModules ? [], extraModules ? [] }:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = baseModules ++ hardwareModules ++ extraModules ++ [
+            (./hosts + "/${hostName}")
+            {
+              networking.hostName = hostName;
+            }
+          ];
+        };
+
   in {
 
-    nixosConfigurations.bebop = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      system  = "x86_64-linux";
-      modules = genericModules;
+    nixosConfigurations = {
+      bebop = mkSystem {
+        hostName = "bebop";
+        hardwareModules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14
+            nixos-hardware.nixosModules.common-cpu-intel
+        ];
+        extraModules = [
+          ./hosts/bebop
+        ];
+      };
+
+      # spike = mkSystem {
+      #   hostName = "spike";
+      #   hardwareModules = [
+      #     nixos-hardware.nixosModules.lenovo-thinkpad-t14s
+      #   ];
+      #   extraModules = [
+      #     ./hosts/bebop
+      #   ];
+      # };
     };
   };
 }
