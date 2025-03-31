@@ -35,6 +35,7 @@ in {
     package = pkgs.unstable.neovim.unwrapped;
 
     plugins = with pkgs.vimPlugins; [
+      pkgs.unstable.vimPlugins.avante-nvim
       (nvim-treesitter.withPlugins (plugins: with plugins; [
           c
           c_sharp
