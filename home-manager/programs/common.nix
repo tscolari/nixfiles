@@ -4,13 +4,6 @@ let
 
 in {
 
-  home = {
-    packages = [
-      pkgs.pandoc
-      pkgs.unstable.obsidian
-    ];
-  };
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;

@@ -14,7 +14,6 @@ in {
       pkgs.dig
       pkgs.docker-compose
       pkgs.file
-      pkgs.grpcui
       pkgs.hey
       pkgs.hub
       pkgs.hugo
@@ -22,6 +21,7 @@ in {
       pkgs.impl
       pkgs.kind
       pkgs.kubectl
+      pkgs.kubernetes
       pkgs.kubernetes-helm
       pkgs.minikube
       pkgs.mockgen
@@ -29,6 +29,7 @@ in {
       pkgs.python312Packages.pip
       pkgs.reftools
       pkgs.richgo
+      pkgs.sysprof
       pkgs.terraform
       pkgs.unstable.buf
       pkgs.unstable.go
@@ -45,7 +46,6 @@ in {
       pkgs.unstable.govulncheck
       pkgs.unstable.protoc-gen-go
       pkgs.unstable.protoc-gen-go-grpc
-      pkgs.xclip
     ];
   };
 }

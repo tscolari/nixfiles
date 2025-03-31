@@ -42,6 +42,8 @@
       # Base common modules used by all systems
       baseModules = [
         ./configuration.nix
+        ./nixos/common
+        ./nixos/modules
 
         nix-ld.nixosModules.nix-ld
         home-manager.nixosModules.home-manager
@@ -136,6 +138,7 @@
         ];
         extraModules = [
           ./hosts/bebop
+          ./nixos/roles/desktop
         ];
       };
 
