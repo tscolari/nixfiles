@@ -37,6 +37,7 @@
 
     let
       system = "x86_64-linux";
+      lib = nixpkgs.lib;
 
       # Base common modules used by all systems
       baseModules = [
@@ -104,10 +105,16 @@
         ];
       };
 
+      # All available user configurations.
+      usersConfig = import ./users.nix;
+
       # Function to create a system configuration
-      mkSystem = { hostName, hardwareModules ? [], extraModules ? [] }:
-        nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+      mkSystem = { hostName, users ? [], hardwareModules ? [], extraModules ? [] }:
+        lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
+          };
           system = "x86_64-linux";
           modules = baseModules ++ hardwareModules ++ extraModules ++ [
             (./hosts + "/${hostName}")
@@ -122,9 +129,10 @@
     nixosConfigurations = {
       bebop = mkSystem {
         hostName = "bebop";
+        users = ["tscolari" "work"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
-            nixos-hardware.nixosModules.common-cpu-intel
+          nixos-hardware.nixosModules.common-cpu-intel
         ];
         extraModules = [
           ./hosts/bebop

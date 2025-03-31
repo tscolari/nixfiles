@@ -2,10 +2,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, hostUsers,... }:
 
 let
-
 
 in {
   imports =
@@ -112,63 +111,23 @@ in {
      })
   ];
 
-  users.users.tscolari = {
+  users.users = lib.mapAttrs (username: userData: {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Tiago Scolari";
+    description = userData.fullName;
+    home = userData.homeDir;
     extraGroups = [ "networkmanager" "geoclue" "wheel" "docker" "plugdev" ];
-  };
+  }) hostUsers;
 
-  users.users.work = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-    description = "Tiago Work";
-    extraGroups = [ "networkmanager" "geoclue" "wheel" "docker" "plugdev" ];
-  };
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    users.tscolari = import ./home {
+    users = lib.mapAttrs (username: userData: import ./home-manager {
       inherit pkgs lib config;
-      userData = {
-        username = "tscolari";
-        fullName = "Tiago Scolari";
-        homeDir  = "/home/tscolari";
-
-        backgroundImage = "background-1.jpg";
-        accentColor     = "green";
-        zshTheme        = "sorin";
-        kittyTheme      = "Afterglow";
-        iconTheme       = "Zafiro-icons-Dark";
-
-        git = {
-          githubUser = "tscolari";
-          email = "git@tscolari.me";
-        };
-      };
-    };
-
-    users.work = import ./home {
-      inherit pkgs lib config;
-      userData = {
-        username = "work";
-        fullName = "Tiago Work";
-        homeDir  = "/home/work";
-
-        backgroundImage = "background-2.jpg";
-        accentColor     = "red";
-        zshTheme        = "powerlevel10k";
-        kittyTheme      = "Jackie_Brown";
-        iconTheme       = "Zafiro-icons-Dark";
-
-        git = {
-          githubUser = "tscolari";
-          email = "git@tscolari.me";
-        };
-      };
-    };
+      userData = userData;
+    }) hostUsers;
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229

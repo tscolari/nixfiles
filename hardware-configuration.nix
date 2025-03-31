@@ -1,1 +1,0 @@
-./machines/thinkpad.hardware-configuration.nix
