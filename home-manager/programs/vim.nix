@@ -111,17 +111,17 @@ in {
       ]))
     ];
 
-    extraPackages = [
-      pkgs.terraform-ls
-      pkgs.nodePackages.eslint
-      pkgs.lua-language-server
-      pkgs.nodePackages.typescript-language-server
-      pkgs.gopls
-      pkgs.golangci-lint
-      pkgs.vim-language-server
-      pkgs.yaml-language-server
-      pkgs.postgres-lsp
-      pkgs.ruby-lsp
+    extraPackages = with pkgs.unstable; [
+      terraform-ls
+      nodePackages.eslint
+      lua-language-server
+      nodePackages.typescript-language-server
+      gopls
+      golangci-lint
+      vim-language-server
+      yaml-language-server
+      postgres-lsp
+      ruby-lsp
     ];
   };
 }
