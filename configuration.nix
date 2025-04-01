@@ -62,7 +62,7 @@ in {
     shell = pkgs.zsh;
     description = userData.fullName;
     home = userData.homeDir;
-    extraGroups = [ "networkmanager" "geoclue" "wheel" "docker" "plugdev" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
   }) hostUsers;
 
 

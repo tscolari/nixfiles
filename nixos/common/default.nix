@@ -10,7 +10,6 @@
       wget
       zsh
       glibc
-      geoclue2
       networkmanagerapplet
       awscli2
       bat
