@@ -112,16 +112,17 @@ in {
     ];
 
     extraPackages = with pkgs.unstable; [
-      terraform-ls
-      nodePackages.eslint
-      lua-language-server
-      nodePackages.typescript-language-server
-      gopls
       golangci-lint
-      vim-language-server
-      yaml-language-server
+      gopls
+      lua-language-server
+      nil
+      nodePackages.eslint
+      nodePackages.typescript-language-server
       postgres-lsp
       ruby-lsp
+      terraform-ls
+      vim-language-server
+      yaml-language-server
     ];
   };
 }

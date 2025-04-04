@@ -134,6 +134,7 @@
         users = ["tscolari" "work"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
+          nixos-hardware.nixosModules.common-pc-laptop
           nixos-hardware.nixosModules.common-cpu-intel
         ];
         extraModules = [

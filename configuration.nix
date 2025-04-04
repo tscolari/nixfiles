@@ -11,46 +11,15 @@ in {
   virtualisation.libvirtd.enable = true;
   virtualisation.docker.enable = true;
 
-  services.fwupd.enable = true;
-
-  services.cron = {
-    enable = true;
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-
   powerManagement.enable = true;
 
-  services.libinput = {
-    # tap to click
-    enable = true;
-    touchpad.tapping = true;
-  };
-
-  services.flatpak.enable = true;
-
   programs.nix-ld.dev.enable = false;
-
   programs.zsh.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   security.polkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   nixpkgs.overlays = [
     (self: super: {
      fcitx-engines = pkgs.fcitx5;
@@ -76,33 +45,43 @@ in {
     }) hostUsers;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.extraOutputsToInstall = [ "dev" ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  # Experimental features
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+    };
+  };
 
   # List services that you want to enable:
+  services = {
+    fwupd.enable    = true;
+    cron.enable     = true;
+    flatpak.enable  = true;
+    # Enable CUPS to print documents.
+    printing.enable = true;
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+    avahi = {
+      enable            = true;
+      nssmdns4          = true;
+      openFirewall      = true;
+    };
 
-  # Experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    libinput = {
+      enable            = true;
+      touchpad.tapping  = true;
+    };
 
-  # Auto-optimise the store
-  nix.settings.auto-optimise-store = true;
-
-  # Garbage collection settings
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 14d";
+    pipewire = {
+      enable            = true;
+      alsa.enable       = true;
+      alsa.support32Bit = true;
+      pulse.enable      = true;
+    };
   };
 }

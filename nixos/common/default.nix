@@ -3,31 +3,23 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      curl
-      docker
-      git
-      vim
-      wget
-      zsh
-      glibc
-      networkmanagerapplet
       awscli2
       bat
       calibre
       cargo
       cmake
       consul
-      pkgs.unstable.universal-ctags
       curl
       direnv
+      docker
       fasd
       fd
       flatpak
-      pkgs.unstable.fzf
       gcc
+      gh
       git
       git-crypt
-      mutter
+      glibc
       gnumake
       gnupg
       grpcurl
@@ -37,7 +29,9 @@
       killall
       lm_sensors
       lua
-      pkgs.unstable.neovim
+      mutter
+      networkmanagerapplet
+      nil
       nodePackages.npm
       nodejs
       nomad
@@ -62,8 +56,13 @@
       tmux
       tree
       tree-sitter
+      unstable.fzf
+      unstable.neovim
+      unstable.universal-ctags
       unzip
+      vim
       watch
+      wget
       yarn
       zsh
     ];

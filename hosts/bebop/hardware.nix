@@ -9,8 +9,6 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-
-
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
@@ -55,8 +53,5 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [
-      vpl-gpu-rt
-    ];
   };
 }
