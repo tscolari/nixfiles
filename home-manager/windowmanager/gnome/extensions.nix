@@ -3,20 +3,20 @@
 {
 
   home = {
-    packages = [
-    # Gnome extensions
-      pkgs.gnomeExtensions.clipboard-indicator
-      pkgs.gnomeExtensions.custom-hot-corners-extended
-      pkgs.gnomeExtensions.dash-to-dock
-      pkgs.gnomeExtensions.grand-theft-focus
-      pkgs.gnomeExtensions.gsconnect
-      pkgs.gnomeExtensions.night-theme-switcher
-      pkgs.gnomeExtensions.screenshot-window-sizer
-      pkgs.gnomeExtensions.tray-icons-reloaded
-      pkgs.gnomeExtensions.user-themes
-      pkgs.gnomeExtensions.vitals
-      pkgs.gnomeExtensions.windownavigator
-      pkgs.gnomeExtensions.window-state-manager
+    packages = with pkgs.gnomeExtensions; [
+      auto-power-profile
+      clipboard-indicator
+      custom-hot-corners-extended
+      dash-to-dock
+      grand-theft-focus
+      gsconnect
+      night-theme-switcher
+      screenshot-window-sizer
+      tray-icons-reloaded
+      user-themes
+      vitals
+      window-state-manager
+      windownavigator
     ];
   };
 
@@ -25,6 +25,7 @@
       disable-user-extensions = false;
 
       enable-extensions = [
+        "auto-power-profile@dmy3k.github.io"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
         "trayIconsReloaded@selfmade.pl"
         "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
@@ -48,6 +49,13 @@
       icon-padding-horizontal = 2;
       icon-padding-vertical   = 2;
       icons-limit             = 6;
+    };
+
+    "org/gnome/shell/extensions/auto-power-profile" = {
+      ac        = "performance";
+      bat       = "balanced";
+      lapmode   = false;
+      threshold = 35;
     };
   };
 }
