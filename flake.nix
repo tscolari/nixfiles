@@ -58,8 +58,8 @@
         }
 
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
+          home-manager.useGlobalPkgs    = true;
+          home-manager.useUserPackages  = true;
           home-manager.extraSpecialArgs = { inherit vimfiles; };
         }
 
@@ -133,8 +133,8 @@
 
     nixosConfigurations = {
       bebop = mkSystem {
-        hostName = "bebop";
-        users = ["tscolari" "work"];
+        hostName        = "bebop";
+        users           = ["tscolari" "work"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
           nixos-hardware.nixosModules.common-pc-laptop
@@ -146,15 +146,18 @@
         ];
       };
 
-      # spike = mkSystem {
-      #   hostName = "spike";
-      #   hardwareModules = [
-      #     nixos-hardware.nixosModules.lenovo-thinkpad-t14s
-      #   ];
-      #   extraModules = [
-      #     ./hosts/bebop
-      #   ];
-      # };
+      tars = mkSystem {
+        hostName        = "TARS";
+        users           = ["work"];
+        hardwareModules = [
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14s
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd
+        ];
+        extraModules = [
+          ./hosts/tars
+          ./nixos/roles/desktop
+        ];
+      };
     };
   };
 }

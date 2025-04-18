@@ -11,6 +11,8 @@
       kittyTheme      = "Afterglow";
       iconTheme       = "Zafiro-icons-Dark";
 
+      extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+
       git = {
         githubUser = "tscolari";
         email = "git@tscolari.me";
@@ -27,6 +29,8 @@
       zshTheme        = "powerlevel10k";
       kittyTheme      = "Jackie_Brown";
       iconTheme       = "Zafiro-icons-Dark";
+
+      extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
 
       git = {
         githubUser = "tscolari";

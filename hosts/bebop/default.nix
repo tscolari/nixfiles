@@ -2,7 +2,8 @@
 
 {
   imports = [
-      ./hardware.nix
+      ./generated.nix
+      ./custom.nix
     ];
 
 }

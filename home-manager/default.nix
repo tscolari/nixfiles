@@ -58,6 +58,10 @@ in {
         description = "Kitty Terminal Theme";
       };
 
+      extraGroups = mkOption {
+        default = [];
+      };
+
       git = {};
     };
   };

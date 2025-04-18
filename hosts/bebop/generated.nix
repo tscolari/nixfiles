@@ -11,7 +11,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -24,6 +24,7 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/4428-A211";
       fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices =
