@@ -74,6 +74,7 @@ in {
       ./programs
       ./windowmanager
       ./terminal
+      ./by-user/${cfg.username}
     ];
 
   config = {
