@@ -4,6 +4,7 @@
     nixpkgs.url          = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url   = "github:NixOS/nixpkgs/master";
+    tscolari-pkgs.url    = "github:tscolari/nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -28,6 +29,7 @@
     , nixpkgs
     , nixpkgs-unstable
     , nixpkgs-master
+    , tscolari-pkgs
     , home-manager
     , nixos-hardware
     , nix-ld
@@ -70,6 +72,7 @@
                 overlay-unstable
                 overlay-master
                 overlay-vimfiles
+                tscolari-pkgs.overlays.default
               ];
           }
         )

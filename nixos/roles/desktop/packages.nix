@@ -5,6 +5,7 @@
     systemPackages = with pkgs; [
       _1password-gui
       blanket
+      cameractrls-gtk4
       chromium
       discord
       dolphin
@@ -13,6 +14,7 @@
       grpcui
       inkscape-with-extensions
       pandoc
+      pinta
       polari
       shortwave
       slack

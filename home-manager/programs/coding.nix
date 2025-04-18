@@ -11,6 +11,7 @@ in {
       pkgs.consul
       pkgs.dapr-cli
       pkgs.delve
+      pkgs.diagridcli
       pkgs.dig
       pkgs.docker-compose
       pkgs.file
