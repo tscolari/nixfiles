@@ -3,26 +3,12 @@
 let
 
   accentColor     = config.userData.accentColor;
-  backgroundImage = config.userData.backgroundImage;
   homeDir         = config.userData.homeDir;
   iconTheme       = config.userData.iconTheme;
 
 in {
 
-  home = {
-    file = {
-      "${homeDir}/.background.jpg".source = ../../files/${backgroundImage};
-    };
-
-    packages = [
-      pkgs.gnome-tweaks
-      pkgs.gjs
-    ];
-  };
-
   gtk = {
-    enable = true;
-
     cursorTheme = {
      name = "Numix-Cursor";
      package = pkgs.numix-cursor-theme;
