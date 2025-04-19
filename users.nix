@@ -27,7 +27,7 @@
       backgroundImage = "background-2.jpg";
       accentColor     = "red";
       zshTheme        = "powerlevel10k";
-      kittyTheme      = "Jackie_Brown";
+      kittyTheme      = "ayu_mirage";
       iconTheme       = "Zafiro-icons-Dark";
 
       extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
