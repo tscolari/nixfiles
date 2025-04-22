@@ -20,4 +20,7 @@
     alsa.enable       = true;
     alsa.support32Bit = true;
   };
+
+  # Fixes for suspend/hibernate + DisplayLink
+  systemd.services."pre-sleep".wantedBy = lib.mkForce [ ];
 }
