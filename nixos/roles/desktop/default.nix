@@ -22,5 +22,24 @@
   };
 
   # Fixes for suspend/hibernate + DisplayLink
-  systemd.services."pre-sleep".wantedBy = lib.mkForce [ ];
+  # systemd.services."pre-sleep".wantedBy = lib.mkForce [ ];
+
+    # Override the default powerDownCommands
+  powerManagement.powerDownCommands = lib.mkForce ''
+      # Check if DisplayLink pipes exist
+      if [ -p /tmp/PmMessagesPort_in ] && [ -f /tmp/PmMessagesPort_out ]; then
+        # Flush any bytes in pipe
+        while read -n 1 -t 1 SUSPEND_RESULT < /tmp/PmMessagesPort_out; do : ; done;
+
+        # Send suspend signal
+        echo "S" > /tmp/PmMessagesPort_in
+
+        # Wait with timeout for response
+        if read -n 1 -t 10 SUSPEND_RESULT < /tmp/PmMessagesPort_out; then
+          echo "DisplayLinkManager suspended successfully"
+        else
+          echo "DisplayLinkManager suspend timed out, continuing anyway"
+        fi
+      fi
+  '';
 }
