@@ -5,11 +5,15 @@
     systemPackages = with pkgs; [
       _1password-gui
       blanket
+      blueprint-compiler
       cameractrls-gtk4
       chromium
       discord
       dolphin
-      firefox
+      unstable.firefox
+      flatpak-builder
+      gimp
+      gnome-builder
       gnome-settings-daemon
       grpcui
       inkscape-with-extensions
