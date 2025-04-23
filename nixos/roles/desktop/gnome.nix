@@ -17,7 +17,6 @@
     gnome-contacts
     gnome-initial-setup
   ]) ++ (with pkgs.unstable; [
-    epiphany
     geary
     yelp
   ]);
