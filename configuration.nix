@@ -7,9 +7,11 @@
 let
 
 in {
-  system.stateVersion            = "24.11";
-  virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable   = true;
+  system.stateVersion              = "24.11";
+  virtualisation.libvirtd.enable   = true;
+  virtualisation.containers.enable = true;
+  virtualisation.docker.enable     = true;
+  virtualisation.podman.enable     = true;
 
   # Power management (for better battery life)
   powerManagement.enable   = true;

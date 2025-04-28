@@ -11,6 +11,7 @@
       consul
       curl
       direnv
+      distrobox
       docker
       fasd
       fd
@@ -40,6 +41,7 @@
       pciutils
       pinentry
       pmutils
+      podman
       postgresql
       procps
       pstree
