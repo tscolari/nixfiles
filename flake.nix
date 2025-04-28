@@ -138,6 +138,7 @@
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14
           nixos-hardware.nixosModules.common-cpu-intel
+          tscolari-pkgs.nixosModules.default
         ];
         extraModules = [
           ./hosts/bebop

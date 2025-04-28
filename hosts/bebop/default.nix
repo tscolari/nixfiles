@@ -2,8 +2,9 @@
 
 {
   imports = [
-      ./generated.nix
       ./custom.nix
+      ./generated.nix
+      ./vanta.nix
       ./wififix.nix
     ];
 

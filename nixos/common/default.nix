@@ -60,6 +60,7 @@
       unstable.neovim
       unstable.universal-ctags
       unzip
+      vanta-agent
       vim
       watch
       wget
