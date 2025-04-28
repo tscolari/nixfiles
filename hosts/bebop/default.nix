@@ -4,6 +4,7 @@
   imports = [
       ./generated.nix
       ./custom.nix
+      ./wififix.nix
     ];
 
 }
