@@ -134,11 +134,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1745858666,
-        "narHash": "sha256-/fqfcTU7ONSfwBbwQ7pJJDb//8AqfGp950lJX3cB58Y=",
+        "lastModified": 1745916590,
+        "narHash": "sha256-XFzZa9cn6KIIrIpDjUmcxtwn4vpDKLaI0reP+/8wtGo=",
         "owner": "tscolari",
         "repo": "nixpkgs",
-        "rev": "eb9023285c4cddcc2a3ca40108457b455daebfd5",
+        "rev": "a134b8dfde19901dac45005cc2cb0c6589beaadf",
         "type": "github"
       },
       "original": {
