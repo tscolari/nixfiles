@@ -30,9 +30,6 @@ in {
   }) hostUsers;
 
   home-manager = {
-    useGlobalPkgs   = true;
-    useUserPackages = true;
-
     users = lib.mapAttrs (username: userData: import ./home-manager {
       inherit pkgs lib config;
       userData = userData;

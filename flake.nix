@@ -59,7 +59,6 @@
 
         {
           home-manager.useGlobalPkgs    = true;
-          home-manager.useUserPackages  = true;
           home-manager.extraSpecialArgs = { inherit vimfiles; };
         }
 
@@ -141,13 +140,12 @@
           tscolari-pkgs.nixosModules.default
         ];
         extraModules = [
-          ./hosts/bebop
           ./nixos/roles/desktop
         ];
       };
 
       tars = mkSystem {
-        hostName        = "TARS";
+        hostName        = "HAL";
         users           = ["work"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s
@@ -155,7 +153,6 @@
           nixos-hardware.nixosModules.common-pc-laptop-ssd
         ];
         extraModules = [
-          ./hosts/tars
           ./nixos/roles/desktop
         ];
       };
