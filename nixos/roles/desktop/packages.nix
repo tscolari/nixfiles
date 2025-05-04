@@ -6,15 +6,18 @@
       _1password-gui
       blanket
       blueprint-compiler
+      calibre
       cameractrls-gtk4
       chromium
       discord
       dolphin
       unstable.firefox
       flatpak-builder
+      gjs
       gimp
       gnome-builder
       gnome-settings-daemon
+      gnome-tweaks
       grpcui
       inkscape-with-extensions
       pandoc

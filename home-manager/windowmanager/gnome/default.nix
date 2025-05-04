@@ -16,11 +16,6 @@ in {
     file = {
       "${homeDir}/.background.jpg".source = ../../files/${backgroundImage};
     };
-
-    packages = [
-      pkgs.gnome-tweaks
-      pkgs.gjs
-    ];
   };
 
   gtk.enable = true;

@@ -2,7 +2,6 @@
 
 {
   imports = [
-      ./coding.nix
       ./git.nix
       ./go.nix
       ./vim.nix
