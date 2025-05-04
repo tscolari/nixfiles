@@ -43,6 +43,14 @@
       # git add the right stuff
       git = "noglob git";
       gpr = "git pull --rebase";
+
+
+      # Kubernetes
+      k = "kubectl";
+      kn = "kubens";
+      kc = "kubectx";
+      kg = "kubectl get";
+      kd = "kubectl describe";
     };
 
     shellGlobalAliases = {

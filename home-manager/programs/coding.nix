@@ -15,6 +15,7 @@ in {
       pkgs.dig
       pkgs.docker-compose
       pkgs.file
+      pkgs.helmfile
       pkgs.hey
       pkgs.hub
       pkgs.hugo
@@ -22,6 +23,7 @@ in {
       pkgs.impl
       pkgs.kind
       pkgs.kubectl
+      pkgs.kubectx
       pkgs.kubernetes
       pkgs.kubernetes-helm
       pkgs.minikube
@@ -32,6 +34,7 @@ in {
       pkgs.richgo
       pkgs.sysprof
       pkgs.terraform
+      pkgs.yq
       pkgs.unstable.buf
       pkgs.unstable.go
       pkgs.unstable.go-migrate

@@ -10,13 +10,14 @@ in {
   system.stateVersion              = "24.11";
   virtualisation.libvirtd.enable   = true;
   virtualisation.containers.enable = true;
-  virtualisation.docker.enable     = true;
   virtualisation.podman.enable     = true;
+  virtualisation.docker.enable     = true;
 
   # Power management (for better battery life)
   powerManagement.enable   = true;
   services.thermald.enable = true;
 
+  programs.nix-ld.enable = false;
   programs.nix-ld.dev.enable = false;
   programs.zsh.enable = true;
 

@@ -8,6 +8,7 @@
       calibre
       cargo
       cmake
+      concurrently
       consul
       curl
       direnv
@@ -23,12 +24,14 @@
       glibc
       gnumake
       gnupg
+      google-cloud-sdk
       grpcurl
       gtop
       htop
       jq
       killall
       lm_sensors
+      lsof
       lua
       mutter
       networkmanagerapplet
@@ -49,8 +52,10 @@
       ripgrep
       ruby
       rustc
+      screen
       shellcheck
       silver-searcher
+      socat
       ssh-copy-id
       terraform
       tig
