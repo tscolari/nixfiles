@@ -58,8 +58,10 @@
         }
 
         {
+          home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs    = true;
           home-manager.extraSpecialArgs = { inherit vimfiles; };
+          home-manager.backupFileExtension = "backup";
         }
 
         # Make sure you add Overlays here
