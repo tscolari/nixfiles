@@ -8,6 +8,7 @@
       calibre
       cargo
       cmake
+      cloudflared
       concurrently
       consul
       curl
