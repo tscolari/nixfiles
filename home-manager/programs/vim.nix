@@ -16,9 +16,6 @@ in {
       "${homeDir}/.local/dotfiles/nvim/user/.empty".source = ../files/empty;
       "${homeDir}/.local/share/nvim/.empty".source = ../files/empty;
       "${homeDir}/.cache/.empty".source = ../files/empty;
-      "${homeDir}/bin/nvim".source = pkgs.writeShellScript "nvim" ''
-        exec /run/current-system/sw/bin/nvim "$@"
-      '';
     };
 
     packages = [
@@ -36,7 +33,7 @@ in {
     viAlias       = true;
     vimAlias      = true;
 
-    package = pkgs.neovim.unwrapped;
+    package = pkgs.unstable.neovim.unwrapped;
 
     plugins = with pkgs.unstable.vimPlugins; [
 

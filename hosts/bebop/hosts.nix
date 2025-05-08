@@ -7,6 +7,7 @@ networking.extraHosts =
   127.0.0.1 localhost.local.diagrid.io
   127.0.0.1 admin.local.diagrid.io
   127.0.0.1 api.local.diagrid.io
+  127.0.0.1 tunnels.api.local.diagrid.io
   127.0.0.1 admingrid.local.diagrid.io
   127.0.0.1 cloudgrid.local.diagrid.io
   127.0.0.1 cra.local.diagrid.io
