@@ -62,6 +62,15 @@ in {
         default = [];
       };
 
+      dashApps = mkOption {
+        default = [
+          "firefox.desktop"
+          "kitty.desktop"
+          "org.gnome.Calendar.desktop"
+          "org.gnome.Nautilus.desktop"
+        ];
+      };
+
       git = {};
     };
   };
