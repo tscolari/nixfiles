@@ -26,6 +26,10 @@ in {
       automatic-timezone = true;
     };
 
+    "org/gnome/desktop/notifications/application" = {
+      "firefox/enable" = false;
+    };
+
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled            = true;
       night-light-schedule-automatic = false;
