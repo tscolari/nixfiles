@@ -43,6 +43,7 @@
       kubectx
       kubernetes
       kubernetes-helm
+      libsecret
       lm_sensors
       lsof
       lua

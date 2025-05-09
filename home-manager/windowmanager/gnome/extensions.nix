@@ -26,14 +26,15 @@
 
       enable-extensions = [
         "auto-power-profile@dmy3k.github.io"
-        "user-theme@gnome-shell-extensions.gcampax.github.com"
-        "trayIconsReloaded@selfmade.pl"
-        "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
-        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
         "clipboard-indicator@tudmotu.com"
-        "dash-to-dock@micxgx.gmail.com"
         "custom-hot-corners-extended@G-dH.github.com"
+        "dash-to-dock@micxgx.gmail.com"
+        "grand-theft-focus@zalckos.github.com"
         "quick@web.search"
+        "screenshot-window-sizer@gnome-shell-extensions.gcampax.github.com"
+        "trayIconsReloaded@selfmade.pl"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "windowsNavigator@gnome-shell-extensions.gcampax.github.com"
       ];
     };
 

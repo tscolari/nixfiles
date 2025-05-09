@@ -18,6 +18,8 @@
       gnome-builder
       gnome-settings-daemon
       gnome-tweaks
+      xdg-desktop-portal
+      xdg-desktop-portal-gnome
       grpcui
       inkscape-with-extensions
       pandoc

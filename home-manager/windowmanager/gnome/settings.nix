@@ -22,6 +22,10 @@ in {
   };
 
   dconf.settings = {
+    "org/gnome/desktop/datetime" = {
+      automatic-timezone = true;
+    };
+
     "org/gnome/settings-daemon/plugins/color" = {
       night-light-enabled            = true;
       night-light-schedule-automatic = false;
