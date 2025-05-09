@@ -4,9 +4,10 @@
   imports = [
       ./custom.nix
       ./generated.nix
+      ./hardware.nix
       ./hosts.nix
+      ./networking.nix
       ./vanta.nix
-      ./wififix.nix
     ];
 
 }

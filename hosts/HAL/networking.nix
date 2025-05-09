@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }:
+
 {
+  networking.networkmanager.wifi.backend = "wpa_supplicant";
+
   systemd.user.services."wifi-resume" = {
     description = "Restart NetworkManager Wi-Fi after resume";
     wantedBy = [ "suspend.target" "hibernate.target" ];

@@ -146,13 +146,14 @@
         ];
       };
 
-      tars = mkSystem {
+      HAL = mkSystem {
         hostName        = "HAL";
         users           = ["work"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd
+          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
           nixos-hardware.nixosModules.common-pc-laptop-ssd
+          tscolari-pkgs.nixosModules.default
         ];
         extraModules = [
           ./nixos/roles/desktop

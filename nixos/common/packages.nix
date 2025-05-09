@@ -4,11 +4,12 @@
   environment = {
     systemPackages = with pkgs; [
       awscli2
+      bash
       bat
       calibre
       cargo
-      cmake
       cloudflared
+      cmake
       concurrently
       consul
       curl
