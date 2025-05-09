@@ -42,7 +42,6 @@
       kubectl
       kubectx
       kubernetes
-      kubernetes-helm
       libsecret
       lm_sensors
       lsof
@@ -105,6 +104,12 @@
       unstable.protoc-gen-go
       unstable.protoc-gen-go-grpc
       unstable.universal-ctags
+
+      (wrapHelm kubernetes-helm {
+        plugins = with pkgs.kubernetes-helmPlugins; [
+          helm-diff
+        ];
+      })
     ];
   };
 }

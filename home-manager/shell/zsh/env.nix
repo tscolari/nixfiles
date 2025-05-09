@@ -12,7 +12,7 @@
 
       GOPATH      = "$HOME/go:$GOPATH";
       GO111MODULE = "on";
-      GOPRIVATE   = "github.com/hashicorp,github.com/tscolari";
+      GOPRIVATE   = "github.com/diagridio,github.com/tscolari";
     };
   };
 
