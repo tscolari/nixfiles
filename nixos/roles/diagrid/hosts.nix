@@ -1,4 +1,4 @@
-{ config, nixos-hardware, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }:
 
 {
 networking.extraHosts =

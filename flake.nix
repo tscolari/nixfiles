@@ -157,6 +157,7 @@
         ];
         extraModules = [
           ./nixos/roles/desktop
+          ./nixos/roles/diagrid
         ];
       };
     };
