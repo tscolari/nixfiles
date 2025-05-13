@@ -62,6 +62,7 @@
       pmutils
       podman
       postgresql
+      protobuf
       procps
       pstree
       python3

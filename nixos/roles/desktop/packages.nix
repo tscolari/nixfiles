@@ -6,6 +6,7 @@
       _1password-gui
       blanket
       blueprint-compiler
+      bluez
       calibre
       cameractrls-gtk4
       chromium
@@ -23,6 +24,7 @@
       grpcui
       inkscape-with-extensions
       pandoc
+      pavucontrol
       pinta
       polari
       shortwave
