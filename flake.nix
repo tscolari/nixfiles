@@ -148,7 +148,7 @@
 
       HAL = mkSystem {
         hostName        = "HAL";
-        users           = ["work"];
+        users           = ["work" "tscolari"];
         hardwareModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s
           nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
