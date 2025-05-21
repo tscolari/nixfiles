@@ -21,6 +21,14 @@
     alsa.support32Bit = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+    ];
+  };
+
   # Fixes for suspend/hibernate + DisplayLink
   # systemd.services."pre-sleep".wantedBy = lib.mkForce [ ];
 

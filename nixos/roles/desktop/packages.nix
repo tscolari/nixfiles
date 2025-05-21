@@ -12,15 +12,12 @@
       chromium
       discord
       dolphin
-      unstable.firefox
       flatpak-builder
-      gjs
       gimp
+      gjs
       gnome-builder
       gnome-settings-daemon
       gnome-tweaks
-      xdg-desktop-portal
-      xdg-desktop-portal-gnome
       grpcui
       inkscape-with-extensions
       pandoc
@@ -29,14 +26,17 @@
       polari
       shortwave
       slack
-      spotify
       steam
       transmission_4
       trilium-desktop
-      unstable.displaylink
-      unstable.obsidian
       wofi
       xclip
+      yubikey-manager-qt
+
+      unstable.displaylink
+      unstable.firefox
+      unstable.obsidian
+      unstable.spotify
 
       ant-bloody-theme
       arc-icon-theme

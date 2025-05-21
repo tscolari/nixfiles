@@ -16,6 +16,7 @@
       dapr-cli
       delve
       diagridcli
+      dig
       direnv
       distrobox
       docker
@@ -37,6 +38,7 @@
       htop
       hub
       jq
+      jwt-cli
       killall
       kind
       kubectl
@@ -49,6 +51,7 @@
       minikube
       mockgen
       mutter
+      mysql-client
       networkmanagerapplet
       nil
       nodePackages.npm
@@ -56,14 +59,15 @@
       nomad
       openssl
       openvpn
+      p11-kit
       pciutils
       pgcli
       pinentry
       pmutils
       podman
       postgresql
-      protobuf
       procps
+      protobuf
       pstree
       python3
       ripgrep
@@ -105,6 +109,7 @@
       unstable.protoc-gen-go
       unstable.protoc-gen-go-grpc
       unstable.universal-ctags
+      unstable.yq
 
       (wrapHelm kubernetes-helm {
         plugins = with pkgs.kubernetes-helmPlugins; [

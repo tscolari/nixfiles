@@ -22,5 +22,7 @@ networking.extraHosts =
   127.0.0.1 mgmt-onebox-agent-onebox.api.local.diagrid.io
   127.0.0.1 http-prj4.api.local.diagrid.io
   127.0.0.1 grpc-prj4.api.local.diagrid.io
+  127.0.0.1 http-prj12.api.local.diagrid.io
+  127.0.0.1 grpc-prj12.api.local.diagrid.io
   '';
 }
