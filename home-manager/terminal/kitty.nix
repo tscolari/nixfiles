@@ -19,7 +19,7 @@ in {
     settings = {
 
       # Visual
-      font_size = "12";
+      font_size = "10";
       font_family = "FiraCode Nerd Font Mono";
       window_padding_width = 5;
 
