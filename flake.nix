@@ -143,6 +143,7 @@
         ];
         extraModules = [
           ./nixos/roles/desktop
+          ./nixos/modules/ai.nix
         ];
       };
 

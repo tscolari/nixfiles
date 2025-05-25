@@ -36,6 +36,17 @@ in {
     }) hostUsers;
   };
 
+  security.doas = {
+    enable = true;
+    extraRules = [
+      {
+        users = lib.mapAttrsToList (username: userData: username) hostUsers;
+        persist = true;
+        keepEnv = true;
+      }
+    ];
+  };
+
   environment.extraOutputsToInstall = [ "dev" ];
 
   nix = {
