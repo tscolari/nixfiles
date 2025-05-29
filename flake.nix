@@ -159,6 +159,7 @@
         extraModules = [
           ./nixos/roles/desktop
           ./nixos/roles/diagrid
+          ./nixos/modules/ai.nix
         ];
       };
     };

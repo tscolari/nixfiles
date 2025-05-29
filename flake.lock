@@ -150,17 +150,17 @@
     "vimfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1748164866,
-        "narHash": "sha256-wh8a3DEFFb9gKPXjN00f5tvFLKOjM3vMhmeSGWCCvXM=",
-        "ref": "refs/heads/main",
-        "rev": "08c826118975768443086f8eded8d99361d14153",
-        "revCount": 482,
-        "type": "git",
-        "url": "file:///home/tscolari/workspace/nvim"
+        "lastModified": 1748516846,
+        "narHash": "sha256-ohJwEqcOyuQtL8SWUQzeR2rz1VUg/CO/M1C+2BoVXjk=",
+        "owner": "tscolari",
+        "repo": "nvim",
+        "rev": "2320a4772dec5543d06e936426574daa77989185",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/tscolari/workspace/nvim"
+        "owner": "tscolari",
+        "repo": "nvim",
+        "type": "github"
       }
     }
   },
