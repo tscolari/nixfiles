@@ -29,8 +29,8 @@
       steam
       transmission_4
       trilium-desktop
+      wl-clipboard
       wofi
-      xclip
       yubikey-manager-qt
 
       unstable.displaylink

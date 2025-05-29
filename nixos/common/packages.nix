@@ -48,6 +48,7 @@
       lm_sensors
       lsof
       lua
+      lyrebird
       minikube
       mockgen
       mutter
