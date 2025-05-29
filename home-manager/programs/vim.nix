@@ -19,7 +19,8 @@ in {
     };
 
     packages = [
-      pkgs.nerdfonts
+      pkgs.nerd-fonts.fira-code
+      pkgs.nerd-fonts.fira-mono
       pkgs.texliveFull
       pkgs.zathura
       pkgs.unstable.lua-language-server

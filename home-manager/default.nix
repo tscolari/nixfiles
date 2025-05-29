@@ -99,7 +99,7 @@ in {
       # You can update Home Manager without changing this value. See
       # the Home Manager release notes for a list of state version
       # changes in each release.
-      stateVersion = "24.11";
+      stateVersion = "25.05";
 
       # Files and remote configurations
     };
@@ -109,7 +109,7 @@ in {
       enableSshSupport = true;
       enableZshIntegration = true;
       defaultCacheTtl = 1800;
-      pinentryPackage = pkgs.pinentry-curses;
+      pinentry.package = pkgs.pinentry-curses;
     };
 
     # Let Home Manager install and manage itself.

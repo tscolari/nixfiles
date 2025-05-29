@@ -7,7 +7,7 @@
 let
 
 in {
-  system.stateVersion              = "24.11";
+  system.stateVersion              = "25.05";
   virtualisation.libvirtd.enable   = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable     = true;

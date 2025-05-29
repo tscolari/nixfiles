@@ -22,7 +22,7 @@ in {
 
     defaultKeymap = "viins";
 
-    initExtra = ''
+    initContent = lib.mkBefore ''
       if [ -e ~/.secrets ]; then
         source ~/.secrets
       fi

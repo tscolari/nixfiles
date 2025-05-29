@@ -11,7 +11,6 @@
       cameractrls-gtk4
       chromium
       discord
-      dolphin
       flatpak-builder
       gimp
       gjs
@@ -31,7 +30,6 @@
       trilium-desktop
       wl-clipboard
       wofi
-      yubikey-manager-qt
 
       unstable.displaylink
       unstable.firefox

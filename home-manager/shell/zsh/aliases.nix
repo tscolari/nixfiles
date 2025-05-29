@@ -1,15 +1,15 @@
-{ config, pkgs, userData, ... }:
+{ config, pkgs, userData, lib, ... }:
 
 {
   programs.zsh = {
     # Moved to the start of the zshrc so that they can
     # be unaliased if necessary for macos.
-    initExtraFirst = ''
+
+    initContent = lib.mkBefore ''
       alias pbcopy="xclip -selection clipboard";
       alias pbpaste="xclip -selection clipboard -o";
       alias open="xdg-open";
     '';
-
 
     shellAliases = {
       # Bundler
