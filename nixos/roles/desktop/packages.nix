@@ -21,6 +21,7 @@
       inkscape-with-extensions
       pandoc
       pavucontrol
+      pinentry-gnome3
       pinta
       polari
       shortwave

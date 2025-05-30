@@ -100,16 +100,16 @@ in {
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "25.05";
-
-      # Files and remote configurations
     };
+
+    home.packages = [ pkgs.pinentry-gnome3 ];
 
     services.gpg-agent = {
       enable = true;
       enableSshSupport = true;
       enableZshIntegration = true;
-      defaultCacheTtl = 1800;
-      pinentry.package = pkgs.pinentry-curses;
+      defaultCacheTtl = 7200;
+      pinentry.package = pkgs.pinentry-gnome3;
     };
 
     # Let Home Manager install and manage itself.
