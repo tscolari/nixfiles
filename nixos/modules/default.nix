@@ -6,5 +6,6 @@
     ./ergodox.nix
     ./localization.nix
     ./networking.nix
+    ./tmpfs.nix
   ];
 }
