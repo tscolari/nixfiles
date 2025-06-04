@@ -6,8 +6,8 @@
     # be unaliased if necessary for macos.
 
     initContent = lib.mkBefore ''
-      alias pbcopy="xclip -selection clipboard";
-      alias pbpaste="xclip -selection clipboard -o";
+      alias pbcopy="wl-copy -p";
+      alias pbpaste="wl-paste -n -p";
       alias open="xdg-open";
     '';
 
