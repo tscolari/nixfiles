@@ -14,14 +14,10 @@
       flatpak-builder
       gimp
       gjs
-      gnome-builder
-      gnome-settings-daemon
-      gnome-tweaks
       grpcui
       inkscape-with-extensions
       pandoc
       pavucontrol
-      pinentry-gnome3
       pinta
       polari
       shortwave
@@ -36,23 +32,6 @@
       unstable.firefox
       unstable.obsidian
       unstable.spotify
-
-      ant-bloody-theme
-      arc-icon-theme
-      arc-theme
-      flat-remix-gnome
-      flat-remix-gtk
-      flat-remix-icon-theme
-      fluent-gtk-theme
-      fluent-icon-theme
-      graphite-gtk-theme
-      numix-cursor-theme
-      numix-gtk-theme
-      numix-icon-theme
-      papirus-icon-theme
-      yaru-theme
-      reversal-icon-theme
-      zafiro-icons
     ];
   };
 

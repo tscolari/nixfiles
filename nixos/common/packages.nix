@@ -23,7 +23,6 @@
       docker-compose
       fasd
       fd
-      flatpak
       gcc
       gh
       git
@@ -55,6 +54,7 @@
       mysql-client
       networkmanagerapplet
       nil
+      nix-index
       nodePackages.npm
       nodejs
       nomad

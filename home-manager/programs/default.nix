@@ -2,10 +2,11 @@
 
 {
   imports = [
-      ./git.nix
-      ./go.nix
-      ./vim.nix
-      ./tmux.nix
+    ./flatpak.nix
+    ./git.nix
+    ./go.nix
+    ./tmux.nix
+    ./vim.nix
     ];
 
   programs.fzf = {
