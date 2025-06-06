@@ -4,6 +4,7 @@
   environment = {
     systemPackages = with pkgs; [
       _1password-gui
+      apostrophe
       blanket
       blueprint-compiler
       bluez
@@ -15,6 +16,7 @@
       flatpak
       gimp
       gjs
+      graphviz
       grpcui
       inkscape-with-extensions
       pandoc
