@@ -29,6 +29,13 @@
     ];
   };
 
+  services.flatpak = {
+    enable = true;
+    packages = [ "us.zoom.Zoom" ];
+    update.auto.enable = false;
+    uninstallUnmanaged = false;
+  };
+
   programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
 
   # Fixes for suspend/hibernate + DisplayLink

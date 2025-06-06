@@ -4,7 +4,7 @@
   # Gnome configurations
   services = {
     gnome.gnome-browser-connector.enable = true;
-    gnome.core-utilities.enable = true;
+    gnome.core-apps.enable = true;
     gvfs.enable = true;
   };
 

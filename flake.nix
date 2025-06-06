@@ -4,6 +4,7 @@
     nixpkgs.url          = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url   = "github:NixOS/nixpkgs/master";
+    nix-flatpak.url      = "github:gmodena/nix-flatpak/?ref=latest";
     tscolari-pkgs.url    = "github:tscolari/nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -29,6 +30,7 @@
     , nixpkgs
     , nixpkgs-unstable
     , nixpkgs-master
+    , nix-flatpak
     , tscolari-pkgs
     , home-manager
     , nixos-hardware
@@ -49,6 +51,7 @@
 
         nix-ld.nixosModules.nix-ld
         home-manager.nixosModules.home-manager
+        nix-flatpak.nixosModules.nix-flatpak
 
         {
           # This fixes things that don't use Flakes, but do want to use NixPkgs.

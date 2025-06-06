@@ -12,6 +12,7 @@
       chromium
       discord
       flatpak-builder
+      flatpak
       gimp
       gjs
       grpcui

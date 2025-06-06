@@ -63,7 +63,6 @@ in {
   services = {
     fwupd.enable    = true;
     cron.enable     = true;
-    flatpak.enable  = true;
     printing.enable = true;
 
     avahi = {
