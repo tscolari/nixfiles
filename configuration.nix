@@ -21,6 +21,12 @@ in {
   programs.nix-ld.dev.enable = false;
   programs.zsh.enable = true;
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = lib.mkDefault pkgs.pinentry-curses;
+  };
+
   users.users = lib.mapAttrs (username: userData: {
     isNormalUser = true;
     shell        = pkgs.zsh;

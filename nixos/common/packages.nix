@@ -1,6 +1,10 @@
 { config, pkgs, lib, hostUsers,... }:
 
-{
+let
+
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
+
+in {
   environment = {
     systemPackages = with pkgs; [
       awscli2
@@ -30,7 +34,7 @@
       glibc
       gnumake
       gnupg
-      google-cloud-sdk
+      gcloud
       grpcurl
       gtop
       helmfile
