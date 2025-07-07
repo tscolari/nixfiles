@@ -106,7 +106,7 @@ in {
           tsx
           turtle
           typescript
-          verilog
+          # verilog
           vim
           vue
           yaml
