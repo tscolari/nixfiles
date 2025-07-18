@@ -11,7 +11,7 @@
 
     packages = with pkgs; [
       unstable.claude-code
-      unstable.aider-chat
+      # unstable.aider-chat
       nodejs
       yarn
     ];

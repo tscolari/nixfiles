@@ -8,6 +8,7 @@
       blanket
       blueprint-compiler
       bluez
+      calcurse
       calibre
       cameractrls-gtk4
       chromium
