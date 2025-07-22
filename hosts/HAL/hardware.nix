@@ -33,7 +33,7 @@
 
   boot.extraModulePackages = [ ];
 
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # AMD graphics and CPU support
   # services.xserver.videoDrivers = [ "amdgpu" ];
