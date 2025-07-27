@@ -61,7 +61,6 @@ in {
       nix-index
       nodePackages.npm
       nodejs
-      nomad
       openssl
       openvpn
       p11-kit
@@ -74,6 +73,8 @@ in {
       procps
       protobuf
       pstree
+      pulumi
+      pulumiPackages.pulumi-go
       python3
       ripgrep
       ruby
