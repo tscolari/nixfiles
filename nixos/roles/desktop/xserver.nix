@@ -23,4 +23,6 @@
 
   # Disable automatic login for the user.
   services.displayManager.autoLogin.enable = false;
+
+  systemd.services.dlm.wantedBy = [ "multi-user.target" ];
 }
