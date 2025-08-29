@@ -24,6 +24,7 @@ in {
       pkgs.texliveFull
       pkgs.zathura
       pkgs.unstable.lua-language-server
+      pkgs.docker-language-server
     ];
   };
 
@@ -114,6 +115,7 @@ in {
     ];
 
     extraPackages = with pkgs.unstable; [
+      docker-language-server
       golangci-lint
       gopls
       lua-language-server
