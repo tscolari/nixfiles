@@ -13,6 +13,7 @@ in {
       calibre
       cargo
       cloudflared
+      cilium-cli
       cmake
       concurrently
       consul
@@ -76,6 +77,7 @@ in {
       pulumi
       pulumiPackages.pulumi-go
       python3
+      redpanda-client
       ripgrep
       ruby
       rustc
