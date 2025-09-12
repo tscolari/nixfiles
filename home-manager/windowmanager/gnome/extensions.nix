@@ -14,6 +14,7 @@
       gsconnect
       night-theme-switcher
       quick-web-search
+      random-wallpaper
       screenshot-window-sizer
       tray-icons-reloaded
       user-themes
