@@ -41,6 +41,7 @@ in {
       helmfile
       htop
       hub
+      unstable.fly
       jq
       jwt-cli
       killall

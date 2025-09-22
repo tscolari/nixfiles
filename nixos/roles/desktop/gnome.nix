@@ -35,20 +35,25 @@
       gnome.gvfs
 
       # Themes
-      ant-bloody-theme
+      # ant-bloody-theme
       arc-icon-theme
       arc-theme
-      flat-remix-gnome
-      flat-remix-gtk
+      # flat-remix-gnome
+      # flat-remix-gtk
       flat-remix-icon-theme
-      fluent-gtk-theme
+      # fluent-gtk-theme
       fluent-icon-theme
-      graphite-gtk-theme
+      (pkgs.graphite-gtk-theme.override {
+        colorVariants = [ "light" "dark" ];
+        themeVariants = [ "default" "purple" "blue" "red" ];
+        sizeVariants = [ "standard" ];
+        tweaks = [ "rimless" ];
+      })
       numix-cursor-theme
-      numix-gtk-theme
+      # numix-gtk-theme
       numix-icon-theme
       papirus-icon-theme
-      yaru-theme
+      # yaru-theme
       reversal-icon-theme
       zafiro-icons
     ];
