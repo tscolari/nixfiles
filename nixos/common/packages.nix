@@ -38,6 +38,7 @@ in {
       gcloud
       grpcurl
       gtop
+      helium
       helmfile
       htop
       hub
