@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./appimage.nix
     ./packages.nix
   ];
 
