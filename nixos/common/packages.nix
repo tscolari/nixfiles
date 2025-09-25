@@ -102,6 +102,7 @@ in {
       yarn
       zsh
       unstable.buf
+      unstable.claude-code
       unstable.fzf
       unstable.go
       unstable.go-migrate
