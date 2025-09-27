@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ... }@args:
+{ config, lib, pkgs, catppuccin, ... }@args:
 
 with lib;
 
 let
 
   cfg = args.userData;
+  catppuccin = args.catppuccin.homeModules.catppuccin;
 
 in {
 
@@ -84,12 +85,23 @@ in {
       ./windowmanager
       ./terminal
       ./by-user/${cfg.username}
+      catppuccin
     ];
 
   config = {
+
+    catppuccin = {
+      enable = true;
+      flavor = "mocha";
+
+      kitty.enable = false;
+      gtk.icon.enable = false;
+    };
+
     home = {
       username = cfg.username;
       homeDirectory = cfg.homeDir;
+
 
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage
@@ -100,9 +112,9 @@ in {
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "25.05";
-    };
 
-    home.packages = [ pkgs.pinentry-gnome3 ];
+      packages = [ pkgs.pinentry-gnome3 ];
+    };
 
     services.gpg-agent = {
       enable = true;

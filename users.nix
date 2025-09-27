@@ -8,8 +8,8 @@
       backgroundImage = "background-1.jpg";
       accentColor     = "green";
       zshTheme        = "sorin";
-      kittyTheme      = "Afterglow";
-      iconTheme       = "Zafiro-icons-Dark";
+      kittyTheme      = "Catppuccin-Mocha";
+      iconTheme       = "Papirus-Dark";
 
       extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
 
@@ -27,8 +27,8 @@
       backgroundImage = "background-3.jpg";
       accentColor     = "red";
       zshTheme        = "powerlevel10k";
-      kittyTheme      = "Afterglow";
-      iconTheme       = "Zafiro-icons-Dark";
+      kittyTheme      = "Catppuccin-Mocha";
+      iconTheme       = "Papirus-Dark";
 
       extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
 

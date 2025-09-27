@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./catppuccin.nix
       ./gnome.nix
       ./packages.nix
       ./xserver.nix

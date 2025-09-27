@@ -19,9 +19,9 @@ in {
     settings = {
 
       # Visual
-      font_size = "11";
+      font_size = "12";
       font_family = "FiraCode Nerd Font Mono";
-      window_padding_width = 5;
+      window_padding_width = 2;
 
       # Alerts
       enable_audio_bell = false;

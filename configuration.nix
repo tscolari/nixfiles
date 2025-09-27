@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, hostUsers,... }:
+{ config, pkgs, lib, hostUsers, catppuccin,... }:
 
 let
 
@@ -37,7 +37,7 @@ in {
 
   home-manager = {
     users = lib.mapAttrs (username: userData: import ./home-manager {
-      inherit pkgs lib config;
+      inherit pkgs lib config catppuccin;
       userData = userData;
     }) hostUsers;
   };

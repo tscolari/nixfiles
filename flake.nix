@@ -5,6 +5,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url   = "github:NixOS/nixpkgs/master";
     nix-flatpak.url      = "github:gmodena/nix-flatpak/?ref=latest";
+    catppuccin.url       = "github:catppuccin/nix/release-25.05";
     tscolari-pkgs.url    = "github:tscolari/nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -27,14 +28,15 @@
 
   outputs =
     { self
-    , nixpkgs
-    , nixpkgs-unstable
-    , nixpkgs-master
-    , nix-flatpak
-    , tscolari-pkgs
+    , catppuccin
     , home-manager
-    , nixos-hardware
+    , nix-flatpak
     , nix-ld
+    , nixos-hardware
+    , nixpkgs
+    , nixpkgs-master
+    , nixpkgs-unstable
+    , tscolari-pkgs
     , vimfiles
     , ...
     }@inputs:
@@ -49,9 +51,10 @@
         ./nixos/common
         ./nixos/modules
 
-        nix-ld.nixosModules.nix-ld
+        catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
         nix-flatpak.nixosModules.nix-flatpak
+        nix-ld.nixosModules.nix-ld
 
         {
           # This fixes things that don't use Flakes, but do want to use NixPkgs.
@@ -121,7 +124,7 @@
       mkSystem = { hostName, users ? [], hardwareModules ? [], extraModules ? [] }:
         lib.nixosSystem {
           specialArgs = {
-            inherit inputs;
+            inherit inputs catppuccin;
             hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
           };
           system = "x86_64-linux";
