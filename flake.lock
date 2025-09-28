@@ -203,11 +203,11 @@
     "vimfiles": {
       "flake": false,
       "locked": {
-        "lastModified": 1759001418,
-        "narHash": "sha256-mjbUxfuqsPuYWeJxBAbQUqQuIBWr77UK3LGyJPXkyLM=",
+        "lastModified": 1759049776,
+        "narHash": "sha256-FTii5lBuENEbOUdpEsWSUn+Uk8jIexuh6uqeRzqNahU=",
         "owner": "tscolari",
         "repo": "nvim",
-        "rev": "2a375a8ebae4208921e0570aa8dc4d7005582f68",
+        "rev": "ca9e7595376df319d3d2e5e76d219aac1dd49175",
         "type": "github"
       },
       "original": {
