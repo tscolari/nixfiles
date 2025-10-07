@@ -10,7 +10,6 @@
     shell = pkgs.zsh;
 
     packages = with pkgs; [
-      unstable.claude-code
       # unstable.aider-chat
       nodejs
       yarn

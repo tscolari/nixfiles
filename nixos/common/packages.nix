@@ -16,7 +16,6 @@ in {
       cilium-cli
       cmake
       concurrently
-      consul
       curl
       dapr-cli
       delve
@@ -102,7 +101,7 @@ in {
       yarn
       zsh
       unstable.buf
-      unstable.claude-code
+      master.claude-code
       unstable.fzf
       unstable.go
       unstable.go-migrate
