@@ -4,21 +4,25 @@
     nixpkgs.url          = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url   = "github:NixOS/nixpkgs/master";
-    nix-flatpak.url      = "github:gmodena/nix-flatpak/?ref=latest";
-    catppuccin.url       = "github:catppuccin/nix/release-25.05";
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     tscolari-pkgs.url    = "github:tscolari/nixpkgs";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak.url      = "github:gmodena/nix-flatpak/?ref=latest";
+    catppuccin.url       = "github:catppuccin/nix/release-25.05";
 
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+
+    vim-plugins.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixneovimplugins.url = "github:NixNeovim/NixNeovimPlugins";
 
     vimfiles = {
       url = "github:tscolari/nvim";
@@ -30,7 +34,6 @@
     { self
     , catppuccin
     , home-manager
-    , nix-flatpak
     , nix-ld
     , nixos-hardware
     , nixpkgs
@@ -53,7 +56,7 @@
 
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
-        nix-flatpak.nixosModules.nix-flatpak
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         nix-ld.nixosModules.nix-ld
 
         {
@@ -79,6 +82,7 @@
                 overlay-unstable
                 overlay-master
                 overlay-vimfiles
+                overlay-vim-plugins
                 tscolari-pkgs.overlays.default
               ];
           }
@@ -104,6 +108,16 @@
 
       overlay-vimfiles = final: prev: {
         vimfiles = vimfiles;
+      };
+
+      overlay-vim-plugins = final: prev: {
+        vim-plugins = import inputs.vim-plugins {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            inputs.nixneovimplugins.overlays.default
+          ];
+        };
       };
 
       pkgs = import nixpkgs {

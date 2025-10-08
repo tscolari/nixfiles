@@ -6,6 +6,7 @@
     ./go.nix
     ./tmux.nix
     ./vim.nix
+    ./nvim
     ];
 
   programs.fzf = {
