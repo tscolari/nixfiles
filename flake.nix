@@ -23,6 +23,12 @@
 
     vim-plugins.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixneovimplugins.url = "github:NixNeovim/NixNeovimPlugins";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+        inputs.nixpkgs.follows = "vim-plugins";
+    };
+
 
     vimfiles = {
       url = "github:tscolari/nvim";
@@ -39,6 +45,7 @@
     , nixpkgs
     , nixpkgs-master
     , nixpkgs-unstable
+    , nixvim
     , tscolari-pkgs
     , vimfiles
     , ...
@@ -138,7 +145,7 @@
       mkSystem = { hostName, users ? [], hardwareModules ? [], extraModules ? [] }:
         lib.nixosSystem {
           specialArgs = {
-            inherit inputs catppuccin;
+            inherit inputs;
             hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
           };
           system = "x86_64-linux";

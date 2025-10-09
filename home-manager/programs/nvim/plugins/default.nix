@@ -6,93 +6,107 @@ let
 
 in {
 
-  programs.neovim = {
-    plugins = with pkgs.vim-plugins.vimPlugins; [
+  imports = [
+    ./alpha.nix
+    ./treesitter.nix
+  ];
 
-      alpha-nvim
+  programs.nixvim = {
+
+    plugins = {
+      alpha.enable = true;
+      avante.enable = true;
+      cmp.enable = true;
+      cmp-buffer.enable = true;
+      cmp-calc.enable = true;
+      cmp-nvim-lsp.enable = true;
+      cmp-nvim-lua.enable = true;
+      cmp-path.enable = true;
+      cmp-vsnip.enable = true;
+      comment.enable = true;
+      conform-nvim.enable = true;
+      copilot-cmp.enable = true;
+      copilot-lua.enable = true;
+      dap-ui.enable = true;
+      dap-virtual-text.enable = true;
+      dap.enable = true;
+      diffview.enable = true;
+      friendly-snippets.enable = true;
+      fugitive.enable = true;
+      indent-blankline.enable = true;
+      lir.enable = true;
+      lsp-format.enable = true;
+      lsp.enable = true;
+      lsp-signature.enable = true;
+      lspkind.enable = true;
+      lspsaga.enable = true;
+      lualine.enable = true;
+      neoscroll.enable = true;
+      neotest.enable = true;
+      notify.enable = true;
+      nvim-autopairs.enable = true;
+      nvim-bqf.enable = true;
+      rainbow-delimiters.enable = true;
+      repeat.enable = true;
+      sleuth.enable = true;
+      spectre.enable = true;
+      telescope.enable = true;
+      telescope.extensions.file-browser.enable = true;
+      telescope.extensions.fzf-native.enable = true;
+      tmux-navigator.enable = true;
+      treesitter.enable = true;
+      treesitter-textobjects.enable = true;
+      trouble.enable = true;
+      ts-autotag.enable = true;
+      ts-context-commentstring.enable = true;
+      undotree.enable = true;
+      vim-bbye.enable = true;
+      vim-surround.enable = true;
+      vim-test.enable = true;
+      vimux.enable = true;
+      visual-multi.enable = true;
+      web-devicons.enable = true;
+      which-key.enable = true;
+    };
+
+    extraPlugins = with pkgs.vim-plugins.vimPlugins; [
+
       asyncrun-vim
-      avante-nvim
       catppuccin-nvim
-      cmp-buffer
-      cmp-calc
-      cmp-nvim-lsp
-      cmp-nvim-lua
-      cmp-path
-      cmp-vsnip
-      comment-nvim
-      conform-nvim
-      copilot-cmp
-      copilot-lua
-      diffview-nvim
-      friendly-snippets
       fzf-vim
-      indent-blankline-nvim
-      lir-nvim
       lsp-colors-nvim
-      lsp-format-nvim
-      lsp_signature-nvim
-      lspkind-nvim
-      lspsaga-nvim
-      lualine-nvim
       mason-lspconfig-nvim
       mason-nvim
       mkdir-nvim
-      neoscroll-nvim
-      neotest
       neotest-go
       neotest-jest
-      nvim-autopairs
-      nvim-bqf
-      nvim-cmp
-      nvim-dap
-      nvim-dap-ui
-      nvim-dap-virtual-text
-      nvim-lspconfig
+      # nvim-cmp
+      # nvim-lspconfig
       nvim-nio
-      nvim-notify
-      nvim-spectre
       nvim-treesitter-endwise
-      nvim-treesitter-textobjects
-      nvim-ts-autotag
-      nvim-ts-context-commentstring
-      nvim-web-devicons
       plenary-nvim
       popup-nvim
-      rainbow-delimiters-nvim
       splitjoin-vim
       telescope-dap-nvim
-      telescope-file-browser-nvim
-      telescope-fzf-native-nvim
       telescope-github-nvim
       telescope-nvim
-      trouble-nvim
-      undotree
       vim-abolish
-      vim-bbye
       vim-easy-align
       vim-eunuch
       vim-exchange
       vim-fetch
-      vim-fugitive
       vim-grepper
       vim-markdown
       vim-move
       vim-qf
-      vim-repeat
       vim-rhubarb
-      vim-sleuth
-      vim-surround
       vim-swap
       vim-test
-      vim-tmux-navigator
       vim-trailing-whitespace
       vim-unimpaired
-      vim-visual-multi
       vim-vsnip
       vim-vsnip-integ
-      vimux
       vista-vim
-      which-key-nvim
 
       # customPlugins.join-vim
       customPlugins.lir-git-status-nvim
@@ -101,78 +115,6 @@ in {
 
       pkgs.vim-plugins.vimExtraPlugins.guihua-lua
       pkgs.vim-plugins.vimExtraPlugins.vgit-nvim
-
-      (nvim-treesitter.withPlugins (plugins: with plugins; [
-          c
-          c_sharp
-          clojure
-          cmake
-          comment
-          cpp
-          css
-          d
-          dart
-          dockerfile
-          dot
-          elixir
-          elm
-          erlang
-          fennel
-          fish
-          fortran
-          go
-          godot_resource
-          gomod
-          gowork
-          graphql
-          hack
-          haskell
-          hcl
-          vimdoc
-          html
-          http
-          java
-          javascript
-          jsdoc
-          json
-          json5
-          jsonc
-          kotlin
-          latex
-          llvm
-          lua
-          make
-          markdown
-          ninja
-          nix
-          pascal
-          perl
-          php
-          python
-          ql
-          query
-          r
-          regex
-          rst
-          ruby
-          rust
-          scala
-          scheme
-          scss
-          sql
-          svelte
-          swift
-          teal
-          todotxt
-          toml
-          tsx
-          turtle
-          typescript
-          # verilog
-          vim
-          vue
-          yaml
-      ]))
     ];
   };
 

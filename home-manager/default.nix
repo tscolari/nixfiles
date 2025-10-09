@@ -1,4 +1,4 @@
-{ config, lib, pkgs, catppuccin, ... }@args:
+{ config, lib, pkgs, nixvim, ... }@args:
 
 with lib;
 
@@ -86,6 +86,7 @@ in {
       ./terminal
       ./by-user/${cfg.username}
       catppuccin
+      nixvim.homeModules.nixvim
     ];
 
   config = {

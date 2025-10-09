@@ -5,7 +5,7 @@
     ./git.nix
     ./go.nix
     ./tmux.nix
-    ./vim.nix
+    # ./vim.nix
     ./nvim
     ];
 
