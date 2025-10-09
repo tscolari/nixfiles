@@ -3,8 +3,9 @@
 {
   imports = [
     ./dependencies.nix
-    ./plugins
     ./lsp.nix
+    ./options.nix
+    ./plugins
   ];
 
 
@@ -14,14 +15,14 @@
 
     viAlias  = true;
     vimAlias = true;
-  };
 
-  # programs.neovim = {
-  #   enable = true;
-  #
-  #   viAlias       = true;
-  #   vimAlias      = true;
-  #
-  #   package = pkgs.unstable.neovim.unwrapped;
-  # };
+
+    globals = {
+      mapleader = " ";
+      auto_save = false;
+      extra_whitespace_ignored_filetypes = ["alpha"];
+
+      # vsnip_snippet_dirs = {CONFIG_PATH .. '/snippets', CONFIG_PATH .. '/lua/user/snippets'}
+    };
+  };
 }

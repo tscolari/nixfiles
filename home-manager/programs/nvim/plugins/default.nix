@@ -36,7 +36,7 @@ in {
       indent-blankline.enable = true;
       lir.enable = true;
       lsp-format.enable = true;
-      lsp.enable = true;
+      lspconfig.enable = true;
       lsp-signature.enable = true;
       lspkind.enable = true;
       lspsaga.enable = true;
@@ -80,8 +80,6 @@ in {
       mkdir-nvim
       neotest-go
       neotest-jest
-      # nvim-cmp
-      # nvim-lspconfig
       nvim-nio
       nvim-treesitter-endwise
       plenary-nvim
