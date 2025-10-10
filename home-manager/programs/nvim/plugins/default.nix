@@ -7,8 +7,8 @@ let
 in {
 
   imports = [
-    ./alpha.nix
     ./treesitter.nix
+    ./ui.nix
   ];
 
   programs.nixvim = {
