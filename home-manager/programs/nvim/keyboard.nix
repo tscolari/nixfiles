@@ -8,6 +8,19 @@
     #   buffer = "z";
     # };
 
+    extraConfigLua = ''
+      -- Visual mode paste that preserves the register
+      _G.restore_register = function()
+        vim.fn.setreg('"', vim.b.restore_register)
+        return ""
+      end
+
+      _G.visual_replace = function()
+        vim.b.restore_register = vim.fn.getreg('"')
+        return vim.api.nvim_replace_termcodes([[p@=v:lua.restore_register()<CR>]], true, true, true)
+      end
+    '';
+
     globals.clipboard = {
       name = "wl-clipboard";
       copy = {
@@ -139,6 +152,18 @@
         options = {
           noremap = true;
           silent = true;
+        };
+      }
+
+      # Visual mode paste that preserves the register
+      {
+        mode = "v";
+        key = "p";
+        action = "v:lua.visual_replace()";
+        options = {
+          noremap = true;
+          silent = true;
+          expr = true;
         };
       }
 
