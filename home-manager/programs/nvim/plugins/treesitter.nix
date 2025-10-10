@@ -75,7 +75,91 @@ let
 
 in {
 
-  programs.nixvim.plugins.treesitter = {
-    grammarPackages = grammarPackages;
+  programs.nixvim.plugins = {
+    treesitter = {
+      grammarPackages = grammarPackages;
+
+      settings = {
+        sync_install = false;
+        auto_install = false;
+
+        highlight = {
+          enable = true;
+          additional_vim_regex_highlighting = false;
+        };
+
+        incremental_selection = {
+          enable = true;
+          keymaps = {
+            init_selection = "gnn";
+            node_incremental = "grn";
+            scope_incremental = "grc";
+            node_decremental = "grm";
+          };
+        };
+
+        playground = {
+          enable = true;
+          disable = [];
+          updatetime = 25;
+          persist_queries = false;
+        };
+
+        autotag = {
+          enable = true;
+        };
+      };
+    };
+
+    treesitter-refactor = {
+      highlightDefinitions = { enable = true; };
+      smartRename = {
+        enable = true;
+        keymaps = { smartRename = "grr"; };
+      };
+      navigation = {
+        enable = true;
+        keymaps = {
+          gotoDefinition = "gnd";
+          listDefinitions = "gnD";
+          listDefinitionsToc = "gO";
+          gotoNextUsage = "<a-*>";
+          gotoPreviousUsage = "<a-#>";
+        };
+      };
+    };
+
+    treesitter-textobjects = {
+      select = {
+        enable = true;
+        keymaps = {
+          "af" = "@function.outer";
+          "if" = "@function.inner";
+          "ac" = "@class.outer";
+          "ic" = "@class.inner";
+        };
+      };
+
+      move = {
+        enable = true;
+        setJumps = true;
+        gotoNextStart = {
+          "]m" = "@function.outer";
+          "]]" = "@class.outer";
+        };
+        gotoNextEnd = {
+          "]M" = "@function.outer";
+          "][" = "@class.outer";
+        };
+        gotoPreviousStart = {
+          "[m" = "@function.outer";
+          "[[" = "@class.outer";
+        };
+        gotoPreviousEnd = {
+          "[M" = "@function.outer";
+          "[]" = "@class.outer";
+        };
+      };
+    };
   };
 }

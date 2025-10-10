@@ -57,6 +57,7 @@ in {
       tmux-navigator.enable = true;
       treesitter.enable = true;
       treesitter-textobjects.enable = true;
+      treesitter-refactor.enable = true;
       trouble.enable = true;
       ts-autotag.enable = true;
       ts-context-commentstring.enable = true;
