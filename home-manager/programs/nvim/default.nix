@@ -4,10 +4,10 @@
   imports = [
     ./autocmds.nix
     ./dependencies.nix
+    ./keyboard.nix
     ./lsp.nix
     ./options.nix
     ./plugins
-    ./keyboard.nix
   ];
 
 
