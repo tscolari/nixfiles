@@ -7,6 +7,7 @@ let
 in {
 
   imports = [
+    ./completion.nix
     ./treesitter.nix
     ./ui.nix
   ];
