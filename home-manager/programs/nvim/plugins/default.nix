@@ -9,9 +9,10 @@ in {
   imports = [
     ./completion.nix
     ./editing.nix
+    ./fzf.nix
+    ./telescope.nix
     ./treesitter.nix
     ./ui.nix
-    ./telescope.nix
   ];
 
   programs.nixvim = {
