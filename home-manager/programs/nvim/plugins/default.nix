@@ -8,8 +8,10 @@ in {
 
   imports = [
     ./completion.nix
+    ./editing.nix
     ./treesitter.nix
     ./ui.nix
+    ./telescope.nix
   ];
 
   programs.nixvim = {
