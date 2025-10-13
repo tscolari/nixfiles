@@ -10,6 +10,7 @@ in {
     ./completion.nix
     ./editing.nix
     ./fzf.nix
+    ./git.nix
     ./telescope.nix
     ./treesitter.nix
     ./ui.nix
