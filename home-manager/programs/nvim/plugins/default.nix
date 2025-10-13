@@ -12,6 +12,7 @@ in {
     ./fzf.nix
     ./git.nix
     ./telescope.nix
+    ./testing.nix
     ./treesitter.nix
     ./ui.nix
   ];
