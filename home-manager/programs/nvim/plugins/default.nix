@@ -7,6 +7,7 @@ let
 in {
 
   imports = [
+    ./ai.nix
     ./completion.nix
     ./editing.nix
     ./fzf.nix
