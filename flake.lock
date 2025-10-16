@@ -396,8 +396,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim",
         "tscolari-pkgs": "tscolari-pkgs",
-        "vim-plugins": "vim-plugins",
-        "vimfiles": "vimfiles"
+        "vim-plugins": "vim-plugins"
       }
     },
     "systems": {
@@ -476,22 +475,6 @@
         "owner": "NixOS",
         "ref": "master",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "vimfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1759088780,
-        "narHash": "sha256-bAAwEQI/Wljm9fPkMGa83Vk9k0hgDYU33T6VpTMm30U=",
-        "owner": "tscolari",
-        "repo": "nvim",
-        "rev": "de83a640a33e2226065f68c17ad3d89facbf8946",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tscolari",
-        "repo": "nvim",
         "type": "github"
       }
     }

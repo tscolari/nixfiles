@@ -1,13 +1,15 @@
-{ config, lib, pkgs, ... }@args:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
     ./git.nix
     ./go.nix
     ./tmux.nix
-    # ./vim.nix
     ./nvim
-    ];
+  ];
 
   programs.fzf = {
     enable = true;

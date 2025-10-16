@@ -1,4 +1,3 @@
-# /etc/nixos/flake.nix
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -27,11 +26,6 @@
       # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
       inputs.nixpkgs.follows = "vim-plugins";
     };
-
-    vimfiles = {
-      url = "github:tscolari/nvim";
-      flake = false;
-    };
   };
 
   outputs =
@@ -46,7 +40,6 @@
       nixpkgs-unstable,
       nixvim,
       tscolari-pkgs,
-      vimfiles,
       ...
     }@inputs:
 
@@ -75,7 +68,6 @@
         {
           home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs = true;
-          home-manager.extraSpecialArgs = { inherit vimfiles; };
           home-manager.backupFileExtension = "backup";
         }
 
@@ -87,7 +79,6 @@
             nixpkgs.overlays = [
               overlay-unstable
               overlay-master
-              overlay-vimfiles
               overlay-vim-plugins
               tscolari-pkgs.overlays.default
             ];
@@ -110,10 +101,6 @@
           config.allowUnfree = true;
           config.nvidia.acceptLicense = true;
         };
-      };
-
-      overlay-vimfiles = final: prev: {
-        vimfiles = vimfiles;
       };
 
       overlay-vim-plugins = final: prev: {
