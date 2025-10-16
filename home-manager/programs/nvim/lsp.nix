@@ -13,6 +13,26 @@
       Copilot = "";
     };
 
+    plugins.lspsaga = {
+      lightbulb = {
+        enable = false;
+      };
+    };
+
+    plugins.conform-nvim.settings = {
+      formatters_by_ft = {
+        go = [
+          "gofmt"
+          "goimports"
+        ];
+      };
+      format_on_save = {
+        async = false;
+        timeout_ms = 500;
+        lsp_format = "fallback";
+      };
+    };
+
     plugins.lsp = {
       preConfig = ''
         vim.lsp.config('*', {

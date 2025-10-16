@@ -13,6 +13,7 @@ in
     ./editing.nix
     ./fzf.nix
     ./git.nix
+    ./globals.nix
     ./telescope.nix
     ./testing.nix
     ./treesitter.nix

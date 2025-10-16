@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -15,12 +15,6 @@
       auto_save = false;
       extra_whitespace_ignored_filetypes = [ "alpha" ];
       do_filetype_lua = 1;
-      "incsearch#auto_nohlsearch" = 0;
-
-      vsnip_snippet_dirs = [
-        "${config.xdg.configHome}/snippets"
-        "${config.xdg.configHome}/lua/user/snippets"
-      ];
     };
   };
 }
