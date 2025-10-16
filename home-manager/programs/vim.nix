@@ -18,14 +18,14 @@ in {
       "${homeDir}/.cache/.empty".source = ../files/empty;
     };
 
-    packages = [
-      pkgs.nerd-fonts.fira-code
-      pkgs.nerd-fonts.fira-mono
-      pkgs.texliveFull
-      pkgs.zathura
-      pkgs.unstable.lua-language-server
-      pkgs.docker-language-server
-    ];
+    # packages = [
+    #   pkgs.nerd-fonts.fira-code
+    #   pkgs.nerd-fonts.fira-mono
+    #   pkgs.texliveFull
+    #   pkgs.zathura
+    #   pkgs.unstable.lua-language-server
+    #   pkgs.docker-language-server
+    # ];
   };
 
 
@@ -114,19 +114,19 @@ in {
       ]))
     ];
 
-    extraPackages = with pkgs.unstable; [
-      docker-language-server
-      golangci-lint
-      gopls
-      lua-language-server
-      nil
-      nodePackages.eslint
-      nodePackages.typescript-language-server
-      postgres-lsp
-      ruby-lsp
-      terraform-ls
-      vim-language-server
-      yaml-language-server
-    ];
+    # extraPackages = with pkgs.unstable; [
+    #   docker-language-server
+    #   golangci-lint
+    #   gopls
+    #   lua-language-server
+    #   nil
+    #   nodePackages.eslint
+    #   nodePackages.typescript-language-server
+    #   postgres-lsp
+    #   ruby-lsp
+    #   terraform-ls
+    #   vim-language-server
+    #   yaml-language-server
+    # ];
   };
 }

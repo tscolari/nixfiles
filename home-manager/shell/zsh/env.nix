@@ -5,7 +5,6 @@
   home = {
     sessionVariables = rec {
       PATH   = "$HOME/.local/bin:$PATH";
-      EDITOR = "vim";
       VISUAL = "vim";
 
       GREP_COLOR = "1;33";

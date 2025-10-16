@@ -1,23 +1,31 @@
 # /etc/nixos/flake.nix
 {
   inputs = {
-    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-master.url   = "github:NixOS/nixpkgs/master";
-    nix-flatpak.url      = "github:gmodena/nix-flatpak/?ref=latest";
-    catppuccin.url       = "github:catppuccin/nix/release-25.05";
-    tscolari-pkgs.url    = "github:tscolari/nixpkgs";
-
+    nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    tscolari-pkgs.url = "github:tscolari/nixpkgs";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    catppuccin.url = "github:catppuccin/nix/release-25.05";
 
     nix-ld = {
       url = "github:Mic92/nix-ld";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+    vim-plugins.url = "github:NixOS/nixpkgs/master";
+    nixneovimplugins.url = "github:NixNeovim/NixNeovimPlugins";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+      inputs.nixpkgs.follows = "vim-plugins";
     };
 
     vimfiles = {
@@ -27,18 +35,19 @@
   };
 
   outputs =
-    { self
-    , catppuccin
-    , home-manager
-    , nix-flatpak
-    , nix-ld
-    , nixos-hardware
-    , nixpkgs
-    , nixpkgs-master
-    , nixpkgs-unstable
-    , tscolari-pkgs
-    , vimfiles
-    , ...
+    {
+      self,
+      catppuccin,
+      home-manager,
+      nix-ld,
+      nixos-hardware,
+      nixpkgs,
+      nixpkgs-master,
+      nixpkgs-unstable,
+      nixvim,
+      tscolari-pkgs,
+      vimfiles,
+      ...
     }@inputs:
 
     let
@@ -53,7 +62,7 @@
 
         catppuccin.nixosModules.catppuccin
         home-manager.nixosModules.home-manager
-        nix-flatpak.nixosModules.nix-flatpak
+        inputs.nix-flatpak.nixosModules.nix-flatpak
         nix-ld.nixosModules.nix-ld
 
         {
@@ -65,22 +74,23 @@
 
         {
           home-manager.useUserPackages = true;
-          home-manager.useGlobalPkgs    = true;
+          home-manager.useGlobalPkgs = true;
           home-manager.extraSpecialArgs = { inherit vimfiles; };
           home-manager.backupFileExtension = "backup";
         }
 
         # Make sure you add Overlays here
-        ({ config, pkgs, ... }:
+        (
+          { config, pkgs, ... }:
           {
             nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays =
-              [
-                overlay-unstable
-                overlay-master
-                overlay-vimfiles
-                tscolari-pkgs.overlays.default
-              ];
+            nixpkgs.overlays = [
+              overlay-unstable
+              overlay-master
+              overlay-vimfiles
+              overlay-vim-plugins
+              tscolari-pkgs.overlays.default
+            ];
           }
         )
       ];
@@ -106,6 +116,16 @@
         vimfiles = vimfiles;
       };
 
+      overlay-vim-plugins = final: prev: {
+        vim-plugins = import inputs.vim-plugins {
+          inherit system;
+          config.allowUnfree = true;
+          overlays = [
+            inputs.nixneovimplugins.overlays.default
+          ];
+        };
+      };
+
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
@@ -121,53 +141,70 @@
       usersConfig = import ./users.nix;
 
       # Function to create a system configuration
-      mkSystem = { hostName, users ? [], hardwareModules ? [], extraModules ? [] }:
+      mkSystem =
+        {
+          hostName,
+          users ? [ ],
+          hardwareModules ? [ ],
+          extraModules ? [ ],
+        }:
         lib.nixosSystem {
           specialArgs = {
-            inherit inputs catppuccin;
+            inherit inputs;
             hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
           };
           system = "x86_64-linux";
-          modules = baseModules ++ hardwareModules ++ extraModules ++ [
-            (./hosts + "/${hostName}")
-            {
-              networking.hostName = hostName;
-            }
+          modules =
+            baseModules
+            ++ hardwareModules
+            ++ extraModules
+            ++ [
+              (./hosts + "/${hostName}")
+              {
+                networking.hostName = hostName;
+              }
+            ];
+        };
+
+    in
+    {
+
+      nixosConfigurations = {
+        bebop = mkSystem {
+          hostName = "bebop";
+          users = [
+            "tscolari"
+            "work"
+          ];
+          hardwareModules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14
+            nixos-hardware.nixosModules.common-cpu-intel
+            tscolari-pkgs.nixosModules.default
+          ];
+          extraModules = [
+            ./nixos/roles/desktop
+            ./nixos/modules/ai.nix
           ];
         };
 
-  in {
-
-    nixosConfigurations = {
-      bebop = mkSystem {
-        hostName        = "bebop";
-        users           = ["tscolari" "work"];
-        hardwareModules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14
-          nixos-hardware.nixosModules.common-cpu-intel
-          tscolari-pkgs.nixosModules.default
-        ];
-        extraModules = [
-          ./nixos/roles/desktop
-          ./nixos/modules/ai.nix
-        ];
-      };
-
-      HAL = mkSystem {
-        hostName        = "HAL";
-        users           = ["work" "tscolari"];
-        hardwareModules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14s
-          nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
-          nixos-hardware.nixosModules.common-pc-laptop-ssd
-          tscolari-pkgs.nixosModules.default
-        ];
-        extraModules = [
-          ./nixos/roles/desktop
-          ./nixos/roles/diagrid
-          ./nixos/modules/ai.nix
-        ];
+        HAL = mkSystem {
+          hostName = "HAL";
+          users = [
+            "work"
+            "tscolari"
+          ];
+          hardwareModules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14s
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
+            nixos-hardware.nixosModules.common-pc-laptop-ssd
+            tscolari-pkgs.nixosModules.default
+          ];
+          extraModules = [
+            ./nixos/roles/desktop
+            ./nixos/roles/diagrid
+            ./nixos/modules/ai.nix
+          ];
+        };
       };
     };
-  };
 }
