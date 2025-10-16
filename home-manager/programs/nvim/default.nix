@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
 {
   imports = [
@@ -12,16 +12,17 @@
     ./spelling.nix
   ];
 
-
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
 
-    viAlias  = true;
+    luaLoader.enable = true;
+
+    viAlias = true;
     vimAlias = true;
 
     performance = {
-      byteCompileLua.enable  = true;
+      byteCompileLua.enable = true;
       byteCompileLua.plugins = false;
       combinePlugins.enable = false;
     };

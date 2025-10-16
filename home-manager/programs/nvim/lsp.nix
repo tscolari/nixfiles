@@ -1,8 +1,6 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
-let
-
-in {
+{
   programs.nixvim = {
     # Copilot highlight color
     highlightOverride = {
@@ -18,7 +16,7 @@ in {
     plugins.lsp = {
       preConfig = ''
         vim.lsp.config('*', {
-            root_markers = { '.git/' },
+            root_markers = { '.git/', 'go.mod' },
         })
 
         vim.diagnostic.config({
@@ -118,17 +116,21 @@ in {
 
     lsp.servers = {
       dockerls = {
-        enable   = true;
+        enable = true;
         settings = {
-          cmd = [ "docker-language-server" "start" "--stdio" ];
+          cmd = [
+            "docker-language-server"
+            "start"
+            "--stdio"
+          ];
         };
       };
 
-      eslint.enable           = true;
+      eslint.enable = true;
       golangci_lint_ls.enable = true;
 
       gopls = {
-        enable   = true;
+        enable = true;
         settings = {
           gopls = {
             gofumpt = true;
@@ -145,7 +147,7 @@ in {
       };
 
       lua_ls = {
-        enable   = true;
+        enable = true;
         settings = {
           Lua = {
             runtime = {
@@ -160,10 +162,10 @@ in {
             workspace = {
               library = {
                 __raw = ''
-                {
-                  [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-                  [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-                }
+                  {
+                    [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                  }
                 '';
               };
             };
@@ -171,12 +173,12 @@ in {
         };
       };
 
-      nil_ls.enable        = true;
-      postgres_lsp.enable  = true;
-      ruby_lsp.enable      = true;
+      nil_ls.enable = true;
+      postgres_lsp.enable = true;
+      ruby_lsp.enable = true;
 
       rust_analyzer = {
-        enable   = true;
+        enable = true;
         settings = {
           rust-analyzer = {
             assist = {
@@ -194,9 +196,13 @@ in {
       };
 
       terraformls = {
-        enable    = true;
+        enable = true;
         settings = {
-          filetypes = [ "terraform" "tf" "tfvars" ];
+          filetypes = [
+            "terraform"
+            "tf"
+            "tfvars"
+          ];
         };
       };
 
@@ -209,7 +215,8 @@ in {
           yaml = {
             keyOrdering = false;
             schemas = {
-              "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" = "docker-compose.yml";
+              "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json" =
+                "docker-compose.yml";
               "https://json.schemastore.org/chart.json" = "Chart.yaml";
             };
           };

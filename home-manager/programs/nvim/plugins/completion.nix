@@ -1,4 +1,4 @@
-{ ... }@args:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -13,13 +13,13 @@
       '';
 
       sources = [
-        { name = "copilot";  }
+        { name = "copilot"; }
         { name = "nvim_lsp"; }
         { name = "nvim_lua"; }
-        { name = "vsnip";    }
-        { name = "buffer";   }
-        { name = "calc";     }
-        { name = "path";     }
+        { name = "vsnip"; }
+        { name = "buffer"; }
+        { name = "calc"; }
+        { name = "path"; }
       ];
 
       # Mapping configuration

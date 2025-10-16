@@ -1,21 +1,24 @@
-{ pkgs, ... }@args:
+{ pkgs, ... }:
 
 let
 
-  buildPlugin = args: pkgs.vimUtils.buildVimPlugin {
-    pname = args.pname;
-    version = args.rev;
-    src = pkgs.fetchFromGitHub {
-      owner = args.owner;
-      repo = args.repo;
-      rev = args.rev;
-      hash = args.hash;
+  buildPlugin =
+    args:
+    pkgs.vimUtils.buildVimPlugin {
+      pname = args.pname;
+      version = args.rev;
+      src = pkgs.fetchFromGitHub {
+        owner = args.owner;
+        repo = args.repo;
+        rev = args.rev;
+        hash = args.hash;
+      };
+      dependencies = args.dependencies or [ ];
+
     };
-    dependencies = args.dependencies or [];
 
-  };
-
-in {
+in
+{
 
   join-vim = buildPlugin {
     pname = "join.vim";
@@ -45,4 +48,3 @@ in {
     hash = "sha256-g4fvKswD2Sr3Zuy1Znku1NInDXF2sO6P7PXGecBDDdk=";
   };
 }
-

@@ -465,16 +465,16 @@
     },
     "vim-plugins": {
       "locked": {
-        "lastModified": 1759831965,
-        "narHash": "sha256-vgPm2xjOmKdZ0xKA6yLXPJpjOtQPHfaZDRtH+47XEBo=",
+        "lastModified": 1760475542,
+        "narHash": "sha256-tSTwot9IYrc1FNauppYlV9ES+7H3XKkOIjUFBIFrb9o=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c9b6fb798541223bbb396d287d16f43520250518",
+        "rev": "acb442bd6a424090f3b1113dd67472a91a9ff13c",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }

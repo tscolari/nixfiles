@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ pkgs, ... }:
 
 let
 
@@ -73,7 +73,14 @@ let
     yaml
   ];
 
-in {
+in
+{
+
+  # programs.nixvim = {
+  #   extraConfigLua = ''
+  #     require('nvim-ts-autotag').setup()
+  #   '';
+  # };
 
   programs.nixvim.plugins = {
     treesitter = {
@@ -100,7 +107,7 @@ in {
 
         playground = {
           enable = true;
-          disable = [];
+          disable = [ ];
           updatetime = 25;
           persist_queries = false;
         };
@@ -112,10 +119,14 @@ in {
     };
 
     treesitter-refactor = {
-      highlightDefinitions = { enable = true; };
+      highlightDefinitions = {
+        enable = true;
+      };
       smartRename = {
         enable = true;
-        keymaps = { smartRename = "grr"; };
+        keymaps = {
+          smartRename = "grr";
+        };
       };
       navigation = {
         enable = true;

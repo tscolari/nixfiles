@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ... }@args:
+{ pkgs, ... }:
 
 let
 
   customPlugins = import ./custom.nix { inherit pkgs; };
 
-in {
+in
+{
 
   imports = [
     ./ai.nix
@@ -65,7 +66,7 @@ in {
       treesitter-textobjects.enable = true;
       treesitter-refactor.enable = true;
       trouble.enable = true;
-      ts-autotag.enable = true;
+      # ts-autotag.enable = true;
       ts-context-commentstring.enable = true;
       undotree.enable = true;
       vim-bbye.enable = true;
@@ -81,6 +82,7 @@ in {
 
       asyncrun-vim
       catppuccin-nvim
+      incsearch-vim
       fzf-vim
       lsp-colors-nvim
       mason-lspconfig-nvim

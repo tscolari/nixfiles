@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -122,7 +122,7 @@
                 end
                 vim.schedule(function() vim.cmd("write") end)
                 end
-                '';
+          '';
         };
         options.expr = true;
       }
@@ -139,7 +139,7 @@
                 end
                 vim.schedule(function() vim.cmd("noautocmd write") end)
                 end
-                '';
+          '';
         };
         options.expr = true;
       }
@@ -219,48 +219,104 @@
         key = "[t";
         action = "<Plug>(ultest-prev-fail)";
       }
+
+      # Search
+      {
+        mode = "";
+        key = "/";
+        action = "<Plug>(incsearch-forward)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "?";
+        action = "<Plug>(incsearch-backward)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "g/";
+        action = "<Plug>(incsearch-stay)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "n";
+        action = "<Plug>(incsearch-nohl-n)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "N";
+        action = "<Plug>(incsearch-nohl-N)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "*";
+        action = "<Plug>(incsearch-nohl-*)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "#";
+        action = "<Plug>(incsearch-nohl-#)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "g*";
+        action = "<Plug>(incsearch-nohl-g*)";
+        options.noremap = false;
+      }
+      {
+        mode = "";
+        key = "g#";
+        action = "<Plug>(incsearch-nohl-g#)";
+        options.noremap = false;
+      }
     ];
 
     plugins.which-key.settings.spec = [
       # Go to mappings
       {
         __unkeyed-1 = "gD";
-        action.__raw = "vim.lsp.buf.declaration";
+        __unkeyed-2.__raw = "vim.lsp.buf.declaration";
         desc = "Go to declaration";
       }
       {
         __unkeyed-1 = "gd";
-        action.__raw = "require('telescope.builtin').lsp_definitions";
+        __unkeyed-2.__raw = "require('telescope.builtin').lsp_definitions";
         desc = "Go to definition";
       }
       {
         __unkeyed-1 = "gy";
-        action.__raw = "vim.lsp.buf.type_definition";
+        __unkeyed-2.__raw = "vim.lsp.buf.type_definition";
         desc = "Go to type";
       }
       {
         __unkeyed-1 = "gm";
-        action.__raw = "require('telescope.builtin').lsp_implementations";
+        __unkeyed-2.__raw = "require('telescope.builtin').lsp_implementations";
         desc = "Find implementation";
       }
       {
         __unkeyed-1 = "gh";
-        action = "<cmd>Lspsaga lsp_finder<cr>";
+        __unkeyed-2 = "<cmd>Lspsaga lsp_finder<cr>";
         desc = "Smart find references/implementation";
       }
       {
         __unkeyed-1 = "gr";
-        action.__raw = "require('telescope.builtin').lsp_references";
+        __unkeyed-2.__raw = "require('telescope.builtin').lsp_references";
         desc = "Find references";
       }
       {
         __unkeyed-1 = "gK";
-        action = "<cmd>Lspsaga signature_help<cr>";
+        __unkeyed-2 = "<cmd>Lspsaga signature_help<cr>";
         desc = "Show signature";
       }
       {
         __unkeyed-1 = "ga";
-        action = "<Plug>(LiveEasyAlign)";
+        __unkeyed-2 = "<Plug>(LiveEasyAlign)";
         desc = "EasyAlign";
         mode = "x";
       }
@@ -272,22 +328,22 @@
       }
       {
         __unkeyed-1 = "<leader> s";
-        action = "<cmd>Alpha<cr>";
+        __unkeyed-2 = "<cmd>Alpha<cr>";
         desc = "Home Buffer";
       }
       {
         __unkeyed-1 = "<leader> c";
-        action.__raw = "require('telescope.builtin').commands";
+        __unkeyed-2.__raw = "require('telescope.builtin').commands";
         desc = "Search commands";
       }
       {
         __unkeyed-1 = "<leader> a";
-        action.__raw = "require('telescope.builtin').colorscheme";
+        __unkeyed-2.__raw = "require('telescope.builtin').colorscheme";
         desc = "Search colorschemes";
       }
       {
         __unkeyed-1 = "<leader> h";
-        action.__raw = "require('telescope.builtin').help_tags";
+        __unkeyed-2.__raw = "require('telescope.builtin').help_tags";
         desc = "Help";
       }
 
@@ -298,22 +354,22 @@
       }
       {
         __unkeyed-1 = "<leader>ff";
-        action.__raw = "require('telescope.builtin').find_files";
+        __unkeyed-2.__raw = "require('telescope.builtin').find_files";
         desc = "File Search";
       }
       {
         __unkeyed-1 = "<leader>fo";
-        action.__raw = "require('telescope.builtin').buffers";
+        __unkeyed-2.__raw = "require('telescope.builtin').buffers";
         desc = "Buffer Search";
       }
       {
         __unkeyed-1 = "<leader>fm";
-        action.__raw = "require('telescope.builtin').oldfiles";
+        __unkeyed-2.__raw = "require('telescope.builtin').oldfiles";
         desc = "Recent Files";
       }
       {
         __unkeyed-1 = "<leader>f-";
-        action.__raw = ''
+        __unkeyed-2.__raw = ''
           function()
             require('telescope').extensions.file_browser.file_browser({ cwd = '%:h' })
           end
@@ -322,7 +378,7 @@
       }
       {
         __unkeyed-1 = "<leader>f.";
-        action = "<c-^>";
+        __unkeyed-2 = "<c-^>";
         desc = "Go to last buffer";
       }
 
@@ -333,22 +389,22 @@
       }
       {
         __unkeyed-1 = "<leader>gs";
-        action = "<cmd>Git<cr>";
+        __unkeyed-2 = "<cmd>Git<cr>";
         desc = "git status";
       }
       {
         __unkeyed-1 = "<leader>gb";
-        action = "<cmd>Git blame<cr>";
+        __unkeyed-2 = "<cmd>Git blame<cr>";
         desc = "git blame";
       }
       {
         __unkeyed-1 = "<leader>gc";
-        action.__raw = "require('telescope.builtin').git_commits";
+        __unkeyed-2.__raw = "require('telescope.builtin').git_commits";
         desc = "git commits";
       }
       {
         __unkeyed-1 = "<leader>gk";
-        action.__raw = "require('telescope.builtin').git_bcommits";
+        __unkeyed-2.__raw = "require('telescope.builtin').git_bcommits";
         desc = "git commits (buffer)";
       }
 
@@ -359,42 +415,42 @@
       }
       {
         __unkeyed-1 = "<leader>ht";
-        action.__raw = "require('vgit').toggle_live_guttter";
+        __unkeyed-2.__raw = "require('vgit').toggle_live_guttter";
         desc = "Toggle live gutter";
       }
       {
         __unkeyed-1 = "<leader>hs";
-        action.__raw = "require('vgit').buffer_hunk_stage";
+        __unkeyed-2.__raw = "require('vgit').buffer_hunk_stage";
         desc = "Stage Hunk";
       }
       {
         __unkeyed-1 = "<leader>hp";
-        action.__raw = "require('vgit').buffer_hunk_preview";
+        __unkeyed-2.__raw = "require('vgit').buffer_hunk_preview";
         desc = "Preview Hunk";
       }
       {
         __unkeyed-1 = "<leader>hu";
-        action.__raw = "require('vgit').buffer_hunk_reset";
+        __unkeyed-2.__raw = "require('vgit').buffer_hunk_reset";
         desc = "Undo Hunk";
       }
       {
         __unkeyed-1 = "<leader>hR";
-        action.__raw = "require('vgit').buffer_unstage";
+        __unkeyed-2.__raw = "require('vgit').buffer_unstage";
         desc = "Reset Buffer";
       }
       {
         __unkeyed-1 = "<leader>hl";
-        action.__raw = "require('vgit').buffer_blame_preview";
+        __unkeyed-2.__raw = "require('vgit').buffer_blame_preview";
         desc = "Blame line";
       }
       {
         __unkeyed-1 = "<leader>hb";
-        action.__raw = "require('vgit').toggle_live_blame";
+        __unkeyed-2.__raw = "require('vgit').toggle_live_blame";
         desc = "Toggle live blame";
       }
       {
         __unkeyed-1 = "<leader>ha";
-        action.__raw = "require('vgit').toggle_authorship_code_lens";
+        __unkeyed-2.__raw = "require('vgit').toggle_authorship_code_lens";
         desc = "Toggle authors";
       }
 
@@ -405,42 +461,42 @@
       }
       {
         __unkeyed-1 = "<leader>la";
-        action = "<cmd>Lspsaga code_action<cr>";
+        __unkeyed-2 = "<cmd>Lspsaga code_action<cr>";
         desc = "Code Action";
       }
       {
         __unkeyed-1 = "<leader>l=";
-        action.__raw = "vim.lsp.buf.formatting_sync";
+        __unkeyed-2.__raw = "vim.lsp.buf.formatting_sync";
         desc = "Format";
       }
       {
         __unkeyed-1 = "<leader>lr";
-        action = "<cmd>Lspsaga rename<cr>";
+        __unkeyed-2 = "<cmd>Lspsaga rename<cr>";
         desc = "Rename";
       }
       {
         __unkeyed-1 = "<leader>lk";
-        action = "<cmd>Lspsaga hover_doc<cr>";
+        __unkeyed-2 = "<cmd>Lspsaga hover_doc<cr>";
         desc = "Doc";
       }
       {
         __unkeyed-1 = "<leader>ls";
-        action.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
+        __unkeyed-2.__raw = "require('telescope.builtin').lsp_dynamic_workspace_symbols";
         desc = "Search Symbols";
       }
       {
         __unkeyed-1 = "<leader>ld";
-        action = "<cmd>lua vim.diagnostic.setloclist()<cr>";
+        __unkeyed-2 = "<cmd>lua vim.diagnostic.setloclist()<cr>";
         desc = "Diagnostics";
       }
       {
         __unkeyed-1 = "<leader>lD";
-        action = "<cmd>Trouble diagnostics<cr>";
+        __unkeyed-2 = "<cmd>Trouble diagnostics<cr>";
         desc = "Workspace Diagnostics";
       }
       {
         __unkeyed-1 = "<leader>lt";
-        action = "<cmd>Vista!!<cr>";
+        __unkeyed-2 = "<cmd>Vista!!<cr>";
         desc = "Symbol tree";
       }
 
@@ -451,7 +507,7 @@
       }
       {
         __unkeyed-1 = "<leader>bd";
-        action.__raw = ''
+        __unkeyed-2.__raw = ''
           function()
             require('bufdelete').bufdelete(0, true)
           end
@@ -460,22 +516,22 @@
       }
       {
         __unkeyed-1 = "<leader>bl";
-        action = "<cmd>b#<cr>";
+        __unkeyed-2 = "<cmd>b#<cr>";
         desc = "Last buffer";
       }
       {
         __unkeyed-1 = "<leader>bn";
-        action = "<cmd>bnext<cr>";
+        __unkeyed-2 = "<cmd>bnext<cr>";
         desc = "Next buffer";
       }
       {
         __unkeyed-1 = "<leader>bp";
-        action = "<cmd>bprevious<cr>";
+        __unkeyed-2 = "<cmd>bprevious<cr>";
         desc = "Previous buffer";
       }
       {
         __unkeyed-1 = "<leader>bs";
-        action.__raw = "require('telescope.builtin').buffers";
+        __unkeyed-2.__raw = "require('telescope.builtin').buffers";
         desc = "Search buffers";
       }
 
@@ -486,27 +542,27 @@
       }
       {
         __unkeyed-1 = "<leader>sg";
-        action = "<cmd>Grepper<cr>";
+        __unkeyed-2 = "<cmd>Grepper<cr>";
         desc = "Find in directory (quickfix)";
       }
       {
         __unkeyed-1 = "<leader>sf";
-        action.__raw = "require('telescope.builtin').live_grep";
+        __unkeyed-2.__raw = "require('telescope.builtin').live_grep";
         desc = "Find in directory (live)";
       }
       {
         __unkeyed-1 = "<leader>sl";
-        action = "<cmd>FZFLines<cr>";
+        __unkeyed-2 = "<cmd>FZFLines<cr>";
         desc = "Find in open files";
       }
       {
         __unkeyed-1 = "<leader>sb";
-        action.__raw = "require('telescope.builtin').current_buffer_fuzzy_find";
+        __unkeyed-2.__raw = "require('telescope.builtin').current_buffer_fuzzy_find";
         desc = "Find in buffer";
       }
       {
         __unkeyed-1 = "<leader>sp";
-        action.__raw = "require('spectre').open";
+        __unkeyed-2.__raw = "require('spectre').open";
         desc = "Search & Replace";
       }
 
@@ -517,47 +573,47 @@
       }
       {
         __unkeyed-1 = "<leader>dt";
-        action = "<cmd>GoDebug --test<cr>";
+        __unkeyed-2 = "<cmd>GoDebug --test<cr>";
         desc = "Debug Test";
       }
       {
         __unkeyed-1 = "<leader>dr";
-        action = "<cmd>GoDebug --restart<cr>";
+        __unkeyed-2 = "<cmd>GoDebug --restart<cr>";
         desc = "Restart";
       }
       {
         __unkeyed-1 = "<leader>dq";
-        action = "<cmd>GoDebug --stop<cr>";
+        __unkeyed-2 = "<cmd>GoDebug --stop<cr>";
         desc = "Quit";
       }
       {
         __unkeyed-1 = "<leader>dd";
-        action = "<cmd>GoDebug --file<cr>";
+        __unkeyed-2 = "<cmd>GoDebug --file<cr>";
         desc = "Display File";
       }
       {
         __unkeyed-1 = "<leader>dc";
-        action.__raw = "require('dap').continue";
+        __unkeyed-2.__raw = "require('dap').continue";
         desc = "Continue";
       }
       {
         __unkeyed-1 = "<leader>dn";
-        action.__raw = "require('dap').step_over";
+        __unkeyed-2.__raw = "require('dap').step_over";
         desc = "Next";
       }
       {
         __unkeyed-1 = "<leader>ds";
-        action.__raw = "require('dap').step_into";
+        __unkeyed-2.__raw = "require('dap').step_into";
         desc = "Step Into";
       }
       {
         __unkeyed-1 = "<leader>do";
-        action.__raw = "require('dap').step_out";
+        __unkeyed-2.__raw = "require('dap').step_out";
         desc = "Step Out";
       }
       {
         __unkeyed-1 = "<leader>db";
-        action.__raw = "require('dap').toggle_breakpoint";
+        __unkeyed-2.__raw = "require('dap').toggle_breakpoint";
         desc = "Toggle Breakpoint";
       }
 
@@ -568,27 +624,27 @@
       }
       {
         __unkeyed-1 = "<leader>tt";
-        action = "<cmd>TestNearest<cr>";
+        __unkeyed-2 = "<cmd>TestNearest<cr>";
         desc = "Run Nearest";
       }
       {
         __unkeyed-1 = "<leader>tf";
-        action = "<cmd>TestFile<cr>";
+        __unkeyed-2 = "<cmd>TestFile<cr>";
         desc = "Run File";
       }
       {
         __unkeyed-1 = "<leader>ts";
-        action = "<cmd>TestSuite<cr>";
+        __unkeyed-2 = "<cmd>TestSuite<cr>";
         desc = "Run Suite";
       }
       {
         __unkeyed-1 = "<leader>tg";
-        action = "<cmd>TestVisit<cr>";
+        __unkeyed-2 = "<cmd>TestVisit<cr>";
         desc = "Goto last ran test";
       }
       {
         __unkeyed-1 = "<leader>t.";
-        action = "<cmd>TestLast<cr>";
+        __unkeyed-2 = "<cmd>TestLast<cr>";
         desc = "Run Last";
       }
     ];

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -10,7 +10,10 @@
 
     autoCmd = [
       {
-        event = [ "BufNewFile" "BufEnter" ];
+        event = [
+          "BufNewFile"
+          "BufEnter"
+        ];
         group = "config#basic";
         callback = {
           __raw = ''

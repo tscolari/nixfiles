@@ -1,4 +1,5 @@
-{ ... }@args:
+{ ... }:
+
 {
   programs.nixvim.plugins = {
     copilot-lua.settings = {

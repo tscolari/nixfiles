@@ -1,4 +1,4 @@
-{ ... }@args:
+{ ... }:
 {
   programs.nixvim.plugins.telescope = {
     settings = {
@@ -61,8 +61,8 @@
         settings = {
           theme = "ivy";
           mappings = {
-            i = {};
-            n = {};
+            i = { };
+            n = { };
           };
         };
       };

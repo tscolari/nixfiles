@@ -1,7 +1,7 @@
-{ ... }@args:
+{ ... }:
 
 {
-  programs.nixvim= {
+  programs.nixvim = {
     plugins.neotest = {
       adapters = {
         go.enable = true;

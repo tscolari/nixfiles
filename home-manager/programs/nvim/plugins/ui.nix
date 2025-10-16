@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -27,34 +27,34 @@
             type = "padding";
             val = 2;
           }
-          {
-            type = "text";
-            val = [''
-                                                 __
-                    ___     ___    ___   __  __ /\_\    ___ ___
-                   / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\ 
-                  /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ 
-                  \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
-                   \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
-
-                                 ,_---~~~~~----._
-                          _,,_,*^____      _____``*g*\"*,
-                         / __/ /'     ^.  /      \ ^@q   f
-                        [  @f | @))    |  | @))   l  0 _/
-                         \`/   \~____ / __ \_____/    \ 
-                          |           _l__l_           I
-                          }          [______]           I
-                          ]            | | |            |
-                          ]             ~ ~             |
-                          |                            |
-                           |                           |
-                          ---------------------------------
-            ''];
-            opts = {
-              position = "center";
-              hl = "Type";
-            };
-          }
+          # {
+          #   type = "text";
+          #   val = [''
+          #                                        __
+          #           ___     ___    ___   __  __ /\_\    ___ ___
+          #          / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\
+          #         /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \
+          #         \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
+          #          \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
+          #
+          #                        ,_---~~~~~----._
+          #                 _,,_,*^____      _____``*g*\"*,
+          #                / __/ /'     ^.  /      \ ^@q   f
+          #               [  @f | @))    |  | @))   l  0 _/
+          #                \`/   \~____ / __ \_____/    \
+          #                 |           _l__l_           I
+          #                 }          [______]           I
+          #                 ]            | | |            |
+          #                 ]             ~ ~             |
+          #                 |                            |
+          #                  |                           |
+          #                 ---------------------------------
+          #   ''];
+          #   opts = {
+          #     position = "center";
+          #     hl = "Type";
+          #   };
+          # }
           {
             type = "text";
             val = {
@@ -63,7 +63,7 @@
                 local version = vim.version()
                 return "     Neovim Version: " .. version.major .. "." .. version.minor .. "." .. version.patch .. " (run :version for more details)"
                 end
-                '';
+              '';
             };
             opts = {
               position = "center";
@@ -122,8 +122,8 @@
         };
 
         inactive_sections = {
-          lualine_a = [];
-          lualine_b = [];
+          lualine_a = [ ];
+          lualine_b = [ ];
           lualine_c = [
             {
               __unkeyed-1 = "filename";
@@ -132,8 +132,8 @@
             }
           ];
           lualine_x = [ "location" ];
-          lualine_y = [];
-          lualine_z = [];
+          lualine_y = [ ];
+          lualine_z = [ ];
         };
       };
 
@@ -202,7 +202,7 @@
                 require('lir.mark.actions').toggle_mark()
                 vim.cmd('normal! j')
                 end
-                '';
+              '';
             };
             "C" = {
               __raw = "require('lir.clipboard.actions').copy";

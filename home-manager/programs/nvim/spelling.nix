@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }@args:
+{ ... }:
 
 {
   programs.nixvim = {
@@ -20,8 +20,15 @@
 
     autoCmd = [
       {
-        event = [ "BufRead" "BufNewFile" ];
-        pattern = [ "*.md" "*.rdoc" "*.markdown" ];
+        event = [
+          "BufRead"
+          "BufNewFile"
+        ];
+        pattern = [
+          "*.md"
+          "*.rdoc"
+          "*.markdown"
+        ];
         command = "setlocal spell";
       }
       {
