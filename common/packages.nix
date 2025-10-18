@@ -173,7 +173,6 @@ in
     # EDITORS & DEVELOPMENT ENVIRONMENT
     # ============================================================================
     unstable.neovim
-    vim
     unstable.universal-ctags
     direnv
 
