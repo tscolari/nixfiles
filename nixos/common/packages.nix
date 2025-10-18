@@ -1,131 +1,15 @@
-{ config, pkgs, lib, hostUsers,... }:
+{
+  pkgs,
+  ...
+}:
 
 let
 
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
+  packages = import ../../common/packages.nix { inherit pkgs; };
 
-in {
+in
+{
   environment = {
-    systemPackages = with pkgs; [
-      awscli2
-      bash
-      bat
-      calibre
-      cargo
-      cloudflared
-      cilium-cli
-      cmake
-      concurrently
-      curl
-      dapr-cli
-      delve
-      diagridcli
-      dig
-      direnv
-      distrobox
-      docker
-      docker-compose
-      fasd
-      fd
-      gcc
-      gh
-      git
-      git-crypt
-      glibc
-      gnumake
-      gnupg
-      gcloud
-      grpcurl
-      gtop
-      helium
-      helmfile
-      htop
-      hub
-      unstable.fly
-      jq
-      jwt-cli
-      killall
-      kind
-      kubectl
-      kubectx
-      kubernetes
-      libsecret
-      lm_sensors
-      lsof
-      lua
-      lyrebird
-      minikube
-      mockgen
-      mutter
-      mysql-client
-      networkmanagerapplet
-      nil
-      nix-index
-      nodePackages.npm
-      nodejs
-      openssl
-      openvpn
-      p11-kit
-      pciutils
-      pgcli
-      pinentry
-      pmutils
-      podman
-      postgresql
-      procps
-      protobuf
-      pstree
-      pulumi
-      pulumiPackages.pulumi-go
-      python3
-      redpanda-client
-      ripgrep
-      ruby
-      rustc
-      screen
-      shellcheck
-      silver-searcher
-      socat
-      ssh-copy-id
-      sysprof
-      terraform
-      tig
-      tmate
-      tmux
-      tree
-      tree-sitter
-      unzip
-      vim
-      watch
-      wget
-      yarn
-      zsh
-      unstable.buf
-      master.claude-code
-      unstable.fzf
-      unstable.go
-      unstable.go-migrate
-      unstable.go-mockery
-      unstable.gofumpt
-      unstable.golangci-lint
-      unstable.golines
-      unstable.gomodifytags
-      unstable.gopls
-      unstable.gotests
-      unstable.gotestsum
-      unstable.gotools
-      unstable.govulncheck
-      unstable.neovim
-      unstable.protoc-gen-go
-      unstable.protoc-gen-go-grpc
-      unstable.universal-ctags
-      unstable.yq
-
-      (wrapHelm kubernetes-helm {
-        plugins = with pkgs.kubernetes-helmPlugins; [
-          helm-diff
-        ];
-      })
-    ];
+    systemPackages = packages.common ++ packages.go;
   };
 }

@@ -6,7 +6,5 @@ let
 
 in
 {
-  home = {
-    packages = packages.go;
-  };
+  home.packages = packages.common ++ packages.gui;
 }

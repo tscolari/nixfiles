@@ -1,8 +1,8 @@
-{ catppuccin,... }:
+{ catppuccin, ... }:
 
 {
   catppuccin = {
     enable = true;
-    flavor = "mocha";
+    flavor = "frappe";
   };
 }

@@ -1,42 +1,15 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
+let
+
+  packages = import ../../../common/packages.nix { inherit pkgs; };
+in
 {
   environment = {
-    systemPackages = with pkgs; [
-      _1password-gui
-      apostrophe
-      blanket
-      blueprint-compiler
-      bluez
-      calcurse
-      calibre
-      cameractrls-gtk4
-      chromium
-      discord
-      flatpak-builder
-      flatpak
-      gimp
-      gjs
-      graphviz
-      grpcui
-      inkscape-with-extensions
-      pandoc
-      pavucontrol
-      pinta
-      polari
-      shortwave
-      slack
-      steam
-      transmission_4
-      trilium-desktop
-      wl-clipboard
-      wofi
-
-      unstable.displaylink
-      unstable.firefox
-      unstable.obsidian
-      unstable.spotify
-    ];
+    systemPackages = [
+      pkgs.unstable.displaylink
+    ]
+    ++ packages.gui;
   };
 
   programs.obs-studio = {
