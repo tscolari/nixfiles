@@ -4,6 +4,24 @@
   programs.nixvim = {
     colorscheme = "catppuccin-frappe";
 
+    colorschemes.catppuccin = {
+      settings = {
+        flavour = "frappe";
+        term_colors = true;
+        transparent_background = false;
+        integrations = {
+          cmp = true;
+          gitsigns = true;
+          nvimtree = true;
+          treesitter = true;
+          notify = true;
+          mini.enabled = true;
+          telescope.enabled = true;
+          which_key = true;
+        };
+      };
+    };
+
     globals = {
       lualine_theme = "catppuccin-frappe";
       config_colorscheme = "catppuccin-frappe";
