@@ -22,65 +22,7 @@
 
     plugins = {
       alpha = {
-        layout = [
-          {
-            type = "padding";
-            val = 2;
-          }
-          # {
-          #   type = "text";
-          #   val = [''
-          #                                        __
-          #           ___     ___    ___   __  __ /\_\    ___ ___
-          #          / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\
-          #         /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \
-          #         \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\
-          #          \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/
-          #
-          #                        ,_---~~~~~----._
-          #                 _,,_,*^____      _____``*g*\"*,
-          #                / __/ /'     ^.  /      \ ^@q   f
-          #               [  @f | @))    |  | @))   l  0 _/
-          #                \`/   \~____ / __ \_____/    \
-          #                 |           _l__l_           I
-          #                 }          [______]           I
-          #                 ]            | | |            |
-          #                 ]             ~ ~             |
-          #                 |                            |
-          #                  |                           |
-          #                 ---------------------------------
-          #   ''];
-          #   opts = {
-          #     position = "center";
-          #     hl = "Type";
-          #   };
-          # }
-          {
-            type = "text";
-            val = {
-              __raw = ''
-                function()
-                local version = vim.version()
-                return "     Neovim Version: " .. version.major .. "." .. version.minor .. "." .. version.patch .. " (run :version for more details)"
-                end
-              '';
-            };
-            opts = {
-              position = "center";
-              hl = "Keyword";
-            };
-          }
-          {
-            type = "padding";
-            val = 2;
-          }
-          {
-            type = "group";
-            val = {
-              __raw = "require('alpha.themes.startify').section.mru.val";
-            };
-          }
-        ];
+        theme = "startify";
       };
 
       lualine.settings = {
