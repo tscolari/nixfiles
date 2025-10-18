@@ -35,7 +35,7 @@ in
     nodePackages.npm
     yarn
     python3
-    ruby
+    (hiPrio ruby)
     lua
     cargo
     rustc
