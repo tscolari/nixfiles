@@ -1,4 +1,12 @@
-{ config, pkgs, lib, ... }:
+{
+  pkgs,
+  ...
+}:
+
+let
+
+  packages = import ../../../common/packages.nix { inherit pkgs; };
+in
 
 {
   # Gnome configurations
@@ -11,54 +19,27 @@
   programs.dconf.enable = true;
 
   environment = {
-    gnome.excludePackages = (with pkgs.unstable; [
-      gnome-photos
-      gnome-tour
-    ]) ++ (with pkgs.unstable; [
-      gnome-music
-      tali
-      iagno
-      hitori
-      atomix
-      gnome-contacts
-      gnome-initial-setup
-    ]) ++ (with pkgs.unstable; [
-      geary
-      yelp
-    ]);
+    gnome.excludePackages =
+      (with pkgs.unstable; [
+        gnome-photos
+        gnome-tour
+      ])
+      ++ (with pkgs.unstable; [
+        gnome-music
+        tali
+        iagno
+        hitori
+        atomix
+        gnome-contacts
+        gnome-initial-setup
+      ])
+      ++ (with pkgs.unstable; [
+        geary
+        yelp
+      ]);
 
-    systemPackages = with pkgs; [
-      gnome-builder
-      gnome-settings-daemon
-      gnome-tweaks
-      pinentry-gnome3
-      gnome.gvfs
-
-      # Themes
-      # ant-bloody-theme
-      arc-icon-theme
-      arc-theme
-      # flat-remix-gnome
-      # flat-remix-gtk
-      flat-remix-icon-theme
-      # fluent-gtk-theme
-      fluent-icon-theme
-      (pkgs.graphite-gtk-theme.override {
-        colorVariants = [ "light" "dark" ];
-        themeVariants = [ "default" "purple" "blue" "red" ];
-        sizeVariants = [ "standard" ];
-        tweaks = [ "rimless" ];
-      })
-      numix-cursor-theme
-      # numix-gtk-theme
-      numix-icon-theme
-      papirus-icon-theme
-      # yaru-theme
-      reversal-icon-theme
-      zafiro-icons
-    ];
+    systemPackages = packages.gnome;
   };
-
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
   systemd.services."getty@tty1".enable = false;
