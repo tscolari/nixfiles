@@ -1,4 +1,10 @@
-{ config, lib, pkgs, nixvim, ... }@args:
+{
+  config,
+  lib,
+  pkgs,
+  nixvim,
+  ...
+}@args:
 
 with lib;
 
@@ -7,7 +13,8 @@ let
   cfg = args.userData;
   catppuccin = args.catppuccin.homeModules.catppuccin;
 
-in {
+in
+{
 
   options = {
     userData = {
@@ -60,7 +67,7 @@ in {
       };
 
       extraGroups = mkOption {
-        default = [];
+        default = [ ];
       };
 
       dashApps = mkOption {
@@ -72,25 +79,23 @@ in {
         ];
       };
 
-      git = {};
+      git = { };
     };
   };
 
   config.userData = cfg;
 
-  imports =
-    [
-      ./shell
-      ./programs
-      ./windowmanager
-      ./terminal
-      ./by-user/${cfg.username}
-      catppuccin
-      nixvim.homeModules.nixvim
-    ];
+  imports = [
+    ./shell
+    ./programs
+    ./windowmanager
+    ./terminal
+    ./by-user/${cfg.username}
+    catppuccin
+    nixvim.homeModules.nixvim
+  ];
 
   config = {
-
     catppuccin = {
       enable = true;
       flavor = "mocha";
@@ -102,7 +107,6 @@ in {
     home = {
       username = cfg.username;
       homeDirectory = cfg.homeDir;
-
 
       # This value determines the Home Manager release that your
       # configuration is compatible with. This helps avoid breakage

@@ -80,9 +80,7 @@ in
     };
 
     extraPlugins = with pkgs.vim-plugins.vimPlugins; [
-
       asyncrun-vim
-      catppuccin-nvim
       incsearch-vim
       fzf-vim
       lsp-colors-nvim
