@@ -3,47 +3,59 @@
     tscolari = {
       username = "tscolari";
       fullName = "Tiago Scolari";
-      homeDir  = "/home/tscolari";
+      homeDir = "/home/tscolari";
 
       backgroundImage = "background-1.jpg";
-      accentColor     = "green";
-      zshTheme        = "sorin";
-      kittyTheme      = "Catppuccin-Mocha";
-      iconTheme       = "Papirus-Dark";
+      accentColor = "green";
+      zshTheme = "sorin";
+      kittyTheme = "Catppuccin-Mocha";
+      iconTheme = "Papirus-Dark";
 
-      extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "plugdev"
+      ];
 
       git = {
         githubUser = "tscolari";
         email = "git@tscolari.me";
+        name = "Tiago Scolari";
       };
     };
 
     work = {
       username = "work";
       fullName = "Tiago Work";
-      homeDir  = "/home/work";
+      homeDir = "/home/work";
 
       backgroundImage = "background-3.jpg";
-      accentColor     = "red";
-      zshTheme        = "powerlevel10k";
-      kittyTheme      = "Catppuccin-Mocha";
-      iconTheme       = "Papirus-Dark";
+      accentColor = "red";
+      zshTheme = "powerlevel10k";
+      kittyTheme = "Catppuccin-Mocha";
+      iconTheme = "Papirus-Dark";
 
-      extraGroups = [ "networkmanager" "wheel" "docker" "plugdev" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "plugdev"
+      ];
 
       dashApps = [
-          "firefox.desktop"
-          "kitty.desktop"
-          "slack.desktop"
-          "obsidian.desktop"
-          "org.gnome.Calendar.desktop"
-          "org.gnome.Nautilus.desktop"
+        "firefox.desktop"
+        "kitty.desktop"
+        "slack.desktop"
+        "obsidian.desktop"
+        "org.gnome.Calendar.desktop"
+        "org.gnome.Nautilus.desktop"
       ];
 
       git = {
         githubUser = "tscolari";
         email = "git@tscolari.me";
+        name = "Tiago Scolari";
       };
     };
   };

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 with lib;
 
@@ -6,7 +11,8 @@ let
 
   cfg = config.userData;
 
-in {
+in
+{
 
   options = {
     userData = {
@@ -22,6 +28,12 @@ in {
           type = with types; uniq str;
           description = "git email for commits";
         };
+
+        name = mkOption {
+          default = userData.fullName;
+          type = with types; uniq str;
+          description = "name for commits";
+        };
       };
     };
   };
@@ -29,7 +41,7 @@ in {
   config = {
     home = {
       sessionVariables = {
-        GIT_DUET_GLOBAL        = "true";
+        GIT_DUET_GLOBAL = "true";
         GIT_DUET_ROTATE_AUTHOR = "1";
       };
     };
@@ -39,29 +51,29 @@ in {
 
       aliases = {
         # add
-        a = "add";                           # add
+        a = "add"; # add
 
         # branch
-        b = "branch -v";                     # branch (verbose)
+        b = "branch -v"; # branch (verbose)
         br = "branch";
 
         # commit
-        c = "commit -m";                     # commit with message
-        ca = "commit --amend --verbose";     # ammend commit
-        ci = "commit --verbose";             # commit
-        amend = "commit --amend";            # ammend your last commit
-        ammend = "commit --amend";           # ammend your last commit
+        c = "commit -m"; # commit with message
+        ca = "commit --amend --verbose"; # ammend commit
+        ci = "commit --verbose"; # commit
+        amend = "commit --amend"; # ammend your last commit
+        ammend = "commit --amend"; # ammend your last commit
 
         # checkout
-        co = "checkout";                     # checkout
-        nb = "checkout -b";                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
+        co = "checkout"; # checkout
+        nb = "checkout -b"; # create and switch to a new branch (mnemonic: "git new branch branchname...")
 
         # cherry-pick
-        cp = "cherry-pick -x";               # grab a change from a branch
+        cp = "cherry-pick -x"; # grab a change from a branch
 
         # diff
-        d = "diff";                          # diff unstaged changes
-        dc = "diff --cached";                # diff staged changes
+        d = "diff"; # diff unstaged changes
+        dc = "diff --cached"; # diff staged changes
 
         # log
         l = "log --graph --date=short";
@@ -78,63 +90,61 @@ in {
         dca = "duet-commit --amend --reset-author --verbose";
 
         # pull
-        pl = "pull";                         # pull
+        pl = "pull"; # pull
 
         # push
-        ps = "push";                         # push
+        ps = "push"; # push
 
         # rebase
-        rc = "rebase --continue";            # continue rebase
-        rs = "rebase --skip";                # skip rebase
+        rc = "rebase --continue"; # continue rebase
+        rs = "rebase --skip"; # skip rebase
         rebase = "rebase -i --exec 'git duet-commit --amend --reset-author'";
 
         # remote
-        r = "remote -v";                     # show remotes (verbose)
+        r = "remote -v"; # show remotes (verbose)
 
         # reset
-        unstage = "reset HEAD";              # remove files from index (tracking)
-        uncommit = "reset --soft HEAD^";     # go back before last commit, with files in uncommitted state
-        filelog = "log -u";                  # show changes to a file
-        mt = "mergetool";                    # fire up the merge tool
+        unstage = "reset HEAD"; # remove files from index (tracking)
+        uncommit = "reset --soft HEAD^"; # go back before last commit, with files in uncommitted state
+        filelog = "log -u"; # show changes to a file
+        mt = "mergetool"; # fire up the merge tool
 
         # stash
-        ss = "stash";                        # stash changes
-        sl = "stash list";                   # list stashes
-        sa = "stash apply";                  # apply stash (restore changes)
-        sd = "stash drop";                   # drop stashes (destory changes)
+        ss = "stash"; # stash changes
+        sl = "stash list"; # list stashes
+        sa = "stash apply"; # apply stash (restore changes)
+        sd = "stash drop"; # drop stashes (destory changes)
 
         # status
-        s = "status";                        # status
-        st = "status";                       # status
-        stat = "status";                     # status
+        s = "status"; # status
+        st = "status"; # status
+        stat = "status"; # status
 
         # tag
-        t = "tag -n";                        # show tags with <n> lines of each tag message
+        t = "tag -n"; # show tags with <n> lines of each tag message
       };
 
       extraConfig = {
 
         user = {
-          name       = cfg.fullName;
-          email      = cfg.git.email;
+          name = cfg.git.name;
+          email = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
         author = {
-          name       = cfg.fullName;
-          email      = cfg.git.email;
+          name = cfg.git.name;
+          email = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
         committer = {
-          name       = cfg.fullName;
-          email      = cfg.git.email;
+          name = cfg.git.name;
+          email = cfg.git.email;
           # Add "signingkey" to ~/.gitconfig.user
         };
 
-        credential.helper = "${
-            pkgs.git.override { withLibsecret = true; }
-          }/bin/git-credential-libsecret";
+        credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
 
         advice = {
           statusHints = "false";
@@ -197,7 +207,7 @@ in {
           prompt = "false";
 
           vimdiff = {
-            cmd = "vim -c 'Gdiff' $MERGED";     # use fugitive.vim for 3-way merge
+            cmd = "vim -c 'Gdiff' $MERGED"; # use fugitive.vim for 3-way merge
             keepbackup = "false";
           };
         };
