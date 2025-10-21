@@ -1,4 +1,7 @@
-{ config, pkgs, lib, ... }:
+{
+  lib,
+  ...
+}:
 
 {
   # Configure network proxy if necessary
@@ -17,8 +20,13 @@
   # networking.firewall.enable = false;
 
   networking.firewall = rec {
-    enable = false;
-    # allowedTCPPortRanges = [ { from = 1714; to = 1764; } ];
-    # allowedUDPPortRanges = allowedTCPPortRanges;
+    enable = true;
+    allowedTCPPortRanges = [
+      {
+        from = 1714;
+        to = 1764;
+      }
+    ];
+    allowedUDPPortRanges = allowedTCPPortRanges;
   };
 }
