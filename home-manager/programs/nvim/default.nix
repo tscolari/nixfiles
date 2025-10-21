@@ -22,7 +22,7 @@
     vimAlias = true;
 
     performance = {
-      byteCompileLua.enable = true;
+      byteCompileLua.enable = false;
       byteCompileLua.plugins = false;
       combinePlugins.enable = false;
     };

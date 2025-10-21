@@ -2,9 +2,10 @@
 
 let
 
-  theme    = config.userData.kittyTheme;
+  theme = config.userData.kittyTheme;
 
-in {
+in
+{
   home = {
     packages = [
       pkgs.unstable.kitty-themes
@@ -17,7 +18,6 @@ in {
     package = pkgs.unstable.kitty;
     themeFile = "${theme}";
     settings = {
-
       # Visual
       font_size = "12";
       font_family = "FiraCode Nerd Font Mono";
@@ -31,7 +31,7 @@ in {
 
     keybindings = {
       "ctrl+c" = "copy_and_clear_or_interrupt";
-      "cmd+c"  = "copy_to_clipboard";
+      "cmd+c" = "copy_to_clipboard";
     };
   };
 

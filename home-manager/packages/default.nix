@@ -7,5 +7,5 @@ let
 in
 {
   # These packages are to be included on non-nixos setup only.
-  home.packages = packages.common ++ packages.gui ++ packages.gnome;
+  home.packages = packages.common ++ packages.gnome;
 }

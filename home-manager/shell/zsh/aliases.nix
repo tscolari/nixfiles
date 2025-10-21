@@ -1,4 +1,10 @@
-{ config, pkgs, userData, lib, ... }:
+{
+  config,
+  pkgs,
+  userData,
+  lib,
+  ...
+}:
 
 {
   programs.zsh = {
@@ -33,17 +39,14 @@
 
       weather = "curl wttr.in";
 
-      vim = "nvim";
-
       # Override rm -i alias which makes rm prompt for every action
-      rm      = "nocorrect rm";
+      rm = "nocorrect rm";
 
       # Don't try to glob with zsh so you can do
       # stuff like ga *foo* and correctly have
       # git add the right stuff
       git = "noglob git";
       gpr = "git pull --rebase";
-
 
       # Kubernetes
       k = "kubectl";
