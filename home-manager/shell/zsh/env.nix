@@ -11,7 +11,7 @@
 
       GOPATH      = "$HOME/go:$GOPATH";
       GO111MODULE = "on";
-      GOPRIVATE   = "github.com/diagridio,github.com/tscolari";
+      GOPRIVATE   = "github.com/redpanda-data,github.com/tscolari";
     };
   };
 
