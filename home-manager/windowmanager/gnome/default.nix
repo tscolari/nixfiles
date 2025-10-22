@@ -1,16 +1,20 @@
-{ config, lib, pkgs, ... }@args:
+{
+  config,
+  ...
+}@args:
 
 let
 
   backgroundImage = config.userData.backgroundImage;
   homeDir = config.userData.homeDir;
 
-in {
+in
+{
   imports = [
-      ./settings.nix
-      ./extensions.nix
-      ./keybindings.nix
-    ];
+    ./settings.nix
+    ./extensions.nix
+    ./keybindings.nix
+  ];
 
   home = {
     file = {
@@ -20,7 +24,11 @@ in {
 
   services.gnome-keyring = {
     enable = true;
-    components = [ "pkcs11" "secrets" "ssh" ];
+    components = [
+      "pkcs11"
+      "secrets"
+      "ssh"
+    ];
   };
 
   gtk.enable = true;

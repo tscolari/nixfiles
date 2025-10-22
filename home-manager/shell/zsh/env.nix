@@ -1,17 +1,21 @@
-{ config, pkgs, lib, userData, ... }:
+{
+  pkgs,
+  lib,
+  ...
+}:
 
 {
 
   home = {
     sessionVariables = rec {
-      PATH   = "$HOME/.local/bin:$PATH";
+      PATH = "$HOME/.local/bin:$PATH";
       VISUAL = "vim";
 
       GREP_COLOR = "1;33";
 
-      GOPATH      = "$HOME/go:$GOPATH";
+      GOPATH = "$HOME/go:$GOPATH";
       GO111MODULE = "on";
-      GOPRIVATE   = "github.com/diagridio,github.com/tscolari";
+      GOPRIVATE = "github.com/redpanda-data,github.com/tscolari";
     };
   };
 

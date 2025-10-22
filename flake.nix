@@ -80,6 +80,7 @@
               overlay-unstable
               overlay-master
               overlay-vim-plugins
+              overlay-local
               tscolari-pkgs.overlays.default
             ];
           }
@@ -111,6 +112,10 @@
             inputs.nixneovimplugins.overlays.default
           ];
         };
+      };
+
+      overlay-local = final: prev: {
+        teleport_14 = prev.callPackage ./packages/teleport-14.nix { };
       };
 
       pkgs = import nixpkgs {
@@ -161,7 +166,6 @@
           hostName = "bebop";
           users = [
             "tscolari"
-            "work"
           ];
           hardwareModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
@@ -174,22 +178,21 @@
           ];
         };
 
-        HAL = mkSystem {
-          hostName = "HAL";
+        TARS = mkSystem {
+          hostName = "TARS";
           users = [
-            "work"
-            "tscolari"
+            "tiagoscolari"
           ];
           hardwareModules = [
-            nixos-hardware.nixosModules.lenovo-thinkpad-t14s
-            nixos-hardware.nixosModules.lenovo-thinkpad-t14s-amd-gen4
+            #nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel
+            nixos-hardware.nixosModules.common-cpu-intel
+            nixos-hardware.nixosModules.common-pc-laptop
             nixos-hardware.nixosModules.common-pc-laptop-ssd
             tscolari-pkgs.nixosModules.default
           ];
           extraModules = [
             ./nixos/roles/desktop
-            ./nixos/roles/diagrid
-            ./nixos/modules/ai.nix
+            ./nixos/roles/redpanda
           ];
         };
 

@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-
-  boot.initrd.luks.devices."luks-f5ee542d-4566-494d-8b57-54af183e42f6".device =
-    "/dev/disk/by-uuid/f5ee542d-4566-494d-8b57-54af183e42f6";
-
   boot.kernelModules = [
     # "amdgpu"
     "atkbd"

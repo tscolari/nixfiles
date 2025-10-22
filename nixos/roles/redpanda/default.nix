@@ -11,19 +11,31 @@
   ];
 
   systemd.services.distrobox-ubuntu = {
-    description = "Distrobox Ubuntu";
+    description = "Distrobox Ubuntu Container";
     wantedBy = [ "multi-user.target" ];
-    after = [
-      "network-online.target"
-      "podman.socket"
+    after = [ "podman.service" ];
+    requires = [ "podman.service" ];
+
+    path = with pkgs; [
+      distrobox
+      podman
+      glibc
+      coreutils
+      util-linux
+      shadow
+      gawk
+      gnugrep
+      gnused
+      findutils
+      procps
+      bash
     ];
-    wants = [ "network-online.target" ];
 
     serviceConfig = {
       Type = "forking";
       RemainAfterExit = "yes";
-      ExecStart = "${pkgs.distrobox}/bin/distrobox-enter --name ubuntu -- true";
-      ExecStop = "${pkgs.distrobox}/bin/distrobox stop ubuntu-work";
+      ExecStart = "${pkgs.distrobox}/bin/distrobox-enter --name ubuntu-root -- true";
+      ExecStop = "${pkgs.distrobox}/bin/distrobox stop ubuntu-root -Y || true";
       Restart = "on-failure";
       RestartSec = "10s";
     };

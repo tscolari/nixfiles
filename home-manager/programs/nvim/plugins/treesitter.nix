@@ -118,24 +118,24 @@ in
       };
     };
 
-    treesitter-refactor = {
+    treesitter-refactor.settings = {
       highlightDefinitions = {
         enable = true;
       };
       smartRename = {
         enable = true;
         keymaps = {
-          smartRename = "grr";
+          smart_rename = "grr";
         };
       };
       navigation = {
         enable = true;
         keymaps = {
-          gotoDefinition = "gnd";
-          listDefinitions = "gnD";
-          listDefinitionsToc = "gO";
-          gotoNextUsage = "<a-*>";
-          gotoPreviousUsage = "<a-#>";
+          goto_definition = "gnd";
+          list_definitions = "gnD";
+          list_definitions_toc = "gO";
+          goto_next_usage = "<a-*>";
+          goto_previous_usage = "<a-#>";
         };
       };
     };

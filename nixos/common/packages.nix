@@ -1,10 +1,18 @@
-{ config, pkgs, lib, hostUsers,... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
 
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
+    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  ];
 
-in {
+in
+{
   environment = {
     systemPackages = with pkgs; [
       awscli2
@@ -88,6 +96,7 @@ in {
       socat
       ssh-copy-id
       sysprof
+      teleport_14
       terraform
       tig
       tmate

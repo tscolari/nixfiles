@@ -25,10 +25,10 @@
       };
     };
 
-    work = {
-      username = "work";
-      fullName = "Tiago Work";
-      homeDir = "/home/work";
+    tiagoscolari = {
+      username = "tiagoscolari";
+      fullName = "Tiago Scolari";
+      homeDir = "/home/tiagoscolari";
 
       backgroundImage = "background-3.jpg";
       accentColor = "red";

@@ -1,10 +1,14 @@
-{ config, pkgs, userData, ... }:
+{
+  config,
+  ...
+}:
 
 let
 
   theme = config.userData.zshTheme;
 
-in {
+in
+{
   programs.zsh = {
     prezto = {
       enable = true;
@@ -17,7 +21,7 @@ in {
         "directory"
         "spectrum"
         "utility"
-        "ssh"
+        # "ssh"
         "fasd"
         "completion"
         "ruby"

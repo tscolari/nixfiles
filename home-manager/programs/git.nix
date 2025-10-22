@@ -44,6 +44,10 @@ in
         GIT_DUET_GLOBAL = "true";
         GIT_DUET_ROTATE_AUTHOR = "1";
       };
+
+      packages = with pkgs; [
+        git-credential-oauth
+      ];
     };
 
     programs.git = {
@@ -124,6 +128,9 @@ in
         t = "tag -n"; # show tags with <n> lines of each tag message
       };
 
+      includes = [
+        { path = "~/.gitconfig.user"; }
+      ];
       extraConfig = {
 
         user = {
@@ -197,10 +204,6 @@ in
 
         gpg = {
           program = "gpg";
-        };
-
-        include = {
-          path = "~/.gitconfig.user";
         };
 
         mergetool = {
