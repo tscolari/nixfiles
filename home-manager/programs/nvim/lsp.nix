@@ -137,7 +137,7 @@
     lsp.servers = {
       dockerls = {
         enable = true;
-        settings = {
+        config.settings = {
           cmd = [
             "docker-language-server"
             "start"
@@ -151,7 +151,7 @@
 
       gopls = {
         enable = true;
-        settings = {
+        config.settings = {
           gopls = {
             gofumpt = true;
             semanticTokens = true;
@@ -168,7 +168,7 @@
 
       lua_ls = {
         enable = true;
-        settings = {
+        config.settings = {
           Lua = {
             runtime = {
               version = "LuaJIT";
@@ -199,7 +199,7 @@
 
       rust_analyzer = {
         enable = true;
-        settings = {
+        config.settings = {
           rust-analyzer = {
             assist = {
               importGranularity = "module";
@@ -217,7 +217,7 @@
 
       terraformls = {
         enable = true;
-        settings = {
+        config.settings = {
           filetypes = [
             "terraform"
             "tf"
@@ -231,7 +231,7 @@
 
       yamlls = {
         enable = true;
-        settings = {
+        config.settings = {
           yaml = {
             keyOrdering = false;
             schemas = {
