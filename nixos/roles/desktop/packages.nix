@@ -24,6 +24,7 @@
       pavucontrol
       pinta
       polari
+      pdfarranger
       shortwave
       slack
       steam
