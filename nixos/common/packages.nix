@@ -27,6 +27,7 @@ in
       curl
       dapr-cli
       delve
+      devenv
       diagridcli
       dig
       direnv

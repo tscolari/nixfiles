@@ -152,6 +152,7 @@ in
         };
 
         credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+        credential.cache = "--timeout 79200";
 
         advice = {
           statusHints = "false";

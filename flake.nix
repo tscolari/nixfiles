@@ -195,25 +195,6 @@
             ./nixos/roles/redpanda
           ];
         };
-
-        TARS = mkSystem {
-          hostName = "TARS";
-          users = [
-            "work"
-            "tscolari"
-          ];
-          hardwareModules = [
-            nixos-hardware.nixosModules.lenovo-thinkpad-p14s
-            nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel
-            nixos-hardware.nixosModules.common-pc-laptop
-            nixos-hardware.nixosModules.common-pc-laptop-ssd
-            tscolari-pkgs.nixosModules.default
-          ];
-          extraModules = [
-            ./nixos/roles/desktop
-            ./nixos/roles/tars
-          ];
-        };
       };
     };
 }

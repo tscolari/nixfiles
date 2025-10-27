@@ -195,10 +195,12 @@
 
       nil_ls.enable = true;
       postgres_lsp.enable = true;
-      ruby_lsp.enable = true;
+      buf_ls.enable = true;
+      protols.enable = false;
+      ruby_lsp.enable = false;
 
       rust_analyzer = {
-        enable = true;
+        enable = false;
         config.settings = {
           rust-analyzer = {
             assist = {

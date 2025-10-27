@@ -21,7 +21,7 @@ in
         "directory"
         "spectrum"
         "utility"
-        # "ssh"
+        "ssh"
         "fasd"
         "completion"
         "ruby"
