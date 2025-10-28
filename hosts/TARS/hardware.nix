@@ -1,10 +1,14 @@
-{ pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot.kernelModules = [
-    # "amdgpu"
     "atkbd"
     "i8042"
-    "kvm-amd"
+    "kvm-intel"
   ];
 
   boot.initrd.kernelModules = [
@@ -13,7 +17,6 @@
   ];
 
   boot.initrd.availableKernelModules = [
-    # "admgpu"
     "nvme"
     "xhci_pci"
     "thunderbolt"
@@ -32,10 +35,12 @@
 
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
-  # AMD graphics and CPU support
-  # services.xserver.videoDrivers = [ "amdgpu" ];
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableAllFirmware = true;
+
+  powerManagement.cpuFreqGovernor = "powersave";
+
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
 
   console.keyMap = "us";
 }
