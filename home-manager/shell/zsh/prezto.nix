@@ -21,7 +21,7 @@ in
         "directory"
         "spectrum"
         "utility"
-        "ssh"
+        # "ssh"
         "fasd"
         "completion"
         "ruby"
@@ -35,6 +35,10 @@ in
       editor.keymap = "emacs";
       prompt.theme = "${theme}";
       tmux.autoStartLocal = true;
+
+      ssh = {
+        identities = [ ]; # Don't load identities - let GNOME Keyring handle it
+      };
     };
   };
 }

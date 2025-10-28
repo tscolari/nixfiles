@@ -123,7 +123,7 @@ in
 
     services.gpg-agent = {
       enable = true;
-      enableSshSupport = true;
+      enableSshSupport = false;
       enableZshIntegration = true;
       defaultCacheTtl = 7200;
       pinentry.package = pkgs.pinentry-gnome3;
