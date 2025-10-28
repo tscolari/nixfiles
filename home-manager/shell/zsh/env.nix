@@ -23,6 +23,8 @@
     sessionVariables = {
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
 
+      SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/keyring/ssh";
+
       NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
         pkgs.stdenv.cc.cc
       ];

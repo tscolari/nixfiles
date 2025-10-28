@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   pkgs,
   nixvim,
@@ -122,7 +121,7 @@ in
     };
 
     services.gpg-agent = {
-      enable = true;
+      enable = false;
       enableSshSupport = false;
       enableZshIntegration = true;
       defaultCacheTtl = 7200;
