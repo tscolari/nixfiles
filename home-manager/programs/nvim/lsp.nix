@@ -22,13 +22,13 @@
     plugins.conform-nvim.settings = {
       formatters_by_ft = {
         go = [
-          "gofmt"
+          # "gofmt"
           "goimports"
         ];
       };
       format_on_save = {
         async = false;
-        timeout_ms = 500;
+        timeout_ms = 3000;
         lsp_format = "fallback";
       };
     };
@@ -162,6 +162,16 @@
               shadow = true;
             };
             staticcheck = true;
+
+            codelenses = {
+              gc_details = false; # Disable expensive codelenses
+              generate = false;
+              regenerate_cgo = false;
+              test = false;
+              tidy = false;
+              upgrade_dependency = false;
+              vendor = false;
+            };
           };
         };
       };

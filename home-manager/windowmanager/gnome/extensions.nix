@@ -4,6 +4,7 @@
 
   home = {
     packages = with pkgs.gnomeExtensions; [
+      appindicator
       auto-power-profile
       clipboard-indicator
       custom-hot-corners-extended
@@ -29,6 +30,7 @@
       disable-user-extensions = false;
 
       enable-extensions = [
+        "appindicatorsupport@rgcjonas.gmail.com"
         "auto-power-profile@dmy3k.github.io"
         "clipboard-indicator@tudmotu.com"
         "custom-hot-corners-extended@G-dH.github.com"
@@ -51,22 +53,22 @@
 
     "org/gnome/shell/extensions/dash-to-dock" = {
       "dash-max-icon-size" = "48";
-      "multi-monitor"      = true;
+      "multi-monitor" = true;
     };
 
     "org/gnome/shell/extensions/trayIconsReloaded" = {
-      tray-margin-left        = 0;
-      tray-margin-right       = 0;
-      icon-margin-horizontal  = 0;
+      tray-margin-left = 0;
+      tray-margin-right = 0;
+      icon-margin-horizontal = 0;
       icon-padding-horizontal = 2;
-      icon-padding-vertical   = 2;
-      icons-limit             = 6;
+      icon-padding-vertical = 2;
+      icons-limit = 6;
     };
 
     "org/gnome/shell/extensions/auto-power-profile" = {
-      ac        = "performance";
-      bat       = "balanced";
-      lapmode   = false;
+      ac = "performance";
+      bat = "balanced";
+      lapmode = false;
       threshold = 35;
     };
   };
