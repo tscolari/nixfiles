@@ -1,11 +1,16 @@
-{ config, pkgs, lib, ... }:
+{
+  ...
+}:
 
 {
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
 
-    videoDrivers = [ "displaylink" "modesetting" ];
+    videoDrivers = [
+      "modesetting"
+      "displaylink"
+    ];
 
     # Enable the GNOME Desktop Environment.
     displayManager.gdm.enable = true;
