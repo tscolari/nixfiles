@@ -204,7 +204,7 @@
       };
 
       nil_ls.enable = true;
-      postgres_lsp.enable = true;
+      postgres_language_server.enable = true;
       buf_ls.enable = true;
       protols.enable = false;
       ruby_lsp.enable = false;
