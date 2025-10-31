@@ -7,8 +7,9 @@
   imports = [
     ./git.nix
     ./go.nix
-    ./tmux.nix
+    ./node.nix
     ./nvim
+    ./tmux.nix
   ];
 
   programs.fzf = {

@@ -8,7 +8,7 @@
 
   home = {
     sessionVariables = rec {
-      PATH = "$HOME/.local/bin:$PATH";
+      PATH = "$HOME/.local/bin:$HOME/.npm-packages/bin:$PATH";
       VISUAL = "vim";
 
       GREP_COLOR = "1;33";
