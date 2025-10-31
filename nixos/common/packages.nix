@@ -18,6 +18,7 @@ in
       awscli2
       bash
       bat
+      bun
       calibre
       cargo
       cloudflared
