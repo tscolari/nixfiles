@@ -193,6 +193,7 @@
           extraModules = [
             ./nixos/roles/desktop
             ./nixos/roles/redpanda
+            ./nixos/modules/fhs.nix
           ];
         };
       };
