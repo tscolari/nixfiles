@@ -12,6 +12,7 @@
   ];
 
   boot.initrd.kernelModules = [
+    "i915"
     "atkbd"
     "i8042"
   ];
@@ -40,7 +41,26 @@
 
   powerManagement.cpuFreqGovernor = "powersave";
 
-  boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.kernelParams = [
+    "mem_sleep_default=deep"
+    "i915.enable_guc=3" # Enable GuC and HuC firmware loading
+    "i915.enable_psr=0" # Disable Panel Self Refresh (causes artifacts)
+    "i915.enable_fbc=0" # Disable framebuffer compression
+    "i915.fastboot=0" # Disable fastboot to ensure clean init
+  ];
 
   console.keyMap = "us";
+
+  # Intel graphics support
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime # For Arrow Lake compute
+    ];
+  };
 }
