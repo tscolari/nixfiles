@@ -15,7 +15,7 @@
     catppuccin.url = "github:catppuccin/nix/release-25.05";
 
     nix-ld = {
-      url = "github:Mic92/nix-ld";
+      url = "github:Mic92/nix-ld/2.0.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
