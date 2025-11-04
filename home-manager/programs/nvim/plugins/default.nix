@@ -39,6 +39,7 @@ in
       dap-ui.enable = true;
       dap-virtual-text.enable = true;
       dap.enable = true;
+      dap-go.enable = true;
       diffview.enable = true;
       friendly-snippets.enable = true;
       fugitive.enable = true;

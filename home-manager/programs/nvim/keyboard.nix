@@ -572,18 +572,28 @@
         group = "debug";
       }
       {
+        __unkeyed-1 = "<leader>du";
+        __unkeyed-2.__raw = "require('dapui').toggle";
+        desc = "Debug UI";
+      }
+      {
         __unkeyed-1 = "<leader>dt";
-        __unkeyed-2 = "<cmd>GoDebug --test<cr>";
+        __unkeyed-2.__raw = "require('dap-go').debug_test";
         desc = "Debug Test";
       }
       {
+        __unkeyed-1 = "<leader>dlt";
+        __unkeyed-2.__raw = "require('dap-go').debug_last_test";
+        desc = "Debug Last Test";
+      }
+      {
         __unkeyed-1 = "<leader>dr";
-        __unkeyed-2 = "<cmd>GoDebug --restart<cr>";
+        __unkeyed-2.__raw = "require('dap').restart";
         desc = "Restart";
       }
       {
         __unkeyed-1 = "<leader>dq";
-        __unkeyed-2 = "<cmd>GoDebug --stop<cr>";
+        __unkeyed-2.__raw = "require('dap').close";
         desc = "Quit";
       }
       {

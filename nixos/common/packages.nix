@@ -27,7 +27,7 @@ in
       concurrently
       curl
       dapr-cli
-      delve
+      unstable.delve
       devenv
       diagridcli
       dig
