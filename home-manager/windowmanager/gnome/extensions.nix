@@ -12,7 +12,6 @@
       emoji-copy
       go-to-last-workspace
       grand-theft-focus
-      gsconnect
       night-theme-switcher
       quick-web-search
       random-wallpaper

@@ -116,8 +116,6 @@ in
       # the Home Manager release notes for a list of state version
       # changes in each release.
       stateVersion = "25.05";
-
-      packages = [ pkgs.pinentry-gnome3 ];
     };
 
     services.gpg-agent = {
