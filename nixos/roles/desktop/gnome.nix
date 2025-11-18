@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  lib,
   ...
 }:
 
@@ -34,46 +32,6 @@
         geary
         yelp
       ]);
-
-    systemPackages = with pkgs; [
-      desktop-file-utils
-      gnome-builder
-      gnome-settings-daemon
-      gnome-tweaks
-      pinentry-gnome3
-      gnome.gvfs
-
-      # Themes
-      # ant-bloody-theme
-      arc-icon-theme
-      arc-theme
-      # flat-remix-gnome
-      # flat-remix-gtk
-      flat-remix-icon-theme
-      # fluent-gtk-theme
-      fluent-icon-theme
-      (pkgs.graphite-gtk-theme.override {
-        colorVariants = [
-          "light"
-          "dark"
-        ];
-        themeVariants = [
-          "default"
-          "purple"
-          "blue"
-          "red"
-        ];
-        sizeVariants = [ "standard" ];
-        tweaks = [ "rimless" ];
-      })
-      numix-cursor-theme
-      # numix-gtk-theme
-      numix-icon-theme
-      papirus-icon-theme
-      # yaru-theme
-      reversal-icon-theme
-      zafiro-icons
-    ];
   };
 
   # Workaround for GNOME autologin: https://github.com/NixOS/nixpkgs/issues/103746#issuecomment-945091229
