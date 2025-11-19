@@ -3,6 +3,11 @@
 {
   environment = {
     systemPackages = with pkgs; [
+      chromium
+      flatpak-builder
+      inkscape-with-extensions
+      slack
+      steam
       unstable.displaylink
     ];
   };

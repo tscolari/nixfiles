@@ -1,9 +1,12 @@
-{ config, pkgs, lib,... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
     ./appimage.nix
-   #./packages.nix
+    ./packages.nix
   ];
 
   environment = {

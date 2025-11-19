@@ -54,8 +54,6 @@ in
       dig
       direnv
       distrobox
-      docker
-      docker-compose
       fasd
       fd
       gcc
@@ -82,7 +80,6 @@ in
       lsof
       lua
       lyrebird
-      minikube
       mockgen
       mutter
       mariadb.client
@@ -144,7 +141,6 @@ in
       unstable.gotestsum
       unstable.gotools
       unstable.govulncheck
-      unstable.neovim
       unstable.protoc-gen-go
       unstable.protoc-gen-go-grpc
       unstable.universal-ctags
@@ -156,25 +152,18 @@ in
       calcurse
       calibre
       cameractrls-gtk4
-      chromium
       discord
-      flatpak-builder
       flatpak
       gimp
       gjs
       graphviz
       grpcui
-      inkscape-with-extensions
       pandoc
       pavucontrol
-      pinta
       polari
       pdfarranger
       shortwave
-      slack
-      steam
       transmission_4
-      trilium-desktop
 
       unstable.firefox
       unstable.obsidian
