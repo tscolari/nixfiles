@@ -32,7 +32,7 @@
 
       backgroundImage = "background-3.jpg";
       accentColor = "red";
-      zshTheme = "powerlevel10k";
+      zshTheme = "sorin";
       kittyTheme = "Catppuccin-Mocha";
       iconTheme = "Papirus-Dark";
 
