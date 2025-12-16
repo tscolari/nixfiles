@@ -5,7 +5,7 @@
   programs.tmux = {
     enable = true;
 
-    # mouse     = true;
+    mouse = true;
     baseIndex = 1;
     clock24 = true;
     keyMode = "vi";
@@ -22,6 +22,8 @@
     ];
 
     extraConfig = "
+      setw -g mouse on
+
       set-option -g status-bg colour235 #base02
       set-option -g status-fg colour136 #yellow
 
@@ -42,9 +44,6 @@
 
       bind r source-file ~/.tmux.conf
       bind-key C-Space last-window
-
-      set -g mouse on
-      setw -g mouse on
     ";
   };
 }
