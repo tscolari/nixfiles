@@ -53,79 +53,82 @@ in
     programs.git = {
       enable = true;
 
-      aliases = {
-        # add
-        a = "add"; # add
+      settings = {
 
-        # branch
-        b = "branch -v"; # branch (verbose)
-        br = "branch";
+        alias = {
+          # add
+          a = "add"; # add
 
-        # commit
-        c = "commit -m"; # commit with message
-        ca = "commit --amend --verbose"; # ammend commit
-        ci = "commit --verbose"; # commit
-        amend = "commit --amend"; # ammend your last commit
-        ammend = "commit --amend"; # ammend your last commit
+          # branch
+          b = "branch -v"; # branch (verbose)
+          br = "branch";
 
-        # checkout
-        co = "checkout"; # checkout
-        nb = "checkout -b"; # create and switch to a new branch (mnemonic: "git new branch branchname...")
+          # commit
+          c = "commit -m"; # commit with message
+          ca = "commit --amend --verbose"; # ammend commit
+          ci = "commit --verbose"; # commit
+          amend = "commit --amend"; # ammend your last commit
+          ammend = "commit --amend"; # ammend your last commit
 
-        # cherry-pick
-        cp = "cherry-pick -x"; # grab a change from a branch
+          # checkout
+          co = "checkout"; # checkout
+          nb = "checkout -b"; # create and switch to a new branch (mnemonic: "git new branch branchname...")
 
-        # diff
-        d = "diff"; # diff unstaged changes
-        dc = "diff --cached"; # diff staged changes
+          # cherry-pick
+          cp = "cherry-pick -x"; # grab a change from a branch
 
-        # log
-        l = "log --graph --date=short";
-        lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
-        flog = "log --pretty=fuller --decorate";
-        blog = "log origin/master... --left-right";
-        changes = "log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status";
-        short = "log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"";
-        changelog = "log --pretty=format:\" * %s\"";
-        shortnocolor = "log --pretty=format:\"%h %cr %cn %s\"";
+          # diff
+          d = "diff"; # diff unstaged changes
+          dc = "diff --cached"; # diff staged changes
 
-        # duet
-        dci = "duet-commit --verbose";
-        dca = "duet-commit --amend --reset-author --verbose";
+          # log
+          l = "log --graph --date=short";
+          lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative";
+          flog = "log --pretty=fuller --decorate";
+          blog = "log origin/master... --left-right";
+          changes = "log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status";
+          short = "log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"";
+          changelog = "log --pretty=format:\" * %s\"";
+          shortnocolor = "log --pretty=format:\"%h %cr %cn %s\"";
 
-        # pull
-        pl = "pull"; # pull
+          # duet
+          dci = "duet-commit --verbose";
+          dca = "duet-commit --amend --reset-author --verbose";
 
-        # push
-        ps = "push"; # push
+          # pull
+          pl = "pull"; # pull
 
-        # rebase
-        rc = "rebase --continue"; # continue rebase
-        rs = "rebase --skip"; # skip rebase
-        rebase = "rebase -i --exec 'git duet-commit --amend --reset-author'";
+          # push
+          ps = "push"; # push
 
-        # remote
-        r = "remote -v"; # show remotes (verbose)
+          # rebase
+          rc = "rebase --continue"; # continue rebase
+          rs = "rebase --skip"; # skip rebase
+          rebase = "rebase -i --exec 'git duet-commit --amend --reset-author'";
 
-        # reset
-        unstage = "reset HEAD"; # remove files from index (tracking)
-        uncommit = "reset --soft HEAD^"; # go back before last commit, with files in uncommitted state
-        filelog = "log -u"; # show changes to a file
-        mt = "mergetool"; # fire up the merge tool
+          # remote
+          r = "remote -v"; # show remotes (verbose)
 
-        # stash
-        ss = "stash"; # stash changes
-        sl = "stash list"; # list stashes
-        sa = "stash apply"; # apply stash (restore changes)
-        sd = "stash drop"; # drop stashes (destory changes)
+          # reset
+          unstage = "reset HEAD"; # remove files from index (tracking)
+          uncommit = "reset --soft HEAD^"; # go back before last commit, with files in uncommitted state
+          filelog = "log -u"; # show changes to a file
+          mt = "mergetool"; # fire up the merge tool
 
-        # status
-        s = "status"; # status
-        st = "status"; # status
-        stat = "status"; # status
+          # stash
+          ss = "stash"; # stash changes
+          sl = "stash list"; # list stashes
+          sa = "stash apply"; # apply stash (restore changes)
+          sd = "stash drop"; # drop stashes (destory changes)
 
-        # tag
-        t = "tag -n"; # show tags with <n> lines of each tag message
+          # status
+          s = "status"; # status
+          st = "status"; # status
+          stat = "status"; # status
+
+          # tag
+          t = "tag -n"; # show tags with <n> lines of each tag message
+        };
       };
 
       includes = [
