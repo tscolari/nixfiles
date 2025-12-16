@@ -125,6 +125,7 @@ in
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
+      disable-extension-version-validation = true;
       favorite-apps = dashApps;
     };
 
