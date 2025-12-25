@@ -1,4 +1,11 @@
-{ config, pkgs, environment, services, hardware, ... }:
+{
+  config,
+  pkgs,
+  environment,
+  services,
+  hardware,
+  ...
+}:
 
 {
   users.users.ai = {
@@ -27,7 +34,11 @@
       description = "Mount bindfs GOPATH for ai";
       wantedBy = [ "multi-user.target" ];
       after = [ "local-fs.target" ];
-      path = with pkgs; [ bash bindfs coreutils ];
+      path = with pkgs; [
+        bash
+        bindfs
+        coreutils
+      ];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
@@ -45,7 +56,7 @@
           --force-group=users \
           --perms=u=rwX:g=rwX:o= \
           /srv/ai-go /home/ai/go
-          '';
+        '';
       };
     };
 
@@ -59,14 +70,29 @@
     sudo.extraRules = [
       {
         users = [ "ai" ];
-        commands = [];
+        commands = [ ];
       }
     ];
 
     pam.loginLimits = [
-      { domain = "ai"; type = "hard"; item = "nproc"; value = "1000"; }
-      { domain = "ai"; type = "hard"; item = "nofile"; value = "2048"; }
-      { domain = "ai"; type = "hard"; item = "as"; value = "2097152000"; } # 2GB address space in bytes
+      {
+        domain = "ai";
+        type = "hard";
+        item = "nproc";
+        value = "1000";
+      }
+      {
+        domain = "ai";
+        type = "hard";
+        item = "nofile";
+        value = "2048";
+      }
+      {
+        domain = "ai";
+        type = "hard";
+        item = "as";
+        value = "2097152000";
+      } # 2GB address space in bytes
     ];
   };
 

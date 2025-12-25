@@ -1,121 +1,109 @@
 {
   lib,
   pkgs,
-  nixvim,
+  config,
   ...
-}@args:
+}:
 
 with lib;
 
 let
 
-  cfg = args.userData;
-  catppuccin = args.catppuccin.homeModules.catppuccin;
+  cfg = config.userData;
 
 in
 {
 
-  options = {
-    userData = {
-      username = mkOption {
-        default = "username";
-        type = with types; uniq str;
-        description = "user's username";
-      };
+  options.userData = {
+    username = mkOption {
+      default = "username";
+      type = with types; uniq str;
+      description = "user's username";
+    };
 
-      fullName = mkOption {
-        default = "Tiago Scolari";
-        type = with types; uniq str;
-        description = "full name for the user";
-      };
+    fullName = mkOption {
+      default = "Tiago Scolari";
+      type = with types; uniq str;
+      description = "full name for the user";
+    };
 
-      homeDir = mkOption {
-        default = "/home/username";
-        type = with types; uniq str;
-        description = "user's username";
-      };
+    homeDir = mkOption {
+      default = "/home/username";
+      type = with types; uniq str;
+      description = "user's username";
+    };
 
-      accentColor = mkOption {
-        default = "blue";
-        type = with types; uniq str;
-        description = "Gnome's accent color";
-      };
+    accentColor = mkOption {
+      default = "blue";
+      type = with types; uniq str;
+      description = "Gnome's accent color";
+    };
 
-      iconTheme = mkOption {
-        default = "Papirus";
-        type = with types; uniq str;
-        description = "Gnome's icon theme";
-      };
+    iconTheme = mkOption {
+      default = "Papirus";
+      type = with types; uniq str;
+      description = "Gnome's icon theme";
+    };
 
-      backgroundImage = mkOption {
-        default = "background-1.jpg";
-        type = with types; uniq str;
-        description = "Gnome's background";
-      };
+    backgroundImage = mkOption {
+      default = "background-1.jpg";
+      type = with types; uniq str;
+      description = "Gnome's background";
+    };
 
-      zshTheme = mkOption {
-        default = "sorin";
-        type = with types; uniq str;
-        description = "ZSH Prompt Theme";
-      };
+    zshTheme = mkOption {
+      default = "sorin";
+      type = with types; uniq str;
+      description = "ZSH Prompt Theme";
+    };
 
-      kittyTheme = mkOption {
-        default = "Afterglow";
-        type = with types; uniq str;
-        description = "Kitty Terminal Theme";
-      };
+    kittyTheme = mkOption {
+      default = "Afterglow";
+      type = with types; uniq str;
+      description = "Kitty Terminal Theme";
+    };
 
-      extraGroups = mkOption {
-        default = [ ];
-      };
+    extraGroups = mkOption {
+      default = [ ];
+    };
 
-      dashApps = mkOption {
-        default = [
-          "firefox.desktop"
-          "kitty.desktop"
-          "org.gnome.Calendar.desktop"
-          "org.gnome.Nautilus.desktop"
-        ];
-      };
-
-      git = { };
+    dashApps = mkOption {
+      default = [
+        "firefox.desktop"
+        "kitty.desktop"
+        "org.gnome.Calendar.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
     };
   };
 
-  config.userData = cfg;
-
-  imports = [
-    ./shell
-    ./programs
-    ./windowmanager
-    ./terminal
-    ./by-user/${cfg.username}
-    catppuccin
-    nixvim.homeModules.nixvim
-  ];
-
   config = {
-    catppuccin = {
-      enable = true;
-      flavor = "mocha";
+    programs.homenix = {
+      hyprland.enable = true;
+      nvim.enable = true;
+      packages.enable = true;
+      terminals.enable = true;
+      tmux.enable = true;
+      zsh.enable = true;
+      git = {
+        enable = true;
+        name = cfg.fullName;
+        email = "git@tscolari.me";
+        githubUser = "tscolari";
+      };
 
-      kitty.enable = false;
-      gtk.icon.enable = false;
+      gnome = {
+        enable = true;
+        accentColor = cfg.accentColor;
+        iconTheme = cfg.iconTheme;
+        dashApps = cfg.dashApps;
+      };
     };
 
     home = {
       username = cfg.username;
       homeDirectory = cfg.homeDir;
-
-      # This value determines the Home Manager release that your
-      # configuration is compatible with. This helps avoid breakage
-      # when a new Home Manager release introduces backwards
-      # incompatible changes.
-      #
-      # You can update Home Manager without changing this value. See
-      # the Home Manager release notes for a list of state version
-      # changes in each release.
-      stateVersion = "25.05";
+      stateVersion = "25.11";
     };
 
     services.gpg-agent = {

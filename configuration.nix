@@ -3,7 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 {
-  config,
   pkgs,
   lib,
   hostUsers,
@@ -15,7 +14,7 @@ let
 
 in
 {
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
   virtualisation.libvirtd.enable = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
@@ -26,6 +25,12 @@ in
   services.thermald.enable = true;
 
   programs.zsh.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+    xwayland.enable = true;
+  };
 
   programs.gnupg.agent = {
     enable = true;
@@ -42,13 +47,22 @@ in
   }) hostUsers;
 
   home-manager = {
+    extraSpecialArgs = {
+      catppuccin = inputs.catppuccin;
+      homenix = inputs.homenix;
+    };
+
     users = lib.mapAttrs (
       username: userData:
-      import ./home-manager {
-        inherit pkgs lib config;
-        catppuccin = inputs.catppuccin;
-        nixvim = inputs.nixvim;
-        userData = userData;
+      { ... }@args:
+      {
+        imports = [
+          ./home-manager
+          ./home-manager/by-user/${username} # Import here instead
+          args.catppuccin.homeModules.catppuccin
+        ];
+
+        config.userData = userData; # Pass the userData directly as config
       }
     ) hostUsers;
   };

@@ -1,13 +1,18 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     tscolari-pkgs.url = "github:tscolari/nixpkgs";
 
+    homenix = {
+      url = "git+file:///home/tscolari/workspace/homenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -18,14 +23,6 @@
       url = "github:Mic92/nix-ld/2.0.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    vim-plugins.url = "github:NixOS/nixpkgs/master";
-    nixneovimplugins.url = "github:NixNeovim/NixNeovimPlugins";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
-      inputs.nixpkgs.follows = "vim-plugins";
-    };
   };
 
   outputs =
@@ -33,12 +30,12 @@
       self,
       catppuccin,
       home-manager,
+      homenix,
       nix-ld,
       nixos-hardware,
       nixpkgs,
       nixpkgs-master,
       nixpkgs-unstable,
-      nixvim,
       tscolari-pkgs,
       ...
     }@inputs:
@@ -69,6 +66,10 @@
           home-manager.useUserPackages = true;
           home-manager.useGlobalPkgs = true;
           home-manager.backupFileExtension = "backup";
+
+          home-manager.sharedModules = [
+            homenix.homeModules.default
+          ];
         }
 
         # Make sure you add Overlays here
@@ -79,8 +80,8 @@
             nixpkgs.overlays = [
               overlay-unstable
               overlay-master
-              overlay-vim-plugins
               overlay-local
+              homenix.overlays.default
               tscolari-pkgs.overlays.default
             ];
           }
@@ -101,16 +102,6 @@
           inherit system;
           config.allowUnfree = true;
           config.nvidia.acceptLicense = true;
-        };
-      };
-
-      overlay-vim-plugins = final: prev: {
-        vim-plugins = import inputs.vim-plugins {
-          inherit system;
-          config.allowUnfree = true;
-          overlays = [
-            inputs.nixneovimplugins.overlays.default
-          ];
         };
       };
 
@@ -175,25 +166,6 @@
           extraModules = [
             ./nixos/roles/desktop
             ./nixos/modules/ai.nix
-          ];
-        };
-
-        TARS = mkSystem {
-          hostName = "TARS";
-          users = [
-            "tiagoscolari"
-          ];
-          hardwareModules = [
-            #nixos-hardware.nixosModules.lenovo-thinkpad-p14s-intel
-            nixos-hardware.nixosModules.common-cpu-intel
-            nixos-hardware.nixosModules.common-pc-laptop
-            nixos-hardware.nixosModules.common-pc-laptop-ssd
-            tscolari-pkgs.nixosModules.default
-          ];
-          extraModules = [
-            ./nixos/roles/desktop
-            ./nixos/roles/redpanda
-            ./nixos/modules/fhs.nix
           ];
         };
       };
