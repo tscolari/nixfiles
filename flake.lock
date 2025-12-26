@@ -153,17 +153,17 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1766650563,
-        "narHash": "sha256-KOfc5grett/3+U4TDZ3BWY80jevt2OKG61g5MmicQUM=",
-        "ref": "refs/heads/main",
-        "rev": "94d938ac1184fbff599fe336fa579d689487fc85",
-        "revCount": 15,
-        "type": "git",
-        "url": "file:///home/tscolari/workspace/homenix"
+        "lastModified": 1766746525,
+        "narHash": "sha256-LNZ9Y8kueziLvSIYiUrsUd48BClOO40sTXXJzdBq3hg=",
+        "owner": "tscolari",
+        "repo": "homenix",
+        "rev": "bf72a9b1c6cf71c45ef8335e363b220749acb335",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/tscolari/workspace/homenix"
+        "owner": "tscolari",
+        "repo": "homenix",
+        "type": "github"
       }
     },
     "ixx": {

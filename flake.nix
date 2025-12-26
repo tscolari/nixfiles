@@ -7,7 +7,7 @@
     tscolari-pkgs.url = "github:tscolari/nixpkgs";
 
     homenix = {
-      url = "git+file:///home/tscolari/workspace/homenix";
+      url = "github:tscolari/homenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

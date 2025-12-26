@@ -79,21 +79,16 @@ in
 
   config = {
     programs.homenix = {
-      hyprland.enable = true;
-      nvim.enable = true;
-      packages.enable = true;
-      terminals.enable = true;
-      tmux.enable = true;
-      zsh.enable = true;
+      enable = true;
+
+      firefox_profiles.enable = false;
       git = {
-        enable = true;
         name = cfg.fullName;
         email = "git@tscolari.me";
         githubUser = "tscolari";
       };
 
       gnome = {
-        enable = true;
         accentColor = cfg.accentColor;
         iconTheme = cfg.iconTheme;
         dashApps = cfg.dashApps;
