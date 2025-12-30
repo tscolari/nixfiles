@@ -80,6 +80,7 @@ in
   config = {
     programs.homenix = {
       enable = true;
+      isNixOS = true;
 
       firefox_profiles.enable = false;
       git = {

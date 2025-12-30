@@ -9,7 +9,6 @@
 
     videoDrivers = [
       "modesetting"
-      "displaylink"
     ];
 
     # Enable the GNOME Desktop Environment.
