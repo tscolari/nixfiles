@@ -98,6 +98,20 @@ in
     };
   };
 
+  # Scanner support
+  hardware.sane = {
+    enable = true;
+    extraBackends = [ pkgs.sane-airscan ];
+  };
+
+  environment.etc."sane.d/airscan.conf".text = ''
+    [devices]
+    EPSON_ET_2860 = http://192.168.5.24:80/WDP/SCAN, WSD
+
+    [options]
+    discovery = enable
+  '';
+
   # List services that you want to enable:
   services = {
     fwupd.enable = true;

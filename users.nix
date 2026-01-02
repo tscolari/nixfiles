@@ -16,6 +16,8 @@
         "wheel"
         "docker"
         "plugdev"
+        "scanner"
+        "lp"
       ];
 
       # git = {
