@@ -9,6 +9,8 @@
       docker
       docker-compose
       vim
+      system-config-printer
+      cups-pk-helper
     ];
   };
 }
