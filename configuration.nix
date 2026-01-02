@@ -15,6 +15,10 @@ let
 in
 {
   system.stateVersion = "25.11";
+
+  # Mask cups-browsed to prevent automatic printer discovery
+  systemd.services.cups-browsed.enable = false;
+
   virtualisation.libvirtd.enable = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
@@ -116,7 +120,16 @@ in
   services = {
     fwupd.enable = true;
     cron.enable = true;
-    printing.enable = true;
+
+    system-config-printer.enable = true;
+    printing = {
+      enable = true;
+      startWhenNeeded = true;
+      drivers = [
+        pkgs.gutenprint
+        pkgs.gutenprintBin
+      ];
+    };
 
     avahi = {
       enable = true;
