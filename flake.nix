@@ -6,6 +6,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     tscolari-pkgs.url = "github:tscolari/nixpkgs";
 
+    hyprland.url = "github:hyprwm/Hyprland/v0.53.1";
+
     homenix = {
       url = "github:tscolari/homenix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -83,6 +85,7 @@
               overlay-local
               homenix.overlays.default
               tscolari-pkgs.overlays.default
+              inputs.hyprland.overlays.default
             ];
           }
         )

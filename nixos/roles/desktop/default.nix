@@ -27,13 +27,27 @@
   };
 
   xdg.portal = {
-    enable = true;
+    enable = lib.mkForce true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
       xdg-desktop-portal-gnome
     ];
+    configPackages = [ ]; # Clear any conflicting configs
+    config = {
+      common = {
+        default = [ "gtk" ];
+      };
+      hyprland = {
+        default = [ "hyprland" ];
+        # Only use Hyprland portal for things it handles well
+        "org.freedesktop.impl.portal.Screenshot" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.ScreenCast" = [ "hyprland" ];
+        "org.freedesktop.impl.portal.GlobalShortcuts" = [ "hyprland" ];
+        # Explicitly route printing to GTK
+        "org.freedesktop.impl.portal.Print" = [ "gtk" ];
+      };
+    };
   };
 
   services.flatpak = {

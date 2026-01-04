@@ -8,8 +8,9 @@
     systemPackages = with pkgs; [
       docker
       docker-compose
-      vim
+      fcitx5
       system-config-printer
+      vim
     ];
   };
 }
