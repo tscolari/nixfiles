@@ -11,10 +11,6 @@
       "modesetting"
     ];
 
-    # Enable the GNOME Desktop Environment.
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
     # Configure keymap in X11
     xkb = {
       layout = "us";
@@ -24,6 +20,10 @@
 
     dpi = 192;
   };
+
+  # Enable the GNOME Desktop Environment.
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
 
   # Disable automatic login for the user.
   services.displayManager.autoLogin.enable = false;
