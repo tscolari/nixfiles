@@ -11,6 +11,7 @@
       fcitx5
       system-config-printer
       vim
+      master.claude-code
     ];
   };
 }
