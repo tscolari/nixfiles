@@ -86,6 +86,11 @@
               homenix.overlays.default
               tscolari-pkgs.overlays.default
               inputs.hyprland.overlays.default
+
+              # Hack to get around intel-ocl 403 url
+              (final: prev: {
+                intel-ocl = prev.runCommand "intel-ocl-stub" { } "mkdir -p $out";
+              })
             ];
           }
         )

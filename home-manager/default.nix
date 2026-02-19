@@ -100,6 +100,10 @@ in
       username = cfg.username;
       homeDirectory = cfg.homeDir;
       stateVersion = "25.11";
+
+      packages = with pkgs; [
+        (lib.hiPrio master.claude-code)
+      ];
     };
 
     services.gpg-agent = {
