@@ -3,13 +3,14 @@
   pkgs,
   config,
   ...
-}:
+}@args:
 
 with lib;
 
 let
 
   cfg = config.userData;
+  homenix = args.homenix;
 
 in
 {
@@ -81,6 +82,14 @@ in
     programs.homenix = {
       enable = true;
       isNixOS = true;
+
+      hyprland = {
+        presetMonitors = [
+          homenix.lib.hyprlandMonitors.laptop-home
+          homenix.lib.hyprlandMonitors.office
+          homenix.lib.hyprlandMonitors.shed
+        ];
+      };
 
       firefox_profiles.enable = false;
       git = {
