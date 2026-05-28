@@ -98,6 +98,8 @@ in
         githubUser = "tscolari";
       };
 
+      qt.enable = true;
+
       gnome = {
         accentColor = cfg.accentColor;
         iconTheme = cfg.iconTheme;
