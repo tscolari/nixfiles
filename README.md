@@ -1,30 +1,14 @@
 # nixfiles
 My nix configurations
 
-# how to install
+This offers little to none configuration and is fit for my use on my Linux/NixOS laptops.
 
-link the files to /etc/nixos:
+It's public for consultation,
+and I would not expect people to be actively using this: **I push and force push, and make breaking changes without warnings**.
 
-```
-configuration.nix           -> nixfiles/configuration.nix
-hardware-configuration.nix  -> nixfiles/machines/dellxps-hardware-configuration.nix
-users                       -> nixfiles/users
-```
+Check my [homenix](https://github.com/tscolari/homenix) flake for the actual configuration and package that this uses.
+`Homenix` is where the fun things are.
 
+### Installation
 
-# Darwin / Macos
-
-After installing nix on macos.
-
-1. Ensure channels home-manager, unstable and darwin are configured
-
-```
-> nix-channel --list
-darwin https://github.com/LnL7/nix-darwin/archive/master.tar.gz
-home-manager https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz
-nixos-unstable https://nixos.org/channels/nixpkgs-unstable
-```
-
-2. Clone/link this repo to ~/.nixpkgs
-
-3. Rebuild
+Either clone the repo into `/etc/nixos`, or link `/etc/nixos` to where this repository is cloned.
