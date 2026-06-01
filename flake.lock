@@ -153,17 +153,17 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1780051858,
-        "narHash": "sha256-UIv8BVgxflA6fC48iwGzM2r+NV6rkmhqgB53Yj05ijc=",
-        "ref": "refs/heads/darwin-experiment",
-        "rev": "66264a6e6083da0b34c1efd14abcdca800e78895",
-        "revCount": 126,
+        "lastModified": 1780328592,
+        "narHash": "sha256-GORTOSbxx/Kbmc3H2McfonHp5HaMGHAvlqQV0mqGZlk=",
+        "ref": "refs/heads/main",
+        "rev": "533003efefbf42717b86f3f9828c832b8d07ef59",
+        "revCount": 137,
         "type": "git",
-        "url": "file:///home/tscolari/workspace/homenix"
+        "url": "ssh://git@codeberg.org/tscolari/homenix"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/tscolari/workspace/homenix"
+        "url": "ssh://git@codeberg.org/tscolari/homenix"
       }
     },
     "ixx": {
@@ -266,11 +266,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1779030623,
-        "narHash": "sha256-ptB4luEmBQGY2NuIpR269xFwEdL9IsJzKQAJLtv2lzo=",
+        "lastModified": 1780241073,
+        "narHash": "sha256-PlY19CD3Npj3/7PSH/6Z3XeteZ8KS/LtcaHjRdTPz8g=",
         "owner": "NixNeovim",
         "repo": "NixNeovimPlugins",
-        "rev": "d27c83b3ffd4579f85cd2c7295f44f9f8a1d85e8",
+        "rev": "d294fda833f24e85683763aa37e3682d82bfa6c4",
         "type": "github"
       },
       "original": {
@@ -280,12 +280,15 @@
       }
     },
     "nixos-hardware": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
       "locked": {
-        "lastModified": 1779826373,
-        "narHash": "sha256-3sRzgLX86qV5NlhWUAufLmHwkyP03tmL3VdZIM13dEo=",
+        "lastModified": 1780065812,
+        "narHash": "sha256-SCSLUKBmwlSLGQ8Xbr8PjRFtiHNk0l9ktqkcmqdBkfE=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "ef4efb84766a166c906bd55759574676bf91267c",
+        "rev": "b76b5639c0593e0aeb0b5879ad62d4b30596c144",
         "type": "github"
       },
       "original": {
@@ -313,11 +316,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1779997593,
-        "narHash": "sha256-YDkYz974iZlLMPSEq7dI8o9IPqQqRk80o6csRCeV7I0=",
+        "lastModified": 1780170174,
+        "narHash": "sha256-8ZMWXbRqQaoMu3TloQyhvI2CPZXBKO9JPkaGaM67gEo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e27f6413f833e4e5132cfba1f5e132d6852212f5",
+        "rev": "e0aaa7072f00baf13199ba0edd66284efd626cbb",
         "type": "github"
       },
       "original": {
@@ -345,6 +348,19 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1767892417,
+        "narHash": "sha256-8bW3q88CEg2u4hSP66Vf4lpbLonHz7hqDNBMcCY7E9U=",
+        "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre924538.3497aa5c9457/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1779796641,
         "narHash": "sha256-ZsIrKmhp4vbBXoXXmR/tBXA/UCsAQiJL9vsgZEduhVY=",
         "owner": "NixOS",
@@ -359,7 +375,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 0,
         "narHash": "sha256-FHlSkNqFmPxPJvy+6fNLaNeWnF1lZSgqVCl/eWaJRc4=",
@@ -382,11 +398,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1769049374,
-        "narHash": "sha256-h0Os2qqNyycDY1FyZgtbn28VF1ySP74/n0f+LDd8j+w=",
+        "lastModified": 1780080801,
+        "narHash": "sha256-p+PENiIqFmE/ybT+Rrmp61441u0SQkQKvJIVfctHD/E=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "b8f76bf5751835647538ef8784e4e6ee8deb8f95",
+        "rev": "0d4ae8bb156799094d2e5c81cbcacf99f07b634c",
         "type": "github"
       },
       "original": {
@@ -477,7 +493,7 @@
         "nix-flatpak": "nix-flatpak",
         "nix-ld": "nix-ld",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "tscolari-pkgs": "tscolari-pkgs"
@@ -530,7 +546,7 @@
     },
     "tscolari-pkgs": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1758814028,

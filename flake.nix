@@ -7,7 +7,7 @@
     tscolari-pkgs.url = "github:tscolari/nixpkgs";
 
     homenix = {
-      url = "github:tscolari/homenix";
+      url = "git+ssh://git@codeberg.org/tscolari/homenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
