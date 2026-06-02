@@ -153,11 +153,11 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1780407582,
-        "narHash": "sha256-DqZHuCYSH17HMVjcP1eB8UhKMpjSvr0ohdB6mP65yoE=",
+        "lastModified": 1780416950,
+        "narHash": "sha256-CYSqc2gOw0Qw6jr7joy/Bb4JAf7RqMaUUhrkKSAVwaw=",
         "ref": "refs/heads/main",
-        "rev": "f194ed25acf95d56957fa74fff8b8c18f8416479",
-        "revCount": 142,
+        "rev": "3c6545d95d7632383914ee1a57af3a2b48fafd92",
+        "revCount": 145,
         "type": "git",
         "url": "ssh://git@codeberg.org/tscolari/homenix"
       },
