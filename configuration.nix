@@ -10,9 +10,6 @@
   ...
 }:
 
-let
-
-in
 {
   system.stateVersion = "25.11";
 
@@ -21,8 +18,12 @@ in
 
   virtualisation.libvirtd.enable = true;
   virtualisation.containers.enable = true;
-  virtualisation.podman.enable = true;
-  virtualisation.docker.enable = true;
+
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+    dockerCompat = true;
+  };
 
   # Power management (for better battery life)
   powerManagement.enable = true;
