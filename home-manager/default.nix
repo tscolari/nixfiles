@@ -78,63 +78,65 @@ in
     };
   };
 
-  config = {
-    programs.homenix = {
-      enable = true;
-      isNixOS = true;
+  config = lib.mkMerge [
+    {
+      programs.homenix = {
+        enable = true;
+        isNixOS = pkgs.stdenv.isLinux;
 
-      hyprland = {
-        presetMonitors = [
-          homenix.lib.hyprlandMonitors.laptop-home
-          homenix.lib.hyprlandMonitors.office
-          homenix.lib.hyprlandMonitors.shed
+        hyprland = {
+          presetMonitors = [
+            homenix.lib.hyprlandMonitors.laptop-home
+            homenix.lib.hyprlandMonitors.office
+            homenix.lib.hyprlandMonitors.shed
+          ];
+        };
+
+        firefox_profiles.enable = false;
+
+        git = {
+          name = cfg.fullName;
+          email = "git@tscolari.me";
+          githubUser = "tscolari";
+        };
+
+        gnome = {
+          accentColor = cfg.accentColor;
+          iconTheme = cfg.iconTheme;
+          dashApps = cfg.dashApps;
+        };
+      };
+
+      home = {
+        username = cfg.username;
+        homeDirectory = cfg.homeDir;
+        stateVersion = "25.11";
+
+        packages = with pkgs; [
+          (lib.hiPrio master.claude-code)
         ];
       };
 
-      firefox_profiles.enable = false;
-      git = {
-        name = cfg.fullName;
-        email = "git@tscolari.me";
-        githubUser = "tscolari";
+      services.gpg-agent = {
+        enable = false;
+        enableSshSupport = false;
+        enableZshIntegration = true;
+        defaultCacheTtl = 7200;
       };
 
-      qt.enable = true;
+      # Let Home Manager install and manage itself.
+      programs.home-manager.enable = true;
+    }
 
-      gnome = {
-        accentColor = cfg.accentColor;
-        iconTheme = cfg.iconTheme;
-        dashApps = cfg.dashApps;
+    (lib.mkIf pkgs.stdenv.isLinux {
+      services.gnome-keyring = {
+        enable = true;
+        components = [
+          "pkcs11"
+          "secrets"
+          "ssh"
+        ];
       };
-    };
-
-    home = {
-      username = cfg.username;
-      homeDirectory = cfg.homeDir;
-      stateVersion = "25.11";
-
-      packages = with pkgs; [
-        (lib.hiPrio master.claude-code)
-      ];
-    };
-
-    services.gpg-agent = {
-      enable = false;
-      enableSshSupport = false;
-      enableZshIntegration = true;
-      defaultCacheTtl = 7200;
-      pinentry.package = pkgs.pinentry-gnome3;
-    };
-
-    # Let Home Manager install and manage itself.
-    programs.home-manager.enable = true;
-
-    services.gnome-keyring = {
-      enable = true;
-      components = [
-        "pkcs11"
-        "secrets"
-        "ssh"
-      ];
-    };
-  };
+    })
+  ];
 }

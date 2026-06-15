@@ -18,12 +18,6 @@
         "scanner"
         "lp"
       ];
-
-      # git = {
-      #   githubUser = "tscolari";
-      #   email = "git@tscolari.me";
-      #   name = "Tiago Scolari";
-      # };
     };
   };
 }

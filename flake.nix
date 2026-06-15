@@ -16,6 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin/master";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     catppuccin.url = "github:catppuccin/nix/release-25.05";
 
@@ -31,6 +36,7 @@
       catppuccin,
       home-manager,
       homenix,
+      nix-darwin,
       nix-ld,
       nixos-hardware,
       nixpkgs,
@@ -41,10 +47,28 @@
     }@inputs:
 
     let
-      system = "x86_64-linux";
+      linuxSystem = "x86_64-linux";
+      darwinSystem = "aarch64-darwin";
+
       lib = nixpkgs.lib;
 
-      # Base common modules used by all systems
+      mkOverlayUnstable = system: final: prev: {
+        unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+          config.nvidia.acceptLicense = true;
+        };
+      };
+
+      mkOverlayMaster = system: final: prev: {
+        master = import nixpkgs-master {
+          inherit system;
+          config.allowUnfree = true;
+          config.nvidia.acceptLicense = true;
+        };
+      };
+
+      # Base common modules used by all NixOS systems
       baseModules = [
         ./configuration.nix
         ./nixos/common
@@ -78,9 +102,8 @@
           {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
-              overlay-unstable
-              overlay-master
-              overlay-local
+              (mkOverlayUnstable linuxSystem)
+              (mkOverlayMaster linuxSystem)
               homenix.overlays.default
               tscolari-pkgs.overlays.default
 
@@ -101,29 +124,47 @@
         )
       ];
 
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-          config.nvidia.acceptLicense = true;
-        };
-      };
+      # Base modules used by all Darwin systems
+      darwinBaseModules = [
+        ./darwin/configuration.nix
+        ./darwin/common
+        ./darwin/modules
 
-      # nixpkgs-master
-      overlay-master = final: prev: {
-        master = import nixpkgs-master {
-          inherit system;
-          config.allowUnfree = true;
-          config.nvidia.acceptLicense = true;
-        };
-      };
+        home-manager.darwinModules.home-manager
 
-      overlay-local = final: prev: {
-        teleport_14 = prev.callPackage ./packages/teleport-14.nix { };
-      };
+        {
+          nix.registry.nixos.flake = inputs.self;
+          environment.etc."nix/inputs/nixpkgs".source = nixpkgs-unstable.outPath;
+          nix.nixPath = [ "nixpkgs=${nixpkgs-unstable.outPath}" ];
+        }
+
+        (
+          { config, pkgs, ... }:
+          {
+            nixpkgs.config.allowUnfree = true;
+            nixpkgs.config.allowUnsupportedSystem = true;
+            nixpkgs.overlays = [
+              (mkOverlayMaster darwinSystem)
+              # darwin pkgs is already nixpkgs-unstable; expose it as pkgs.unstable
+              # so any code using `with pkgs; unstable.x` continues to work
+              (final: prev: { unstable = final; })
+              homenix.overlays.default
+              tscolari-pkgs.overlays.default
+
+              # ghostty is Linux-only; stub both attrs so home-manager's
+              # programs.ghostty module default and homenix terminfo checks
+              # don't pull in an unsupported package on darwin
+              (final: prev: {
+                ghostty = prev.runCommand "ghostty-stub" { } "mkdir -p $out";
+                ghostty-bin = prev.runCommand "ghostty-bin-stub" { } "mkdir -p $out";
+              })
+            ];
+          }
+        )
+      ];
 
       pkgs = import nixpkgs {
-        inherit system;
+        system = linuxSystem;
         config.allowUnfree = true;
         overlays = [
           # make unstable packages available via overlay
@@ -136,7 +177,7 @@
       # All available user configurations.
       usersConfig = import ./users.nix;
 
-      # Function to create a system configuration
+      # Function to create a NixOS system configuration
       mkSystem =
         {
           hostName,
@@ -149,10 +190,44 @@
             inherit inputs;
             hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
           };
-          system = "x86_64-linux";
+          system = linuxSystem;
           modules =
             baseModules
             ++ hardwareModules
+            ++ extraModules
+            ++ [
+              (./hosts + "/${hostName}")
+              {
+                networking.hostName = hostName;
+              }
+            ];
+        };
+
+      # Function to create a nix-darwin system configuration
+      mkDarwinSystem =
+        {
+          hostName,
+          users ? [ ],
+          extraModules ? [ ],
+        }:
+        nix-darwin.lib.darwinSystem {
+          system = darwinSystem;
+          specialArgs = {
+            inherit inputs;
+            hostUsers = lib.attrsets.genAttrs users (
+              name:
+              let
+                u = usersConfig.available-users.${name};
+              in
+              u
+              // {
+                homeDir = "/Users/${u.username}";
+                extraGroups = [ ];
+              }
+            );
+          };
+          modules =
+            darwinBaseModules
             ++ extraModules
             ++ [
               (./hosts + "/${hostName}")
@@ -179,6 +254,15 @@
           extraModules = [
             ./nixos/roles/desktop
             ./nixos/modules/ai.nix
+          ];
+        };
+      };
+
+      darwinConfigurations = {
+        cowboy = mkDarwinSystem {
+          hostName = "cowboy";
+          users = [
+            "tscolari"
           ];
         };
       };
