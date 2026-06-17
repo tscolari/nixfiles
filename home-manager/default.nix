@@ -110,7 +110,7 @@ in
       home = {
         username = cfg.username;
         homeDirectory = cfg.homeDir;
-        stateVersion = "25.11";
+        stateVersion = "26.05";
 
         packages = with pkgs; [
           (lib.hiPrio master.claude-code)

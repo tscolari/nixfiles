@@ -11,7 +11,7 @@
 }:
 
 {
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   # Mask cups-browsed to prevent automatic printer discovery
   systemd.services.cups-browsed.enable = false;
