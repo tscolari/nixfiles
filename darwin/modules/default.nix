@@ -2,6 +2,5 @@
 
 {
   imports = [
-    ./claude.nix
   ];
 }
