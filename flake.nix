@@ -4,7 +4,6 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    tscolari-pkgs.url = "github:tscolari/nixpkgs";
 
     homenix = {
       url = "git+ssh://git@codeberg.org/tscolari/homenix?ref=26.05";
@@ -42,7 +41,6 @@
       nixpkgs,
       nixpkgs-master,
       nixpkgs-unstable,
-      tscolari-pkgs,
       ...
     }@inputs:
 
@@ -105,7 +103,6 @@
               (mkOverlayUnstable linuxSystem)
               (mkOverlayMaster linuxSystem)
               homenix.overlays.default
-              tscolari-pkgs.overlays.default
 
               # Hack to get around intel-ocl 403 url
               (final: prev: {
@@ -149,7 +146,6 @@
               # so any code using `with pkgs; unstable.x` continues to work
               (final: prev: { unstable = final; })
               homenix.overlays.default
-              tscolari-pkgs.overlays.default
 
               # ghostty is Linux-only; stub both attrs so home-manager's
               # programs.ghostty module default and homenix terminfo checks
@@ -249,7 +245,6 @@
           hardwareModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-t14
             nixos-hardware.nixosModules.common-cpu-intel
-            tscolari-pkgs.nixosModules.default
           ];
           extraModules = [
             ./nixos/roles/desktop
@@ -262,6 +257,8 @@
             "tscolari"
           ];
           hardwareModules = [
+            nixos-hardware.nixosModules.common-cpu-amd
+            nixos-hardware.nixosModules.common-gpu-amd
           ];
           extraModules = [
             ./nixos/roles/desktop
