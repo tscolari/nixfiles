@@ -3,6 +3,8 @@
 {
   imports = [
       ./generated.nix
+      ./hardware.nix
+      ./gaming.nix
     ];
 
 }

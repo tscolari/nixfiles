@@ -363,18 +363,6 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
-      "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-FHlSkNqFmPxPJvy+6fNLaNeWnF1lZSgqVCl/eWaJRc4=",
-        "path": "/nix/store/hzaj4d6ari2wq2cbg1j60n9zw42gnshy-source",
-        "type": "path"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
-      }
-    },
     "nixvim": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -459,8 +447,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-unstable": "nixpkgs-unstable",
-        "tscolari-pkgs": "tscolari-pkgs"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     },
     "systems": {
@@ -490,24 +477,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tscolari-pkgs": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_4"
-      },
-      "locked": {
-        "lastModified": 1758814028,
-        "narHash": "sha256-bkd2yncRFOx4HVWXQnuzdCI2iJqh998R2AjwSfzmjUc=",
-        "owner": "tscolari",
-        "repo": "nixpkgs",
-        "rev": "649db85c84b74681bcd78f1b0eb0ae3de6b595ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tscolari",
-        "repo": "nixpkgs",
         "type": "github"
       }
     }
