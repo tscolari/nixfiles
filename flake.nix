@@ -256,6 +256,17 @@
             ./nixos/modules/ai.nix
           ];
         };
+        happy = mkSystem {
+          hostName = "happy";
+          users = [
+            "tscolari"
+          ];
+          hardwareModules = [
+          ];
+          extraModules = [
+            ./nixos/roles/desktop
+          ];
+        };
       };
 
       darwinConfigurations = {
