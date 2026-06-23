@@ -37,8 +37,9 @@
     luks-55d31dfc-fdf2-48b7-8fd7-2904808c9211 /dev/disk/by-uuid/55d31dfc-fdf2-48b7-8fd7-2904808c9211 /etc/luks-keys/games.key luks,nofail
   '';
 
-  # Don't block boot if /games can't be unlocked/mounted.
-  fileSystems."/games".options = [ "nofail" ];
+  # Don't block boot if /games can't be unlocked/mounted; noatime avoids
+  # pointless access-time write traffic on the games library.
+  fileSystems."/games".options = [ "nofail" "noatime" ];
 
   console.keyMap = "us";
 }
