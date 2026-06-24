@@ -12,5 +12,7 @@
   environment.systemPackages = with pkgs; [
     mangohud # in-game performance overlay
     protonup-qt # manage Proton-GE versions
+    wowup-cf
+    protontricks
   ];
 }
