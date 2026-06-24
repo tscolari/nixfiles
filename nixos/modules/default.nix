@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./agenix.nix
     ./boot.nix
     ./ergodox.nix
     ./localization.nix

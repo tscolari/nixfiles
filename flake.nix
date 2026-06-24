@@ -27,6 +27,11 @@
       url = "github:Mic92/nix-ld/2.0.6";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -76,6 +81,7 @@
         home-manager.nixosModules.home-manager
         inputs.nix-flatpak.nixosModules.nix-flatpak
         nix-ld.nixosModules.nix-ld
+        inputs.agenix.nixosModules.default
 
         {
           # This fixes things that don't use Flakes, but do want to use NixPkgs.
@@ -128,6 +134,7 @@
         ./darwin/modules
 
         home-manager.darwinModules.home-manager
+        inputs.agenix.darwinModules.default
 
         {
           nix.registry.nixos.flake = inputs.self;
