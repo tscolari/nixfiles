@@ -80,6 +80,15 @@ in
 
   config = lib.mkMerge [
     {
+      # Point nixvim at our nixpkgs source tree (not the fully-overlaid
+      # `pkgs`) so it still builds against our nixpkgs revision, but without
+      # inheriting our overlays - reusing `pkgs` directly causes everything
+      # those overlays touch (and their reverse-dependents) to lose their
+      # binary-cache match and rebuild from source. This also silences the
+      # "nixpkgs.source default value has been affected by your flake input
+      # follows" warning.
+      programs.nixvim.nixpkgs.source = pkgs.path;
+
       programs.homenix = {
         enable = true;
         isNixOS = pkgs.stdenv.isLinux;

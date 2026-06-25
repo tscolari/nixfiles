@@ -4,7 +4,7 @@
   age.secrets.access-tokens = {
     file = ../../secrets/access-tokens.age;
     path = "/run/agenix/access-tokens";
-    owner = "root";
+    owner = "tscolari";
     group = "root";
     mode = "0400";
   };
