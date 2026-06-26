@@ -1,7 +1,8 @@
-{
-  ...
-}:
+{ config, lib, ... }:
 
+let
+  xkbOptions = lib.concatStringsSep "," ([ "caps:ctrl_modifier" ] ++ config.custom.keyboard.extraXkbOptions);
+in
 {
   services.xserver = {
     # Enable the X11 windowing system.
@@ -15,7 +16,7 @@
     xkb = {
       layout = "us";
       variant = "";
-      options = "caps:ctrl_modifier";
+      options = xkbOptions;
     };
 
     dpi = 192;
