@@ -23,7 +23,7 @@
     pulse.enable = true;
     jack.enable = false;
     alsa.enable = true;
-    alsa.support32Bit = true;
+    alsa.support32Bit = lib.mkForce false;
   };
 
   xdg.portal = {
