@@ -208,12 +208,12 @@
         "rev": "cc66b870dda8f7db0d20183562cc72298c5dc799",
         "revCount": 185,
         "type": "git",
-        "url": "ssh://git@codeberg.org/tscolari/homenix"
+        "url": "https://codeberg.org/tscolari/homenix"
       },
       "original": {
         "ref": "26.05",
         "type": "git",
-        "url": "ssh://git@codeberg.org/tscolari/homenix"
+        "url": "https://codeberg.org/tscolari/homenix"
       }
     },
     "hyprexpo": {
