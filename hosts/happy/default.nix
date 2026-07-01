@@ -1,4 +1,7 @@
-{ config, nixos-hardware, lib, pkgs, modulesPath, ... }:
+{
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -6,6 +9,8 @@
     ./hardware.nix
     ./gaming.nix
   ];
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.keyd = {
     enable = true;
