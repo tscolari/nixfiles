@@ -202,11 +202,11 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1782725111,
-        "narHash": "sha256-DmZQaHJ670Vxj0CI/eh6tmu3v8U67rMAOYWbus0mBeo=",
+        "lastModified": 1782898608,
+        "narHash": "sha256-5vv10CivUcmmdQfGfNPa0LMOlo31w3MWiECxLO42MwI=",
         "ref": "26.05",
-        "rev": "f26153622e780ecab74bd18e3b2e6462ae7bd2e9",
-        "revCount": 188,
+        "rev": "b57645899638544dae56de780cd0bab7512c18af",
+        "revCount": 189,
         "type": "git",
         "url": "https://codeberg.org/tscolari/homenix"
       },
@@ -370,11 +370,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1782723713,
-        "narHash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=",
+        "lastModified": 1782931094,
+        "narHash": "sha256-MIqqWO3lBx1ApTjJm47r/5iZgLrSiQeQ7eFRYW6EUrU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
+        "rev": "a3a744eacd0daa46e28f61e511ddf6b40c087b68",
         "type": "github"
       },
       "original": {
@@ -386,11 +386,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1782467914,
-        "narHash": "sha256-pGvFkM8N0xEkIIXDe5YYfbEAvHrk4IxBrjB/x8OomhE=",
+        "lastModified": 1782723713,
+        "narHash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
         "type": "github"
       },
       "original": {
@@ -415,11 +415,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1782535326,
-        "narHash": "sha256-r4TA57SL7nvj1R+GY/FCLwFU48w9IixTQlzBTIYkt8E=",
-        "rev": "714a5f8c4ead6b31148d829288440ed033ccc041",
+        "lastModified": 1782847225,
+        "narHash": "sha256-Q80uZ1R+Y0g0kNfzGG8AcbvNkgYlnwJ3ubunAuIDUIQ=",
+        "rev": "95ca1e203c0750115fd4a6f17d5a245dfe6b1edd",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.3494.714a5f8c4ead/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.3869.95ca1e203c07/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",

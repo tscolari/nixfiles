@@ -24,4 +24,14 @@
       };
     };
   };
+
+  services.ollama = {
+    environmentVariables = {
+      OLLAMA_VULKAN = "1";
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+  ];
 }

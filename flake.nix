@@ -115,6 +115,46 @@
                 intel-ocl = prev.runCommand "intel-ocl-stub" { } "mkdir -p $out";
               })
 
+              # Bump ollama to 0.31.1 (master still ships 0.30.7). Based on
+              # master's derivation, which carries the v0.30+ FetchContent
+              # build logic. A version bump alone isn't enough: nixpkgs pins
+              # llama.cpp separately (llamaCppSrc, a `let` binding) and applies
+              # ollama's compat patch to it, so the pin has to move in lockstep
+              # with ollama's LLAMA_CPP_VERSION file. Reached by rewriting
+              # postPatch. vendorHash is unchanged from 0.30.7 (go deps same).
+              (final: prev:
+                let
+                  llamaCppSrc = final.fetchFromGitHub {
+                    owner = "ggml-org";
+                    repo = "llama.cpp";
+                    tag = "b9840"; # ollama v0.31.1 LLAMA_CPP_VERSION
+                    hash = "sha256-SlcBqlUSeXgGltk7fz1blp4DobypzkT8cw8a7dkVGiU=";
+                  };
+                in
+                {
+                  ollama = final.master.ollama.overrideAttrs (finalAttrs: _: {
+                    version = "0.31.1";
+                    src = final.fetchFromGitHub {
+                      owner = "ollama";
+                      repo = "ollama";
+                      tag = "v${finalAttrs.version}";
+                      hash = "sha256-p4saQimdOVRWcJyrYcCuex7NViKC/u0tHUnLRZh6hwg=";
+                    };
+                    vendorHash = "sha256-lZdGzGb9xRjTm1Rm7/wHjqM490gLznLEndmb4mNbCX0=";
+                    postPatch = ''
+                      substituteInPlace version/version.go \
+                        --replace-fail 0.0.0 '${finalAttrs.version}'
+                      rm cmd/launch/*_test.go
+                      rm -r app
+                      cp -r ${llamaCppSrc} $TMPDIR/llama-cpp-src
+                      chmod -R +w $TMPDIR/llama-cpp-src
+                      ( cd $TMPDIR/llama-cpp-src && \
+                        cmake -DPATCH_DIR=$NIX_BUILD_TOP/source/llama/compat \
+                          -P $NIX_BUILD_TOP/source/llama/compat/apply-patch.cmake )
+                    '';
+                  });
+                })
+
               (final: prev: {
                 hyprland = final.unstable.hyprland;
                 xdg-desktop-portal-hyprland = final.unstable.xdg-desktop-portal-hyprland;
@@ -269,6 +309,7 @@
           ];
           extraModules = [
             ./nixos/roles/desktop
+            ./nixos/modules/ai.nix
           ];
         };
       };

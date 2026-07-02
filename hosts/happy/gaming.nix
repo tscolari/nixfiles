@@ -14,5 +14,6 @@
     protonup-qt # manage Proton-GE versions
     wowup-cf
     protontricks
+    pulseaudio
   ];
 }
