@@ -16,8 +16,8 @@
     };
 
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      url = "github:LnL7/nix-darwin/nix-darwin-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -178,8 +178,8 @@
 
         {
           nix.registry.nixos.flake = inputs.self;
-          environment.etc."nix/inputs/nixpkgs".source = nixpkgs-unstable.outPath;
-          nix.nixPath = [ "nixpkgs=${nixpkgs-unstable.outPath}" ];
+          environment.etc."nix/inputs/nixpkgs".source = nixpkgs.outPath;
+          nix.nixPath = [ "nixpkgs=${nixpkgs.outPath}" ];
         }
 
         (
@@ -200,6 +200,18 @@
               (final: prev: {
                 ghostty = prev.runCommand "ghostty-stub" { } "mkdir -p $out";
                 ghostty-bin = prev.runCommand "ghostty-bin-stub" { } "mkdir -p $out";
+              })
+
+              (final: prev: {
+                appstream = prev.appstream.overrideAttrs (old: {
+                  postConfigure = (old.postConfigure or "") + ''
+                    # nixpkgs 26.05 appstream on darwin: a dependency probe leaks the literal
+                    # string "none required" into the linker line; strip it before ninja links.
+                    grep -rl 'none required' . 2>/dev/null | while read -r f; do
+                      sed -i 's/none required//g' "$f"
+                    done
+                  '';
+                });
               })
             ];
           }

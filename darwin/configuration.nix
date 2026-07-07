@@ -18,6 +18,9 @@
     enableSSHSupport = true;
   };
 
+  documentation.enable = false;
+  documentation.doc.enable = false;
+
   users.users = lib.mapAttrs (username: userData: {
     shell = pkgs.zsh;
     description = userData.fullName;
@@ -56,6 +59,7 @@
   environment.extraOutputsToInstall = [ "dev" ];
 
   nix = {
+    enable = false;
     settings.experimental-features = [
       "nix-command"
       "flakes"
@@ -65,14 +69,5 @@
       "root"
       "tscolari"
     ];
-    gc = {
-      automatic = true;
-      interval = {
-        Weekday = 0;
-        Hour = 2;
-        Minute = 0;
-      };
-      options = "--delete-older-than 10d";
-    };
   };
 }
