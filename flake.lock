@@ -202,11 +202,11 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1782898608,
-        "narHash": "sha256-5vv10CivUcmmdQfGfNPa0LMOlo31w3MWiECxLO42MwI=",
+        "lastModified": 1783560368,
+        "narHash": "sha256-Tct525WruwY69IjO8S26zX/CdHuqpICxo5s1+egr3Fg=",
         "ref": "26.05",
-        "rev": "b57645899638544dae56de780cd0bab7512c18af",
-        "revCount": 189,
+        "rev": "d2b70345d3ce64f96dd72b12c698c96d5a58b664",
+        "revCount": 205,
         "type": "git",
         "url": "https://codeberg.org/tscolari/homenix"
       },
@@ -370,11 +370,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1782931094,
-        "narHash": "sha256-MIqqWO3lBx1ApTjJm47r/5iZgLrSiQeQ7eFRYW6EUrU=",
+        "lastModified": 1783560104,
+        "narHash": "sha256-8bsFkTNbTrhBZZExan3LFm5jTZPO4PDBIyc16NUwUkI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a3a744eacd0daa46e28f61e511ddf6b40c087b68",
+        "rev": "fa22e461957ad8b489c83127a5296fbef90206d3",
         "type": "github"
       },
       "original": {
@@ -415,11 +415,12 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1782847225,
-        "narHash": "sha256-Q80uZ1R+Y0g0kNfzGG8AcbvNkgYlnwJ3ubunAuIDUIQ=",
-        "rev": "95ca1e203c0750115fd4a6f17d5a245dfe6b1edd",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/26.05/nixos-26.05.3869.95ca1e203c07/nixexprs.tar.xz"
+        "lastModified": 1783389287,
+        "narHash": "sha256-0xIy4dVLqq47rA+mRy0hXDfjhQd4E5PoIns/RmB7nR4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0ad6f47ea4fe188f4bc8f0380f93ae8523337c6c",
+        "type": "github"
       },
       "original": {
         "type": "tarball",
