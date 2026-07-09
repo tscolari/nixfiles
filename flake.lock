@@ -202,11 +202,11 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1783560368,
-        "narHash": "sha256-Tct525WruwY69IjO8S26zX/CdHuqpICxo5s1+egr3Fg=",
+        "lastModified": 1783616976,
+        "narHash": "sha256-4vyuRXC5dGhAJFg09LnKNOLlQq1bOiZEx/8BHv3fKhU=",
         "ref": "26.05",
-        "rev": "d2b70345d3ce64f96dd72b12c698c96d5a58b664",
-        "revCount": 205,
+        "rev": "d5c644501487d176434bb42ea617fea0b91d1444",
+        "revCount": 207,
         "type": "git",
         "url": "https://codeberg.org/tscolari/homenix"
       },
