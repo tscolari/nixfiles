@@ -122,7 +122,8 @@
               # ollama's compat patch to it, so the pin has to move in lockstep
               # with ollama's LLAMA_CPP_VERSION file. Reached by rewriting
               # postPatch. vendorHash is unchanged from 0.30.7 (go deps same).
-              (final: prev:
+              (
+                final: prev:
                 let
                   llamaCppSrc = final.fetchFromGitHub {
                     owner = "ggml-org";
@@ -132,28 +133,31 @@
                   };
                 in
                 {
-                  ollama = final.master.ollama.overrideAttrs (finalAttrs: _: {
-                    version = "0.31.1";
-                    src = final.fetchFromGitHub {
-                      owner = "ollama";
-                      repo = "ollama";
-                      tag = "v${finalAttrs.version}";
-                      hash = "sha256-p4saQimdOVRWcJyrYcCuex7NViKC/u0tHUnLRZh6hwg=";
-                    };
-                    vendorHash = "sha256-lZdGzGb9xRjTm1Rm7/wHjqM490gLznLEndmb4mNbCX0=";
-                    postPatch = ''
-                      substituteInPlace version/version.go \
-                        --replace-fail 0.0.0 '${finalAttrs.version}'
-                      rm cmd/launch/*_test.go
-                      rm -r app
-                      cp -r ${llamaCppSrc} $TMPDIR/llama-cpp-src
-                      chmod -R +w $TMPDIR/llama-cpp-src
-                      ( cd $TMPDIR/llama-cpp-src && \
-                        cmake -DPATCH_DIR=$NIX_BUILD_TOP/source/llama/compat \
-                          -P $NIX_BUILD_TOP/source/llama/compat/apply-patch.cmake )
-                    '';
-                  });
-                })
+                  ollama = final.master.ollama.overrideAttrs (
+                    finalAttrs: _: {
+                      version = "0.31.1";
+                      src = final.fetchFromGitHub {
+                        owner = "ollama";
+                        repo = "ollama";
+                        tag = "v${finalAttrs.version}";
+                        hash = "sha256-p4saQimdOVRWcJyrYcCuex7NViKC/u0tHUnLRZh6hwg=";
+                      };
+                      vendorHash = "sha256-lZdGzGb9xRjTm1Rm7/wHjqM490gLznLEndmb4mNbCX0=";
+                      postPatch = ''
+                        substituteInPlace version/version.go \
+                          --replace-fail 0.0.0 '${finalAttrs.version}'
+                        rm cmd/launch/*_test.go
+                        rm -r app
+                        cp -r ${llamaCppSrc} $TMPDIR/llama-cpp-src
+                        chmod -R +w $TMPDIR/llama-cpp-src
+                        ( cd $TMPDIR/llama-cpp-src && \
+                          cmake -DPATCH_DIR=$NIX_BUILD_TOP/source/llama/compat \
+                            -P $NIX_BUILD_TOP/source/llama/compat/apply-patch.cmake )
+                      '';
+                    }
+                  );
+                }
+              )
 
               (final: prev: {
                 hyprland = final.unstable.hyprland;
