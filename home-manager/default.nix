@@ -121,9 +121,14 @@ in
         homeDirectory = cfg.homeDir;
         stateVersion = "26.05";
 
-        packages = with pkgs; [
-          (lib.hiPrio master.claude-code)
-        ];
+        packages =
+          with pkgs;
+          [
+            (lib.hiPrio master.claude-code)
+          ]
+          ++ lib.optionals (!pkgs.stdenv.isLinux) [
+            darwin.libresolv
+          ];
       };
 
       services.gpg-agent = {
