@@ -105,7 +105,6 @@ in
 
         git = {
           name = cfg.fullName;
-          email = "git@tscolari.me";
           githubUser = "tscolari";
         };
 

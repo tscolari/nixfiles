@@ -5,13 +5,15 @@
   launchd.user.agents.ollama = {
     serviceConfig = {
       ProgramArguments = [
-        "${pkgs.ollama}/bin/ollama"
+        "${pkgs.master.ollama}/bin/ollama"
         "serve"
       ];
       RunAtLoad = true;
       KeepAlive = true;
       EnvironmentVariables = {
-        OLLAMA_CONTEXT_LENGTH = "65536";
+        OLLAMA_CONTEXT_LENGTH = "131072";
+        OLLAMA_KV_CACHE_TYPE = "q8_0";
+        OLLAMA_FLASH_ATTENTION = "1";
       };
     };
   };

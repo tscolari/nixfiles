@@ -202,11 +202,11 @@
         "pam_shim": "pam_shim"
       },
       "locked": {
-        "lastModified": 1783961478,
-        "narHash": "sha256-zMEeLNR+EkOy8cH1bie6upjE814fmAL4Xw5tB2eZiVY=",
+        "lastModified": 1784291261,
+        "narHash": "sha256-+fBqLGcAqvliVTM9Q5uC0uWPKpmHlBA/1vdFF+ZJdp4=",
         "ref": "26.05",
-        "rev": "fcff76d510a62cdd6fe5642bdfc7a17dae5f72b6",
-        "revCount": 216,
+        "rev": "46f38cd99d4b213be86dd6dda96230e48f51188c",
+        "revCount": 222,
         "type": "git",
         "url": "https://codeberg.org/tscolari/homenix"
       },
@@ -370,11 +370,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1784111808,
-        "narHash": "sha256-GmP3yxM4a3kAgR2oMqfwhkKWaWiSUxlUTUKCOF9aeeo=",
+        "lastModified": 1784193232,
+        "narHash": "sha256-7JeSbQq6D2wS5Oz4ZVnVzFUWN9ao4CWsx21oulsru5M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "05995cf8c1e445fa011cc4085c00502c8b06a390",
+        "rev": "305e299da324ad0d7d964fc6fbbb95eff0290281",
         "type": "github"
       },
       "original": {
@@ -386,11 +386,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1784007870,
-        "narHash": "sha256-djcLt/JJphyNt4eDY9XTly+/WbCK5lqWq9lSgCmJkkQ=",
+        "lastModified": 1784120854,
+        "narHash": "sha256-KesHgItiZPgGX740axSiQLcIQ8D24MDqNpkKYWIek8k=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "18b9261cb3294b6d2a06d03f96872827b8fe2698",
+        "rev": "753cc8a3a87467296ddd1fa93f0cc3e81120ee46",
         "type": "github"
       },
       "original": {
