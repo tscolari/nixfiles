@@ -18,8 +18,8 @@
       ids = [ "*" ];
       settings = {
         main = {
-          leftmeta = "leftalt";
-          leftalt = "leftmeta";
+          # leftmeta = "leftalt";
+          # leftalt = "leftmeta";
         };
       };
     };
