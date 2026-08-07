@@ -6,7 +6,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     homenix = {
-      url = "git+https://codeberg.org/tscolari/homenix?ref=26.05";
+      url = "github:tscolari/homenix/26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
