@@ -17,12 +17,9 @@
   systemd.services.cups-browsed.enable = false;
 
   virtualisation.libvirtd.enable = true;
-  virtualisation.containers.enable = true;
-
-  virtualisation.podman = {
+  virtualisation.docker.rootless = {
     enable = true;
-    dockerSocket.enable = true;
-    dockerCompat = true;
+    setSocketVariable = true;
   };
 
   # Power management (for better battery life)
