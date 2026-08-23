@@ -11,7 +11,4 @@
     "iptable_nat"
     "nf_conntrack"
   ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    evdi
-  ];
 }
