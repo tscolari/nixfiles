@@ -58,16 +58,8 @@
 
   environment.extraOutputsToInstall = [ "dev" ];
 
-  nix = {
-    enable = false;
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
-    settings.auto-optimise-store = true;
-    settings.trusted-users = [
-      "root"
-      "tscolari"
-    ];
-  };
+  # Determinate Nix manages the installation itself; nix-darwin must keep its
+  # hands off. Note this disables the whole `nix.*` option tree -- actual Nix
+  # settings live in ./modules/nix.nix.
+  nix.enable = false;
 }

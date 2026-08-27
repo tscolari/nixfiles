@@ -11,9 +11,7 @@
 
   age.identityPaths = [ "/var/lib/agenix/key.txt" ];
 
-  nix.extraOptions = ''
-    !include /run/agenix/access-tokens
-  '';
+  # The access-tokens secret is pulled into Nix's config by ./nix.nix.
 
   environment.systemPackages = [ inputs.agenix.packages.${pkgs.system}.default ];
 }
