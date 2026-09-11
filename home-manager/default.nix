@@ -93,6 +93,9 @@ in
         enable = true;
         isNixOS = pkgs.stdenv.isLinux;
 
+        aerospace.enable = false;
+        omniwm.enable = true;
+
         hyprland = {
           presetMonitors = [
             homenix.lib.hyprlandMonitors.laptop-home
