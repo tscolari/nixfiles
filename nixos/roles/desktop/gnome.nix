@@ -16,7 +16,6 @@
   environment = {
     gnome.excludePackages =
       (with pkgs.unstable; [
-        gnome-photos
         gnome-tour
       ])
       ++ (with pkgs.unstable; [
