@@ -144,6 +144,31 @@ in
       programs.home-manager.enable = true;
     }
 
+    (lib.mkIf pkgs.stdenv.isDarwin {
+      # gpg-agent on darwin is started by nix-darwin's `programs.gnupg.agent`,
+      # which only exposes `enable` and `enableSSHSupport`. No cache TTLs, no
+      # pinentry. So the agent runs on gnupg's defaults: 600s for the
+      # passphrase cache and 1800s for ssh keys, which is why signing a commit
+      # keeps asking for the passphrase.
+      #
+      # home-manager's `services.gpg-agent` does cover darwin, but it moves the
+      # sockets to /private/var/run/org.nix-community.home.gpg-agent and that
+      # breaks anything pinning ~/.gnupg/S.gpg-agent.ssh (prezto's ssh-agent
+      # symlink does exactly that). Writing the conf file directly avoids the
+      # migration.
+      home.file.".gnupg/gpg-agent.conf".text = ''
+        default-cache-ttl 86400
+        max-cache-ttl 86400
+        default-cache-ttl-ssh 86400
+        max-cache-ttl-ssh 86400
+
+        # pinentry-mac offers "Save in Keychain", so the passphrase is asked
+        # once and never again. Costs GUI-only prompts: gpg over an ssh session
+        # into this machine won't be able to prompt.
+        pinentry-program ${pkgs.pinentry_mac}/bin/pinentry-mac
+      '';
+    })
+
     (lib.mkIf pkgs.stdenv.isLinux {
       services.gnome-keyring = {
         enable = true;

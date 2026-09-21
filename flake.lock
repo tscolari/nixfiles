@@ -239,11 +239,11 @@
         "zed": "zed"
       },
       "locked": {
-        "lastModified": 1789978483,
-        "narHash": "sha256-s1aNk+Oc0U0NLhDh7aLK0K8uo6jC3rhCxaEx6g2NENE=",
+        "lastModified": 1790003852,
+        "narHash": "sha256-/gSfDIENaSNEXE5rtgHV029pp6CHXpTi6wynG9eCze4=",
         "owner": "tscolari",
         "repo": "homenix",
-        "rev": "d500dd2426a6fab164ad04128a8b9b4c7484e5aa",
+        "rev": "267797e375f73681ccccd12db5d378cddc55468a",
         "type": "github"
       },
       "original": {
