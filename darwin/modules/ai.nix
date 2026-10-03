@@ -5,7 +5,7 @@
   launchd.user.agents.ollama = {
     serviceConfig = {
       ProgramArguments = [
-        "${pkgs.master.ollama}/bin/ollama"
+        "${pkgs.ollama}/bin/ollama"
         "serve"
       ];
       RunAtLoad = true;
