@@ -154,10 +154,8 @@
             nixpkgs.config.allowUnfree = true;
             nixpkgs.config.allowUnsupportedSystem = true;
             nixpkgs.overlays = [
+              (mkOverlayUnstable darwinSystem)
               (mkOverlayMaster darwinSystem)
-              # darwin pkgs is already nixpkgs-unstable; expose it as pkgs.unstable
-              # so any code using `with pkgs; unstable.x` continues to work
-              (final: prev: { unstable = final; })
               homenix.overlays.default
 
               # ghostty is Linux-only; stub both attrs so home-manager's
