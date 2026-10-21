@@ -106,8 +106,8 @@
           {
             nixpkgs.config.allowUnfree = true;
             nixpkgs.overlays = [
-              (mkOverlayUnstable linuxSystem)
-              (mkOverlayMaster linuxSystem)
+              (mkOverlayUnstable pkgs.stdenv.hostPlatform.system)
+              (mkOverlayMaster pkgs.stdenv.hostPlatform.system)
               homenix.overlays.default
 
               # Hack to get around intel-ocl 403 url
@@ -200,6 +200,7 @@
       mkSystem =
         {
           hostName,
+          system ? linuxSystem,
           users ? [ ],
           hardwareModules ? [ ],
           extraModules ? [ ],
@@ -209,7 +210,7 @@
             inherit inputs;
             hostUsers = lib.attrsets.genAttrs users (name: usersConfig.available-users.${name});
           };
-          system = linuxSystem;
+          inherit system;
           modules =
             baseModules
             ++ hardwareModules
@@ -282,6 +283,17 @@
           hardwareModules = [
             nixos-hardware.nixosModules.common-cpu-amd
             nixos-hardware.nixosModules.common-gpu-amd
+          ];
+          extraModules = [
+            ./nixos/roles/desktop
+            ./nixos/modules/ai.nix
+          ];
+        };
+        spike = mkSystem {
+          hostName = "spike";
+          system = "aarch64-linux";
+          users = [
+            "tscolari"
           ];
           extraModules = [
             ./nixos/roles/desktop

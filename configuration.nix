@@ -24,7 +24,8 @@
 
   # Power management (for better battery life)
   powerManagement.enable = true;
-  services.thermald.enable = true;
+  # thermald is an Intel-CPU-specific thermal daemon, x86_64-linux only.
+  services.thermald.enable = pkgs.stdenv.hostPlatform.isx86_64;
 
   programs.zsh.enable = true;
 
@@ -138,8 +139,9 @@
       startWhenNeeded = true;
       drivers = [
         pkgs.gutenprint
-        pkgs.gutenprintBin
-      ];
+      ]
+      # gutenprintBin ships prebuilt binary drivers, x86_64-linux only.
+      ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [ pkgs.gutenprintBin ];
     };
 
     avahi = {
