@@ -255,11 +255,11 @@
         "worktool": "worktool"
       },
       "locked": {
-        "lastModified": 1792598012,
-        "narHash": "sha256-LmrQB8i9X8VH7yHDpAJoNNlAt3mnNapAEWG7qkDMO9Y=",
+        "lastModified": 1792599474,
+        "narHash": "sha256-JtrhEsitpI/dRWj92TYZ52e0X8w3DjcbF+WDOP2SO6A=",
         "owner": "tscolari",
         "repo": "homenix",
-        "rev": "d735eca980654acc04521c117ab3f17a33774ccb",
+        "rev": "263cdd1d4fc7ef59afacadb2a5ecf6b982c07460",
         "type": "github"
       },
       "original": {
