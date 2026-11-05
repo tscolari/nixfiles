@@ -158,14 +158,6 @@
               (mkOverlayMaster darwinSystem)
               homenix.overlays.default
 
-              # ghostty is Linux-only; stub both attrs so home-manager's
-              # programs.ghostty module default and homenix terminfo checks
-              # don't pull in an unsupported package on darwin
-              (final: prev: {
-                ghostty = prev.runCommand "ghostty-stub" { } "mkdir -p $out";
-                ghostty-bin = prev.runCommand "ghostty-bin-stub" { } "mkdir -p $out";
-              })
-
               (final: prev: {
                 appstream = prev.appstream.overrideAttrs (old: {
                   postConfigure = (old.postConfigure or "") + ''
