@@ -19,4 +19,33 @@
     # which keeps activation working before agenix has run.
     !include /run/agenix/access-tokens
   '';
+
+  # Determinate's automatic GC only trims ~1GB at a time and keeps every profile
+  # generation, and it holds the GC lock while it runs. It is off; the daily job
+  # below replaces it.
+  environment.etc."determinate/config.json".text = builtins.toJSON {
+    garbageCollector.strategy = "disabled";
+  };
+
+  # `nix.gc` is one of the no-op `nix.*` options, so the job is declared by hand.
+  # It drops profile generations older than 2 days (the current one is always
+  # kept) and then deletes every store path no longer reachable from a root.
+  # launchd runs a missed StartCalendarInterval on the next wake.
+  launchd.daemons.nix-gc.serviceConfig = {
+    ProgramArguments = [
+      "/nix/var/nix/profiles/default/bin/nix-collect-garbage"
+      "--delete-older-than"
+      "2d"
+    ];
+    StartCalendarInterval = [
+      {
+        Hour = 12;
+        Minute = 0;
+      }
+    ];
+    StandardOutPath = "/var/log/nix-gc.log";
+    StandardErrorPath = "/var/log/nix-gc.log";
+    LowPriorityIO = true;
+    ProcessType = "Background";
+  };
 }

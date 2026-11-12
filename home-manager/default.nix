@@ -94,7 +94,8 @@ in
         isNixOS = pkgs.stdenv.isLinux;
 
         aerospace.enable = false;
-        omniwm.enable = true;
+        omniwm.enable = false;
+        amethyst.enable = true;
 
         hyprland = {
           presetMonitors = [
